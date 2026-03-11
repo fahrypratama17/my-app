@@ -16,7 +16,7 @@ const MengapaPangantara = () => {
       <div className="grid grid-cols-3 gap-3">
         {MengapaPangantaraData.map((item) => (
           <div
-            className={`${item.id % 2 === 1 ? "bg-linear-to-br from-green-900 via-green-400 to-green-400" : "bg-linear-to-br from-green-400 via-green-400 to-green-900"} flex flex-col items-center justify-center gap-2 rounded-[40px] border-4 border-green-900 bg-green-50 px-10 py-6`}
+            className={`${item.id % 2 === 1 ? "bg-linear-to-br from-green-900/80 via-green-400/80 to-green-400/80" : "bg-linear-to-br from-green-400/80 via-green-400/80 to-green-900/80"} flex flex-col items-center justify-center gap-2 rounded-[40px] border-4 border-green-900 bg-green-50 px-10 py-6`}
             key={item.id}
           >
             <div className="rounded-3xl border bg-green-900 px-2">

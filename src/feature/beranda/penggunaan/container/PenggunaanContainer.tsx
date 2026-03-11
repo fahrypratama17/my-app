@@ -2,9 +2,9 @@ import PenggunaanSection from "@/feature/beranda/penggunaan/components/Penggunaa
 
 const PenggunaanContainer = () => {
   return (
-    <div className="bg-[#E8E8E8]">
+    <>
       <PenggunaanSection />
-    </div>
+    </>
   );
 };
 

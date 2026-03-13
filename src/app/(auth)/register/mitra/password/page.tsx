@@ -1,4 +1,4 @@
-import RegisterSecond from "@/feature/auth/register/components/RegisterSecond";
+import RegisterSecond from "@/feature/auth/register/Mitra/components/RegisterSecond";
 
 const page = () => {
   return (

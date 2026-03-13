@@ -26,7 +26,7 @@ const Navbar = () => {
         </div>
         <div className="flex items-center justify-center gap-1">
           <Link
-            href={"/"}
+            href={"/login"}
             className="rounded-[24px] border-3 border-orange-600 px-7.75 py-1.25 font-bold text-orange-900"
           >
             Masuk

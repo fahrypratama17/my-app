@@ -33,173 +33,107 @@
 @layer utilities {
     /* Bold */
     .font-8xl-bold {
-        font-size: 96px;
-        line-height: 96px;
-        font-weight: 700;
+        @apply text-[96px] font-bold leading-24
     }
     .font-7xl-bold {
-        font-size: 72px;
-        line-height: 72px;
-        font-weight: 700;
+        @apply text-[72px] font-bold leading-18
     }
     .font-6xl-bold {
-        font-size: 60px;
-        line-height: 60px;
-        font-weight: 700;
+        @apply text-[60px] font-bold leading-15
     }
     .font-5xl-bold {
-        font-size: 48px;
-        line-height: 48px;
-        font-weight: 700;
+        @apply text-[48px] font-bold leading-12
     }
     .font-4xl-bold {
-        font-size: 36px;
-        line-height: 40px;
-        font-weight: 700;
+        @apply text-[36px] font-bold leading-10
     }
     .font-3xl-bold {
-        font-size: 30px;
-        line-height: 36px;
-        font-weight: 700;
+        @apply text-[30px] font-bold leading-9
     }
     .font-2xl-bold {
-        font-size: 24px;
-        line-height: 36px;
-        font-weight: 700;
+        @apply text-[24px] font-bold leading-9
     }
-    .font-xl-bold {
-        font-size: 20px;
-        line-height: 32px;
-        font-weight: 700;
+    .text-xl-bold {
+        @apply text-[20px] font-bold leading-8
     }
     .font-lg-bold {
-        font-size: 18px;
-        line-height: 28px;
-        font-weight: 700;
+        @apply text-[18px] font-bold leading-7
     }
     .font-md-bold {
-        font-size: 16px;
-        line-height: 24px;
-        font-weight: 700;
+        @apply text-[16px] font-bold leading-6
     }
     .font-sm-bold {
-        font-size: 14px;
-        line-height: 20px;
-        font-weight: 700;
+        @apply text-[14px] font-bold leading-5
     }
 
     /* Semi - Bold */
     .font-8xl-semibold {
-        font-size: 96px;
-        line-height: 96px;
-        font-weight: 600;
+        @apply text-[96px] font-semibold leading-24
     }
     .font-7xl-semibold {
-        font-size: 72px;
-        line-height: 72px;
-        font-weight: 600;
+        @apply text-[72px] font-semibold leading-18
     }
     .font-6xl-semibold {
-        font-size: 60px;
-        line-height: 60px;
-        font-weight: 600;
+        @apply text-[60px] font-semibold leading-15
     }
     .font-5xl-semibold {
-        font-size: 48px;
-        line-height: 48px;
-        font-weight: 600;
+        @apply text-[48px] font-semibold leading-12
     }
     .font-4xl-semibold {
-        font-size: 36px;
-        line-height: 40px;
-        font-weight: 600;
+        @apply text-[36px] font-semibold leading-10
     }
     .font-3xl-semibold {
-        font-size: 30px;
-        line-height: 36px;
-        font-weight: 600;
+        @apply text-[30px] font-semibold leading-9
     }
     .font-2xl-semibold {
-        font-size: 24px;
-        line-height: 36px;
-        font-weight: 600;
+        @apply text-[24px] font-semibold leading-9
     }
-    .font-xl-semibold {
-        font-size: 20px;
-        line-height: 32px;
-        font-weight: 600;
+    .text-xl-semibold {
+        @apply text-[20px] font-semibold leading-8
     }
     .font-lg-semibold {
-        font-size: 18px;
-        line-height: 28px;
-        font-weight: 600;
+        @apply text-[18px] font-semibold leading-7
     }
     .font-md-semibold {
-        font-size: 16px;
-        line-height: 24px;
-        font-weight: 600;
+        @apply text-[16px] font-semibold leading-6
     }
     .font-sm-semibold {
-        font-size: 14px;
-        line-height: 20px;
-        font-weight: 600;
+        @apply text-[14px] font-semibold leading-5
     }
 
     /* Medium */
     .font-8xl-medium {
-        font-size: 96px;
-        line-height: 96px;
-        font-weight: 500;
+        @apply text-[96px] font-medium leading-24
     }
     .font-7xl-medium {
-        font-size: 72px;
-        line-height: 72px;
-        font-weight: 500;
+        @apply text-[72px] font-medium leading-18
     }
     .font-6xl-medium {
-        font-size: 60px;
-        line-height: 60px;
-        font-weight: 500;
+        @apply text-[60px] font-medium leading-15
     }
     .font-5xl-medium {
-        font-size: 48px;
-        line-height: 48px;
-        font-weight: 500;
+        @apply text-[48px] font-medium leading-12
     }
     .font-4xl-medium {
-        font-size: 36px;
-        line-height: 40px;
-        font-weight: 500;
+        @apply text-[36px] font-medium leading-10
     }
     .font-3xl-medium {
-        font-size: 30px;
-        line-height: 36px;
-        font-weight: 500;
+        @apply text-[30px] font-medium leading-9
     }
     .font-2xl-medium {
-        font-size: 24px;
-        line-height: 36px;
-        font-weight: 500;
+        @apply text-[24px] font-medium leading-9
     }
-    .font-xl-medium {
-        font-size: 20px;
-        line-height: 32px;
-        font-weight: 500;
+    .text-xl-medium {
+        @apply text-[20px] font-medium leading-8
     }
     .font-lg-medium {
-        font-size: 18px;
-        line-height: 28px;
-        font-weight: 500;
+        @apply text-[18px] font-medium leading-7
     }
     .font-md-medium {
-        font-size: 16px;
-        line-height: 24px;
-        font-weight: 500;
+        @apply text-[16px] font-medium leading-6
     }
     .font-sm-medium {
-        font-size: 14px;
-        line-height: 20px;
-        font-weight: 500;
+        @apply text-[14px] font-medium leading-5
     }
 }
 

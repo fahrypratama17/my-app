@@ -6,28 +6,135 @@
 
 @theme {
     /* Primary */
-    --color-blue-50  : #f2f7fa;
-    --color-blue-100 : #d6e5f0;
-    --color-blue-200 : #c2d8e8;
-    --color-blue-300 : #a6c6de;
-    --color-blue-400 : #95bbd8;
-    --color-blue-500 : #7aaace;
-    --color-blue-600 : #6f9bbb;
-    --color-blue-700 : #577992;
-    --color-blue-800 : #435e71;
-    --color-blue-900 : #334757;
+    --color-green-50  : #e9f1e9;
+    --color-green-100 : #bbd3bc;
+    --color-green-200 : #9abe9c;
+    --color-green-300 : #6ca16e;
+    --color-green-400 : #4f8e52;
+    --color-green-500 : #237227;
+    --color-green-600 : #206823;
+    --color-green-700 : #19511c;
+    --color-green-800 : #133f15;
+    --color-green-900 : #0f3010;
 
     /* Secondary */
-    --color-grey-50  : #fefefe;
-    --color-grey-100 : #fdfdfa;
-    --color-grey-200 : #fbfcf8;
-    --color-grey-300 : #fafaf5;
-    --color-grey-400 : #f9f9f3;
-    --color-grey-500 : #f7f8f0;
-    --color-grey-600 : #e1e2da;
-    --color-grey-700 : #afb0aa;
-    --color-grey-800 : #888884;
-    --color-grey-900 : #686865;
+    --color-orange-50  : #fff7e6;
+    --color-orange-100 : #ffe5b0;
+    --color-orange-200 : #ffd88a;
+    --color-orange-300 : #ffc654;
+    --color-orange-400 : #ffbb33;
+    --color-orange-500 : #ffaa00;
+    --color-orange-600 : #e89b00;
+    --color-orange-700 : #b57900;
+    --color-orange-800 : #8c5e00;
+    --color-orange-900 : #6b4700;
+}
+
+@layer utilities {
+    /* Bold */
+    .font-8xl-bold {
+        @apply text-[96px] font-bold leading-24
+    }
+    .font-7xl-bold {
+        @apply text-[72px] font-bold leading-18
+    }
+    .font-6xl-bold {
+        @apply text-[60px] font-bold leading-15
+    }
+    .font-5xl-bold {
+        @apply text-[48px] font-bold leading-12
+    }
+    .font-4xl-bold {
+        @apply text-[36px] font-bold leading-10
+    }
+    .font-3xl-bold {
+        @apply text-[30px] font-bold leading-9
+    }
+    .font-2xl-bold {
+        @apply text-[24px] font-bold leading-9
+    }
+    .text-xl-bold {
+        @apply text-[20px] font-bold leading-8
+    }
+    .font-lg-bold {
+        @apply text-[18px] font-bold leading-7
+    }
+    .font-md-bold {
+        @apply text-[16px] font-bold leading-6
+    }
+    .font-sm-bold {
+        @apply text-[14px] font-bold leading-5
+    }
+
+    /* Semi - Bold */
+    .font-8xl-semibold {
+        @apply text-[96px] font-semibold leading-24
+    }
+    .font-7xl-semibold {
+        @apply text-[72px] font-semibold leading-18
+    }
+    .font-6xl-semibold {
+        @apply text-[60px] font-semibold leading-15
+    }
+    .font-5xl-semibold {
+        @apply text-[48px] font-semibold leading-12
+    }
+    .font-4xl-semibold {
+        @apply text-[36px] font-semibold leading-10
+    }
+    .font-3xl-semibold {
+        @apply text-[30px] font-semibold leading-9
+    }
+    .font-2xl-semibold {
+        @apply text-[24px] font-semibold leading-9
+    }
+    .text-xl-semibold {
+        @apply text-[20px] font-semibold leading-8
+    }
+    .font-lg-semibold {
+        @apply text-[18px] font-semibold leading-7
+    }
+    .font-md-semibold {
+        @apply text-[16px] font-semibold leading-6
+    }
+    .font-sm-semibold {
+        @apply text-[14px] font-semibold leading-5
+    }
+
+    /* Medium */
+    .font-8xl-medium {
+        @apply text-[96px] font-medium leading-24
+    }
+    .font-7xl-medium {
+        @apply text-[72px] font-medium leading-18
+    }
+    .font-6xl-medium {
+        @apply text-[60px] font-medium leading-15
+    }
+    .font-5xl-medium {
+        @apply text-[48px] font-medium leading-12
+    }
+    .font-4xl-medium {
+        @apply text-[36px] font-medium leading-10
+    }
+    .font-3xl-medium {
+        @apply text-[30px] font-medium leading-9
+    }
+    .font-2xl-medium {
+        @apply text-[24px] font-medium leading-9
+    }
+    .text-xl-medium {
+        @apply text-[20px] font-medium leading-8
+    }
+    .font-lg-medium {
+        @apply text-[18px] font-medium leading-7
+    }
+    .font-md-medium {
+        @apply text-[16px] font-medium leading-6
+    }
+    .font-sm-medium {
+        @apply text-[14px] font-medium leading-5
+    }
 }
 
 :root {
@@ -142,13 +249,13 @@
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
+    * {
+        @apply border-border outline-ring/50;
     }
-  body {
-    @apply bg-background text-foreground;
+    body {
+        @apply bg-background text-foreground;
     }
-  html {
-    @apply font-sans;
+    html {
+        @apply font-sans;
     }
 }

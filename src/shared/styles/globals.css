@@ -30,6 +30,179 @@
     --color-orange-900 : #6b4700;
 }
 
+@layer utilites {
+    /* Bold */
+    .text-8xl-bold {
+        font-size: 96px;
+        line-height: 96px;
+        font-weight: 700;
+    }
+    .text-7xl-bold {
+        font-size: 72px;
+        line-height: 72px;
+        font-weight: 700;
+    }
+    .text-6xl-bold {
+        font-size: 60px;
+        line-height: 60px;
+        font-weight: 700;
+    }
+    .text-5xl-bold {
+        font-size: 48px;
+        line-height: 48px;
+        font-weight: 700;
+    }
+    .text-4xl-bold {
+        font-size: 36px;
+        line-height: 40px;
+        font-weight: 700;
+    }
+    .text-3xl-bold {
+        font-size: 30px;
+        line-height: 36px;
+        font-weight: 700;
+    }
+    .text-2xl-bold {
+        font-size: 24px;
+        line-height: 36px;
+        font-weight: 700;
+    }
+    .text-xl-bold {
+        font-size: 20px;
+        line-height: 32px;
+        font-weight: 700;
+    }
+    .text-lg-bold {
+        font-size: 18px;
+        line-height: 28px;
+        font-weight: 700;
+    }
+    .text-md-bold {
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: 700;
+    }
+    .text-sm-bold {
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 700;
+    }
+
+    /* Semi - Bold */
+    .text-8xl-semibold {
+        font-size: 96px;
+        line-height: 96px;
+        font-weight: 600;
+    }
+    .text-7xl-semibold {
+        font-size: 72px;
+        line-height: 72px;
+        font-weight: 600;
+    }
+    .text-6xl-semibold {
+        font-size: 60px;
+        line-height: 60px;
+        font-weight: 600;
+    }
+    .text-5xl-semibold {
+        font-size: 48px;
+        line-height: 48px;
+        font-weight: 600;
+    }
+    .text-4xl-semibold {
+        font-size: 36px;
+        line-height: 40px;
+        font-weight: 600;
+    }
+    .text-3xl-semibold {
+        font-size: 30px;
+        line-height: 36px;
+        font-weight: 600;
+    }
+    .text-2xl-semibold {
+        font-size: 24px;
+        line-height: 36px;
+        font-weight: 600;
+    }
+    .text-xl-semibold {
+        font-size: 20px;
+        line-height: 32px;
+        font-weight: 600;
+    }
+    .text-lg-semibold {
+        font-size: 18px;
+        line-height: 28px;
+        font-weight: 600;
+    }
+    .text-md-semibold {
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: 600;
+    }
+    .text-sm-semibold {
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 600;
+    }
+
+    /* Medium */
+    .text-8xl-medium {
+        font-size: 96px;
+        line-height: 96px;
+        font-weight: 500;
+    }
+    .text-7xl-medium {
+        font-size: 72px;
+        line-height: 72px;
+        font-weight: 500;
+    }
+    .text-6xl-medium {
+        font-size: 60px;
+        line-height: 60px;
+        font-weight: 500;
+    }
+    .text-5xl-medium {
+        font-size: 48px;
+        line-height: 48px;
+        font-weight: 500;
+    }
+    .text-4xl-medium {
+        font-size: 36px;
+        line-height: 40px;
+        font-weight: 500;
+    }
+    .text-3xl-medium {
+        font-size: 30px;
+        line-height: 36px;
+        font-weight: 500;
+    }
+    .text-2xl-medium {
+        font-size: 24px;
+        line-height: 36px;
+        font-weight: 500;
+    }
+    .text-xl-medium {
+        font-size: 20px;
+        line-height: 32px;
+        font-weight: 500;
+    }
+    .text-lg-medium {
+        font-size: 18px;
+        line-height: 28px;
+        font-weight: 500;
+    }
+    .text-md-medium {
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: 500;
+    }
+    .text-sm-medium {
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 500;
+    }
+}
+
 :root {
     --background  : oklch(1 0 0);
     --foreground  : oklch(0.145 0 0);
@@ -142,13 +315,13 @@
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
+    * {
+        @apply border-border outline-ring/50;
     }
-  body {
-    @apply bg-background text-foreground;
+    body {
+        @apply bg-background text-foreground;
     }
-  html {
-    @apply font-sans;
+    html {
+        @apply font-sans;
     }
 }

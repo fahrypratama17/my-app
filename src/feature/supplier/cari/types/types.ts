@@ -3,5 +3,5 @@ export type SupplierType = {
   img?: string;
   title: string;
   address: string;
-  category: object;
+  category: string[];
 };

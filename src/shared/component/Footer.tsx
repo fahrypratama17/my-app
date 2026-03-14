@@ -3,7 +3,7 @@ import { Mail, MapPin, Phone } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="mt-20 bg-orange-50 py-20">
+    <footer className="bg-orange-50 py-20">
       <div className="mx-auto grid h-[200px] w-[80%] grid-cols-[1.3fr_0.7fr_0.7fr_1fr]">
         <div className="flex flex-col justify-center gap-8">
           <div className="flex items-center">

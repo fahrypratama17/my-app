@@ -32,107 +32,107 @@
 
 @layer utilities {
     /* Bold */
-    .font-8xl-bold {
+    .text-8xl-bold {
         @apply text-[96px] font-bold leading-24
     }
-    .font-7xl-bold {
+    .text-7xl-bold {
         @apply text-[72px] font-bold leading-18
     }
-    .font-6xl-bold {
+    .text-6xl-bold {
         @apply text-[60px] font-bold leading-15
     }
-    .font-5xl-bold {
+    .text-5xl-bold {
         @apply text-[48px] font-bold leading-12
     }
-    .font-4xl-bold {
+    .text-4xl-bold {
         @apply text-[36px] font-bold leading-10
     }
-    .font-3xl-bold {
+    .text-3xl-bold {
         @apply text-[30px] font-bold leading-9
     }
-    .font-2xl-bold {
+    .text-2xl-bold {
         @apply text-[24px] font-bold leading-9
     }
     .text-xl-bold {
         @apply text-[20px] font-bold leading-8
     }
-    .font-lg-bold {
+    .text-lg-bold {
         @apply text-[18px] font-bold leading-7
     }
-    .font-md-bold {
+    .text-md-bold {
         @apply text-[16px] font-bold leading-6
     }
-    .font-sm-bold {
+    .text-sm-bold {
         @apply text-[14px] font-bold leading-5
     }
 
     /* Semi - Bold */
-    .font-8xl-semibold {
+    .text-8xl-semibold {
         @apply text-[96px] font-semibold leading-24
     }
-    .font-7xl-semibold {
+    .text-7xl-semibold {
         @apply text-[72px] font-semibold leading-18
     }
-    .font-6xl-semibold {
+    .text-6xl-semibold {
         @apply text-[60px] font-semibold leading-15
     }
-    .font-5xl-semibold {
+    .text-5xl-semibold {
         @apply text-[48px] font-semibold leading-12
     }
-    .font-4xl-semibold {
+    .text-4xl-semibold {
         @apply text-[36px] font-semibold leading-10
     }
-    .font-3xl-semibold {
+    .text-3xl-semibold {
         @apply text-[30px] font-semibold leading-9
     }
-    .font-2xl-semibold {
+    .text-2xl-semibold {
         @apply text-[24px] font-semibold leading-9
     }
     .text-xl-semibold {
         @apply text-[20px] font-semibold leading-8
     }
-    .font-lg-semibold {
+    .text-lg-semibold {
         @apply text-[18px] font-semibold leading-7
     }
-    .font-md-semibold {
+    .text-md-semibold {
         @apply text-[16px] font-semibold leading-6
     }
-    .font-sm-semibold {
+    .text-sm-semibold {
         @apply text-[14px] font-semibold leading-5
     }
 
     /* Medium */
-    .font-8xl-medium {
+    .text-8xl-medium {
         @apply text-[96px] font-medium leading-24
     }
-    .font-7xl-medium {
+    .text-7xl-medium {
         @apply text-[72px] font-medium leading-18
     }
-    .font-6xl-medium {
+    .text-6xl-medium {
         @apply text-[60px] font-medium leading-15
     }
-    .font-5xl-medium {
+    .text-5xl-medium {
         @apply text-[48px] font-medium leading-12
     }
-    .font-4xl-medium {
+    .text-4xl-medium {
         @apply text-[36px] font-medium leading-10
     }
-    .font-3xl-medium {
+    .text-3xl-medium {
         @apply text-[30px] font-medium leading-9
     }
-    .font-2xl-medium {
+    .text-2xl-medium {
         @apply text-[24px] font-medium leading-9
     }
     .text-xl-medium {
         @apply text-[20px] font-medium leading-8
     }
-    .font-lg-medium {
+    .text-lg-medium {
         @apply text-[18px] font-medium leading-7
     }
-    .font-md-medium {
+    .text-md-medium {
         @apply text-[16px] font-medium leading-6
     }
-    .font-sm-medium {
+    .text-sm-medium {
         @apply text-[14px] font-medium leading-5
     }
 }
@@ -256,6 +256,6 @@
         @apply bg-background text-foreground;
     }
     html {
-        @apply font-sans;
+        @apply font-sans scroll-smooth;
     }
 }

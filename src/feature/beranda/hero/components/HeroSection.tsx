@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const HeroSection = () => {
   return (
-    <div className="relative w-full max-w-[100%]">
+    <section id="beranda" className="relative w-full max-w-[100%]">
       <Image
         className="z-0 w-[85%] object-cover"
         src={"/images/beranda-1.png"}
@@ -73,7 +73,7 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

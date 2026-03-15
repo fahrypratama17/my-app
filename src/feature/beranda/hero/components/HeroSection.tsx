@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { MoveUpRight } from "lucide-react";
-import Link from "next/link";
 import { motion } from "framer-motion";
 import * as variants from "@/shared/animation/animation";
 import { fadeIn, fadeInUp } from "@/shared/animation/animation";
@@ -43,15 +42,15 @@ const HeroSection = () => {
                   lebih mudah, transparan, dan terstandar.
                 </span>
               </p>
-              <Link
-                href={""}
+              <a
+                href={"/#alur"}
                 className="flex w-[45%] items-center justify-center gap-4 rounded-[24px] border-2 border-orange-900 bg-orange-600 px-5 py-3 font-semibold text-white transition-transform duration-300 hover:scale-105"
               >
                 <h1>Pelajari alur</h1>
                 <div className="rounded-full bg-orange-900 p-2 font-bold">
                   <MoveUpRight width={15} height={15} strokeWidth={2} />
                 </div>
-              </Link>
+              </a>
             </motion.div>
           </div>
         </div>

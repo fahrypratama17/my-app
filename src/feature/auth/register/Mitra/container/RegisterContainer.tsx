@@ -1,4 +1,4 @@
-import RegisterFirst from "@/feature/auth/register/components/RegisterFirst";
+import RegisterFirst from "@/feature/auth/register/Mitra/components/RegisterFirst";
 
 const RegisterContainer = () => {
   return (

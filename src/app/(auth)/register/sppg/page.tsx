@@ -1,4 +1,4 @@
-import RegisterContainer from "@/feature/auth/register/container/RegisterContainer";
+import RegisterContainer from "@/feature/auth/register/SPPG/container/RegisterContainer";
 
 const page = () => {
   return (

@@ -66,7 +66,7 @@
         @apply text-[14px] font-bold leading-5
     }
 
-    /* Semi - Bold */
+    /* Semibold */
     .text-8xl-semibold {
         @apply text-[96px] font-semibold leading-24
     }

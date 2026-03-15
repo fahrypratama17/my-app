@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="flex flex-col justify-center gap-8">
           <div className="flex items-center">
             <Image
-              src={"logo/logo-noir.svg"}
+              src={"/logo/logo-noir.svg"}
               alt={"logo"}
               width={40}
               height={40}

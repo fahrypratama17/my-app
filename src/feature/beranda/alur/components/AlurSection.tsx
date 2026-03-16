@@ -1,5 +1,5 @@
-import Mitra from "@/feature/beranda/penggunaan/components/Mitra";
-import SPPG from "@/feature/beranda/penggunaan/components/SPPG";
+import Mitra from "@/feature/beranda/alur/components/Mitra";
+import SPPG from "@/feature/beranda/alur/components/SPPG";
 import { Button } from "@/shared/component/ui/button";
 import { ArrowRight } from "lucide-react";
 

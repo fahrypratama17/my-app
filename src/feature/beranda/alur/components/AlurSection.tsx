@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 
 const AlurSection = () => {
   return (
-    <div id="alur" className="rounded-t-[100px]">
+    <section id="alur" className="rounded-t-[100px]">
       <div className="flex items-center gap-4 pt-20">
         <div className="h-6 w-full rounded-r-2xl bg-green-900"></div>
         <div className="text-7xl-bold w-165 text-center text-green-800">
@@ -23,7 +23,7 @@ const AlurSection = () => {
           </div>
         </Button>
       </div>
-    </div>
+    </section>
   );
 };
 

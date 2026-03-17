@@ -33,6 +33,7 @@ const Progress = () => {
                 id="nama"
                 className="rounded-[48px] bg-white px-6 py-6 ring-2 placeholder:font-medium placeholder:text-[#A7A7A7]"
                 placeholder="Masukkan Nama Usaha"
+                required
               />
             </div>
             <div className="flex flex-col gap-4">

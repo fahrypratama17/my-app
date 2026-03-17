@@ -1,10 +1,17 @@
-import Progress from "@/feature/auth/form/components/form-2/Progress";
-import Footer from "@/shared/component/Footer";
-import { Button } from "@/shared/component/ui/button";
-import { ArrowRight } from "lucide-react";
+"use client";
+import { useFormStore } from "@/shared/store/useFormStore";
+import Progress from "@/feature/auth/form/components/Progress";
 import Kategori from "@/feature/auth/form/components/form-2/Kategori";
+import ButtonNext from "@/feature/auth/form/components/ButtonNext";
+import PertanyaanSayur from "@/feature/auth/form/components/form-2/sayur/PertanyaanSayur";
+import PertanyaanBuah from "@/feature/auth/form/components/form-2/buah/PertanyaanBuah";
+import PertanyaanTernak from "@/feature/auth/form/components/form-2/ternak/1/PertanyaanTernak";
+import PertanyaanDaging from "@/feature/auth/form/components/form-2/daging/1/PertanyaanDaging";
 
 const FormSection = () => {
+  const setStep = useFormStore((state) => state.setStep);
+  const { category } = useFormStore();
+
   return (
     <>
       <div className="mx-auto w-[90%] pt-20">
@@ -12,17 +19,18 @@ const FormSection = () => {
         <p className="text-2xl-semibold py-8 text-green-900">
           Calon mitra memilih kategori yang sesuai dengan yang dijual
         </p>
+
         <Kategori />
-        <div className="flex items-center justify-end">
-          <Button className="mt-12 mb-20 flex items-center justify-center gap-2 rounded-[48px] border-2 border-orange-900 bg-orange-400 p-8">
-            <p className="text-3xl-bold text-green-900">Lanjutkan</p>
-            <div className="rounded-full bg-green-700 p-3 text-orange-400">
-              <ArrowRight size={70} />
-            </div>
-          </Button>
+
+        {category === "Daging" && <PertanyaanDaging />}
+        {category === "Sayur" && <PertanyaanSayur />}
+        {category === "Buah" && <PertanyaanBuah />}
+        {category === "Hasil Ternak" && <PertanyaanTernak />}
+
+        <div className="flex origin-right items-center justify-end">
+          <ButtonNext href="/form-2">Lanjutkan</ButtonNext>
         </div>
       </div>
-      <Footer />
     </>
   );
 };

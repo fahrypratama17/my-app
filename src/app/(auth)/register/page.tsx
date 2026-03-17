@@ -1,11 +1,7 @@
-import RegisterContainer from "@/feature/auth/register/Mitra/container/RegisterContainer";
+import RegisterContainer from "@/feature/auth/register/container/RegisterContainer";
 
 const page = () => {
-  return (
-    <>
-      <RegisterContainer />
-    </>
-  );
+  return <RegisterContainer />;
 };
 
 export default page;

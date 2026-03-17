@@ -1,52 +1,63 @@
+"use client";
+
 import Image from "next/image";
 import { MoveUpRight } from "lucide-react";
-import Link from "next/link";
+import { motion } from "framer-motion";
+import * as variants from "@/shared/animation/animation";
+import { fadeIn, fadeInUp } from "@/shared/animation/animation";
 
 const HeroSection = () => {
   return (
-    <div className="relative w-full max-w-[100%]">
-      <Image
-        className="z-0 w-[85%] object-cover"
-        src={"/images/beranda-1.png"}
-        alt={"bg"}
-        fill
-      />
-      <div className="relative z-10 mx-auto grid w-[80%] grid-cols-[1fr_0.8fr]">
+    <motion.section
+      id="beranda"
+      variants={variants.staggerContainer}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true }}
+      className="w-full max-w-full bg-[url(/images/beranda-1.png)] bg-cover bg-center bg-no-repeat"
+    >
+      <div className="mx-auto grid w-[80%] grid-cols-[1fr_0.8fr]">
         <div className="flex h-[110vh] w-[90%] items-center justify-center">
           <div className="flex flex-col items-start gap-6">
-            <div className="flex w-full gap-6 rounded-[100px] border-2 border-green-900 bg-white px-10 shadow-[6px_6px_0px_0px_var(--color-green-900)]">
+            <motion.div
+              variants={fadeInUp}
+              className="flex w-full gap-6 rounded-[100px] border-2 border-green-900 bg-white px-10 shadow-[6px_6px_0px_0px_var(--color-green-900)]"
+            >
               <Image
-                src="logo/logo.svg"
+                src="/logo/logo.svg"
                 alt="Logo"
                 width={54.108097076416016}
                 height={60.87163162231445}
               />
-              <p className="text-[60px] font-bold text-green-400">
+              <p className="text-6xl-bold py-4 text-green-400">
                 PANGAN<span className="text-orange-600">TARA</span>
               </p>
-            </div>
-            <div className="space-y-14">
-              <p className="w-[90%] text-[21px] font-medium text-white">
-                Platform penghubung <span className="font-bold">SPPG</span> dan{" "}
-                <span className="font-bold">supplier</span> untuk pengadaan
-                bahan pangan MBG yang{" "}
-                <span className="font-bold">
+            </motion.div>
+            <motion.div variants={fadeInUp} className="space-y-14">
+              <p className="text-xl-medium w-[90%] text-white">
+                Platform penghubung <span className="text-xl-bold">SPPG</span>{" "}
+                dan <span className="text-xl-bold">supplier</span> untuk
+                pengadaan bahan pangan MBG yang{" "}
+                <span className="text-xl-bold">
                   lebih mudah, transparan, dan terstandar.
                 </span>
               </p>
-              <Link
-                href={""}
-                className="flex w-[45%] items-center justify-center gap-4 rounded-[24px] border-2 border-orange-900 bg-orange-600 px-[20px] py-[12px] font-semibold text-white"
+              <a
+                href={"/#alur"}
+                className="flex w-[45%] items-center justify-center gap-4 rounded-[24px] border-2 border-orange-900 bg-orange-600 px-5 py-3 font-semibold text-white transition-transform duration-300 hover:scale-105"
               >
                 <h1>Pelajari alur</h1>
                 <div className="rounded-full bg-orange-900 p-2 font-bold">
                   <MoveUpRight width={15} height={15} strokeWidth={2} />
                 </div>
-              </Link>
-            </div>
+              </a>
+            </motion.div>
           </div>
         </div>
-        <div className="flex items-center justify-start">
+        <motion.div
+          variants={fadeIn}
+          className="flex items-center justify-start"
+        >
           <div className="grid grid-cols-2 gap-4">
             <div className="flex flex-col gap-6">
               <Image
@@ -71,9 +82,9 @@ const HeroSection = () => {
               />
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
-    </div>
+    </motion.section>
   );
 };
 

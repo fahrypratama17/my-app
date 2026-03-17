@@ -1,5 +1,4 @@
 import "@/shared/styles/globals.css";
-import Navbar from "@/shared/component/Navbar";
 import Footer from "@/shared/component/Footer";
 
 export default function Layout({
@@ -9,7 +8,6 @@ export default function Layout({
 }>) {
   return (
     <>
-      <Navbar />
       {children}
       <Footer />
     </>

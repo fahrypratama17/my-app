@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 
 interface ButtonNextProps {
   href: string;
-  onClick: () => void;
+  onClick?: () => void;
   children: React.ReactNode;
 }
 

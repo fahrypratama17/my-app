@@ -3,7 +3,7 @@ import { Beef, ImageUp } from "lucide-react";
 import { Button } from "@/shared/component/ui/button";
 import { Input } from "@/shared/component/ui/input";
 
-const Pertanyaan = () => {
+const PertanyaanDaging = () => {
   return (
     <Card className="border-2 border-green-900 bg-green-50 px-12 py-8">
       <CardHeader className="mb-8 flex items-center justify-start gap-4">
@@ -164,4 +164,4 @@ const Pertanyaan = () => {
   );
 };
 
-export default Pertanyaan;
+export default PertanyaanDaging;

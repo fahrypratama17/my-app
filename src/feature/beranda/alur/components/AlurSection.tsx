@@ -1,11 +1,11 @@
-import Mitra from "@/feature/beranda/penggunaan/components/Mitra";
-import SPPG from "@/feature/beranda/penggunaan/components/SPPG";
+import Mitra from "@/feature/beranda/alur/components/Mitra";
+import SPPG from "@/feature/beranda/alur/components/SPPG";
 import { Button } from "@/shared/component/ui/button";
 import { ArrowRight } from "lucide-react";
 
 const AlurSection = () => {
   return (
-    <div id="alur" className="rounded-t-[100px]">
+    <section id="alur" className="rounded-t-[100px]">
       <div className="flex items-center gap-4 pt-20">
         <div className="h-6 w-full rounded-r-2xl bg-green-900"></div>
         <div className="text-7xl-bold w-165 text-center text-green-800">
@@ -23,7 +23,7 @@ const AlurSection = () => {
           </div>
         </Button>
       </div>
-    </div>
+    </section>
   );
 };
 

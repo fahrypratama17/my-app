@@ -4,17 +4,12 @@ import { Mail, MapPin, Phone } from "lucide-react";
 const Footer = () => {
   return (
     <footer className="mt-20 bg-orange-50 py-20">
-      <div className="mx-auto grid h-[200px] w-[80%] grid-cols-[1.3fr_0.7fr_0.7fr_1fr]">
+      <div className="mx-auto grid h-50 w-[80%] grid-cols-[1.3fr_0.7fr_0.7fr_1fr]">
         <div className="flex flex-col justify-center gap-8">
           <div className="flex items-center">
-            <Image
-              src={"logo/logo-noir.svg"}
-              alt={"logo"}
-              width={40}
-              height={40}
-            />
-            <p className="text-2xl font-bold text-[#474747]">
-              PANGAN<span className="text-[#8C8C8C]">TARA</span>
+            <Image src={"/logo/logo.svg"} alt={"logo"} width={40} height={40} />
+            <p className="text-2xl-bold text-green-400">
+              PANGAN<span className="text-orange-600">TARA</span>
             </p>
           </div>
           <p className="w-[60%] text-[18px] font-medium">

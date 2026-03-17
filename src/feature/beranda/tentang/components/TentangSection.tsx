@@ -5,7 +5,7 @@ import MengapaPangantara from "@/feature/beranda/tentang/components/MengapaPanga
 
 const TentangSection = () => {
   return (
-    <div className="bg-white pb-20">
+    <section className="bg-white pb-20">
       <Banner />
       <Stats />
       <div className="flex items-center gap-4 pt-20">
@@ -17,7 +17,7 @@ const TentangSection = () => {
       </div>
       <Tentang />
       <MengapaPangantara />
-    </div>
+    </section>
   );
 };
 

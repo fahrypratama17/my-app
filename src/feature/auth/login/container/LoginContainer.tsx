@@ -1,9 +1,9 @@
-import LoginSection from "@/feature/auth/login/components/LoginSection";
+import Login from "@/feature/auth/login/components/Login";
 
 const LoginContainer = () => {
   return (
     <>
-      <LoginSection />
+      <Login />
     </>
   );
 };

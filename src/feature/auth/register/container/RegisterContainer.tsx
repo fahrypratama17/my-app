@@ -1,11 +1,7 @@
-import RegisterFirst from "@/feature/auth/register/components/RegisterFirst";
+import Register from "@/feature/auth/register/components/Register";
 
 const RegisterContainer = () => {
-  return (
-    <>
-      <RegisterFirst />
-    </>
-  );
+  return <Register />;
 };
 
 export default RegisterContainer;

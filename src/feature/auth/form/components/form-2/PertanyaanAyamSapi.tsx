@@ -1,62 +1,33 @@
-import { Card, CardContent, CardHeader } from "@/shared/component/ui/card";
-import { Milk, ImageUp } from "lucide-react";
+import { Card, CardContent } from "@/shared/component/ui/card";
+import { ImageUp } from "lucide-react";
 import { Button } from "@/shared/component/ui/button";
 import { Input } from "@/shared/component/ui/input";
 
-const PertanyaanTernak = () => {
+const PertanyaanAyamSapi = () => {
   return (
-    <Card className="border-2 border-green-900 bg-green-50 px-12 py-8">
-      <CardHeader className="mb-8 flex items-center justify-start gap-4">
-        <div className="rounded-xl bg-orange-50 p-2">
-          <Milk className="text-orange-600" size={40} />
-        </div>
-
-        <div className="flex flex-col items-start justify-center">
-          <p className="text-3xl-bold text-green-900">Kategori Hasil Ternak</p>
-          <p className="text-lg-medium text-green-500">
-            Informasi utama mengenai entitas bisnis Anda
-          </p>
-        </div>
-      </CardHeader>
-      <CardContent className="flex flex-col gap-8">
+    <section className="bg-green-50 pb-8">
+      <div className="flex flex-col gap-8">
         <div className="flex flex-col gap-8">
           <h2 className="text-2xl-bold text-green-900">
-            1. Jenis hasil ternak yang dijual?
+            2. Apakah daging berasal dari Rumah Potong Hewan (RPH / RPHU)?
           </h2>
           <div className="flex items-center gap-8">
             <div className="h-8 w-8 rounded-full border-2 border-green-900 bg-orange-500"></div>
-            <h3 className="text-2xl-medium text-green-900">Telur</h3>
+            <h3 className="text-2xl-medium text-green-900">Ya</h3>
           </div>
           <div className="flex items-center gap-8">
             <div className="h-8 w-8 rounded-full border-2 border-green-900 bg-white"></div>
-            <h3 className="text-2xl-medium text-green-900">Susu</h3>
-          </div>
-        </div>
-        <div className="flex flex-col gap-8">
-          <h2 className="text-2xl-bold text-green-900">2. Sumber telur?</h2>
-          <div className="flex items-center gap-8">
-            <div className="h-8 w-8 rounded-full border-2 border-green-900 bg-orange-500"></div>
-            <h3 className="text-2xl-medium text-green-900">
-              Peternakan sendiri
-            </h3>
-          </div>
-          <div className="flex items-center gap-8">
-            <div className="h-8 w-8 rounded-full border-2 border-green-900 bg-white"></div>
-            <h3 className="text-2xl-medium text-green-900">Peternakan lokal</h3>
-          </div>
-          <div className="flex items-center gap-8">
-            <div className="h-8 w-8 rounded-full border-2 border-green-900 bg-white"></div>
-            <h3 className="text-2xl-medium text-green-900">Distributor</h3>
+            <h3 className="text-2xl-medium text-green-900">Tidak</h3>
           </div>
         </div>
         <div className="flex flex-col gap-8">
           <h2 className="text-2xl-bold text-green-900">
-            3. Nama peternakan asal telur?{" "}
+            3. Nama RPH / RPHU asal produk?{" "}
             <span className="text-[#FF4747]">*</span>
           </h2>
           <Input
             className="rounded-[48px] bg-white px-4 py-6 ring-2 placeholder:font-medium placeholder:text-[#A7A7A7]"
-            placeholder="Masukkan Nama Peternakan"
+            placeholder="Masukkan Nama RPH / RPHU"
           />
         </div>
         <div className="flex flex-col gap-8">
@@ -134,8 +105,7 @@ const PertanyaanTernak = () => {
         </Card>
         <div className="flex flex-col gap-8">
           <h2 className="text-2xl-bold text-green-900">
-            7. Kondisi telur memiliki kulit utuh, tidak retak, dan bersih dari
-            kotoran?
+            7. Apakah daging dalam kondisi segar saat dijual?
           </h2>
           <div className="flex items-center gap-8">
             <div className="h-8 w-8 rounded-full border-2 border-green-900 bg-orange-500"></div>
@@ -146,9 +116,23 @@ const PertanyaanTernak = () => {
             <h3 className="text-2xl-medium text-green-900">Tidak</h3>
           </div>
         </div>
-      </CardContent>
-    </Card>
+        <div className="flex w-[80%] flex-col gap-8">
+          <h2 className="text-2xl-bold text-green-900">
+            8. Apakah daging berwarna merah cerah, tidak berbau busuk, dan tidak
+            terdapat darah pada permukaan?
+          </h2>
+          <div className="flex items-center gap-8">
+            <div className="h-8 w-8 rounded-full border-2 border-green-900 bg-orange-500"></div>
+            <h3 className="text-2xl-medium text-green-900">Ya</h3>
+          </div>
+          <div className="flex items-center gap-8">
+            <div className="h-8 w-8 rounded-full border-2 border-green-900 bg-white"></div>
+            <h3 className="text-2xl-medium text-green-900">Tidak</h3>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 };
 
-export default PertanyaanTernak;
+export default PertanyaanAyamSapi;

@@ -1,15 +1,14 @@
 "use client";
 import { useFormStore } from "@/shared/store/useFormStore";
-import Progress from "@/feature/auth/form/components/Progress";
+import Progress from "@/shared/component/Progress";
 import Kategori from "@/feature/auth/form/components/form-2/Kategori";
-import ButtonNext from "@/feature/auth/form/components/ButtonNext";
-import PertanyaanSayur from "@/feature/auth/form/components/form-2/sayur/PertanyaanSayur";
-import PertanyaanBuah from "@/feature/auth/form/components/form-2/buah/PertanyaanBuah";
-import PertanyaanTernak from "@/feature/auth/form/components/form-2/ternak/1/PertanyaanTernak";
-import PertanyaanDaging from "@/feature/auth/form/components/form-2/daging/1/PertanyaanDaging";
+import ButtonNext from "@/shared/component/ButtonNext";
+import PertanyaanSayur from "@/feature/auth/form/components/form-2/PertanyaanSayur";
+import PertanyaanBuah from "@/feature/auth/form/components/form-2/PertanyaanBuah";
+import PertanyaanTernak from "@/feature/auth/form/components/form-2/PertanyaanTernak";
+import PertanyaanDaging from "@/feature/auth/form/components/form-2/PertanyaanDaging";
 
 const FormSection = () => {
-  const setStep = useFormStore((state) => state.setStep);
   const { category } = useFormStore();
 
   return (

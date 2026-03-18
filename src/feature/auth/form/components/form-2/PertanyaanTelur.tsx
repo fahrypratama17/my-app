@@ -1,67 +1,23 @@
-import { Card, CardContent, CardHeader } from "@/shared/component/ui/card";
-import { Milk, ImageUp } from "lucide-react";
+import { Card, CardContent } from "@/shared/component/ui/card";
+import { ImageUp } from "lucide-react";
 import { Button } from "@/shared/component/ui/button";
 import { Input } from "@/shared/component/ui/input";
 
-const Pertanyaan = () => {
+const PertanyaanTernak = () => {
   return (
-    <Card className="border-2 border-green-900 bg-green-50 px-12 py-8">
-      <CardHeader className="mb-8 flex items-center justify-start gap-4">
-        <div className="rounded-xl bg-orange-50 p-2">
-          <Milk className="text-orange-600" size={40} />
-        </div>
-
-        <div className="flex flex-col items-start justify-center">
-          <p className="text-3xl-bold text-green-900">Kategori Hasil Ternak</p>
-          <p className="text-lg-medium text-green-500">
-            Informasi utama mengenai entitas bisnis Anda
-          </p>
-        </div>
-      </CardHeader>
-      <CardContent className="flex flex-col gap-8">
+    <section className="bg-green-50 pb-8">
+      <div className="flex flex-col gap-8">
         <div className="flex flex-col gap-8">
-          <h2 className="text-2xl-bold text-green-900">
-            1. Jenis hasil ternak yang dijual?
-          </h2>
-          <div className="flex items-center gap-8">
-            <div className="h-8 w-8 rounded-full border-2 border-green-900 bg-white"></div>
-            <h3 className="text-2xl-medium text-green-900">Telur</h3>
-          </div>
+          <h2 className="text-2xl-bold text-green-900">2. Sumber telur?</h2>
           <div className="flex items-center gap-8">
             <div className="h-8 w-8 rounded-full border-2 border-green-900 bg-orange-500"></div>
-            <h3 className="text-2xl-medium text-green-900">Susu</h3>
-          </div>
-        </div>
-        <div className="flex flex-col gap-8">
-          <h2 className="text-2xl-bold text-green-900">
-            2. Jenis susu yang dijual?
-          </h2>
-          <div className="flex items-center gap-8">
-            <div className="h-8 w-8 rounded-full border-2 border-green-900 bg-orange-500"></div>
-            <h3 className="text-2xl-medium text-green-900">Susu segar</h3>
-          </div>
-          <div className="flex items-center gap-8">
-            <div className="h-8 w-8 rounded-full border-2 border-green-900 bg-white"></div>
             <h3 className="text-2xl-medium text-green-900">
-              Susu pasteurisasi
+              Peternakan sendiri
             </h3>
           </div>
           <div className="flex items-center gap-8">
             <div className="h-8 w-8 rounded-full border-2 border-green-900 bg-white"></div>
-            <h3 className="text-2xl-medium text-green-900">Susu UHT</h3>
-          </div>
-        </div>
-        <div className="flex flex-col gap-8">
-          <h2 className="text-2xl-bold text-green-900">3. Asal susu?</h2>
-          <div className="flex items-center gap-8">
-            <div className="h-8 w-8 rounded-full border-2 border-green-900 bg-orange-500"></div>
-            <h3 className="text-2xl-medium text-green-900">
-              Peternakan sapi perah
-            </h3>
-          </div>
-          <div className="flex items-center gap-8">
-            <div className="h-8 w-8 rounded-full border-2 border-green-900 bg-white"></div>
-            <h3 className="text-2xl-medium text-green-900">Koperasi susu</h3>
+            <h3 className="text-2xl-medium text-green-900">Peternakan lokal</h3>
           </div>
           <div className="flex items-center gap-8">
             <div className="h-8 w-8 rounded-full border-2 border-green-900 bg-white"></div>
@@ -70,7 +26,7 @@ const Pertanyaan = () => {
         </div>
         <div className="flex flex-col gap-8">
           <h2 className="text-2xl-bold text-green-900">
-            4. Nama unit usaha asal susu?{" "}
+            3. Nama peternakan asal telur?{" "}
             <span className="text-[#FF4747]">*</span>
           </h2>
           <Input
@@ -80,7 +36,7 @@ const Pertanyaan = () => {
         </div>
         <div className="flex flex-col gap-8">
           <h2 className="text-2xl-bold text-green-900">
-            5. Apakah unit usaha tersebut memiliki sertifikat Nomor Kontrol
+            4. Apakah unit usaha tersebut memiliki sertifikat Nomor Kontrol
             Veteriner (NKV)?
           </h2>
           <div className="flex items-center gap-8">
@@ -94,7 +50,7 @@ const Pertanyaan = () => {
         </div>
         <div className="flex flex-col gap-8">
           <h2 className="text-2xl-bold text-green-900">
-            6. Nomor sertifikat Nomor Kontrol Veteriner (NKV)? (
+            5. Nomor sertifikat Nomor Kontrol Veteriner (NKV)? (
             <span className="text-orange-800">Jika diketahui</span> )
           </h2>
           <Input
@@ -104,7 +60,7 @@ const Pertanyaan = () => {
         </div>
         <div className="flex flex-col gap-8">
           <h2 className="text-2xl-bold text-green-900">
-            7. Upload bukti asal produk (
+            6. Upload bukti asal produk (
             <span className="text-orange-800">pilih satu atau lebih</span>)
           </h2>
           <div className="flex items-center gap-8">
@@ -153,8 +109,8 @@ const Pertanyaan = () => {
         </Card>
         <div className="flex flex-col gap-8">
           <h2 className="text-2xl-bold text-green-900">
-            8. Apakah susu tanpa tambahan gula, kemasan tidak rusak, dan
-            disimpan sesuai suhu yang dianjurkan?
+            7. Kondisi telur memiliki kulit utuh, tidak retak, dan bersih dari
+            kotoran?
           </h2>
           <div className="flex items-center gap-8">
             <div className="h-8 w-8 rounded-full border-2 border-green-900 bg-orange-500"></div>
@@ -165,9 +121,9 @@ const Pertanyaan = () => {
             <h3 className="text-2xl-medium text-green-900">Tidak</h3>
           </div>
         </div>
-      </CardContent>
-    </Card>
+      </div>
+    </section>
   );
 };
 
-export default Pertanyaan;
+export default PertanyaanTernak;

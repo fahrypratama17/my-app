@@ -20,14 +20,16 @@ const Kategori = () => {
 
         return (
           <div key={item.name} className="relative">
-            <div className="absolute top-2 right-8 h-full w-full max-w-40 rounded-3xl border-2 border-green-900"></div>
+            <div
+              className={`absolute top-2 right-8 h-full w-full max-w-40 rounded-3xl ${isActive ? "bg-green-900" : "border-2 border-green-900"} `}
+            ></div>
 
             <Card
               onClick={() => {
                 setCategory(item.name);
                 setStep(3);
               }}
-              className={`relative mx-auto flex w-full max-w-40 cursor-pointer flex-col items-center justify-center rounded-3xl border-2 border-green-900 transition-all duration-200 ${
+              className={`relative mx-auto flex w-full max-w-40 cursor-pointer flex-col items-center justify-center rounded-3xl border-2 border-green-900 transition-all duration-200 active:translate-x-2 active:translate-y-2 ${
                 isActive
                   ? "shadow-[6px_6px_0px_0px_var(--color-green-900)]"
                   : "border-green-900 bg-white"

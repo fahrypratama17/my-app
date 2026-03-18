@@ -8,7 +8,7 @@ import { useState, useEffect } from "react";
 const NavLink = [
   { name: "Beranda", href: "/#beranda", path: "/" },
   { name: "Cari Supplier", href: "/supplier", path: "/supplier" },
-  { name: "FAQ", href: "/faq", path: "/faq" },
+  { name: "FAQ", href: "/FAQ", path: "/FAQ" },
   { name: "Hubungi", href: "/hubungi", path: "/hubungi" },
 ];
 

@@ -44,7 +44,7 @@ const FAQ = () => {
                   <h2>{item.q}</h2>
                 </div>
                 <div
-                  className={`rounded-full border bg-orange-500 p-4 text-green-900 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
+                  className={`cursor-pointer rounded-full border bg-orange-500 p-4 text-green-900 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
                 >
                   <ChevronUp />
                 </div>

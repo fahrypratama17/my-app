@@ -44,12 +44,23 @@ const HeroSection = () => {
               </p>
               <a
                 href={"/#alur"}
-                className="flex w-[45%] items-center justify-center gap-4 rounded-[24px] border-2 border-orange-900 bg-orange-600 px-5 py-3 font-semibold text-white transition-transform duration-300 hover:scale-105"
+                className="group relative flex w-[35%] items-center justify-center gap-4 overflow-hidden rounded-[24px] border-2 border-orange-900 bg-orange-200 py-1 font-semibold text-orange-900 transition-transform duration-300 hover:scale-105"
               >
-                <h1>Pelajari alur</h1>
-                <div className="rounded-full bg-orange-900 p-2 font-bold">
-                  <MoveUpRight width={15} height={15} strokeWidth={2} />
+                <h1 className="relative z-10 transition-colors duration-300 group-hover:text-white">
+                  Pelajari alur
+                </h1>
+
+                <div className="relative z-10 rounded-full bg-orange-900 p-2 font-bold transition-colors duration-300">
+                  <MoveUpRight
+                    width={15}
+                    height={15}
+                    strokeWidth={2}
+                    className="text-white transition-colors duration-300"
+                  />
                 </div>
+
+                {/* BACKGROUND ANIMATION */}
+                <span className="absolute inset-0 origin-left scale-x-0 bg-orange-600 transition-transform duration-300 ease-out group-hover:scale-x-100"></span>
               </a>
             </motion.div>
           </div>

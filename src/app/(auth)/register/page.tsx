@@ -1,7 +1,12 @@
+import { Suspense } from "react";
 import RegisterContainer from "@/feature/auth/register/container/RegisterContainer";
 
-const page = () => {
-  return <RegisterContainer />;
+const Page = () => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <RegisterContainer />
+    </Suspense>
+  );
 };
 
-export default page;
+export default Page;

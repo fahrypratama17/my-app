@@ -6,8 +6,8 @@ import Link from "next/link";
 
 const AlurSection = () => {
   return (
-    <section id="alur" className="rounded-t-[100px]">
-      <div className="flex items-center gap-4 pt-20">
+    <section id="alur">
+      <div className="flex items-center gap-4 pt-10">
         <div className="h-6 w-full rounded-r-2xl bg-green-900"></div>
         <div className="text-7xl-bold w-165 text-center text-green-800">
           Alur <span className="font-bold text-orange-500">Singkat</span>

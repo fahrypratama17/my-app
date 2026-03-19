@@ -68,21 +68,21 @@ export const FAQData: FAQType[] = [
   {
     id: 2,
     q: "Siapa saja yang dapat menggunakan Pangantara?",
-    a: "Pangantara adalah platform yang menghubungkan dapur SPPG dengan supplier dan pedagang pasar lokal untuk mempermudah pengadaan bahan pangan dalam program MBG.",
+    a: "Pangantara dapat digunakan oleh tim SPPG yang membutuhkan bahan pangan serta supplier, pedagang pasar, dan UMKM yang ingin menjadi mitra penyedia bahan.",
   },
   {
     id: 3,
     q: "Bagaimana cara menjadi mitra Pangantara?",
-    a: "Pangantara adalah platform yang menghubungkan dapur SPPG dengan supplier dan pedagang pasar lokal untuk mempermudah pengadaan bahan pangan dalam program MBG.",
+    a: "Mitra dapat mendaftar melalui platform Pangantara dengan membuat akun dan mengisi formulir pendaftaran. Setelah itu, mitra akan mengikuti proses verifikasi melalui meeting online sebelum dapat menggunakan platform.",
   },
   {
     id: 4,
     q: "Apakah semua mitra langsung dapat menjual produknya?",
-    a: "Pangantara adalah platform yang menghubungkan dapur SPPG dengan supplier dan pedagang pasar lokal untuk mempermudah pengadaan bahan pangan dalam program MBG.",
+    a: "Tidak. Setiap mitra harus melalui proses verifikasi terlebih dahulu untuk memastikan kualitas dan kesesuaian dengan standar sebelum dapat mulai menjual produknya di platform.",
   },
   {
     id: 5,
     q: "Bagaimana cara SPPG memesan bahan pangan?",
-    a: "Pangantara adalah platform yang menghubungkan dapur SPPG dengan supplier dan pedagang pasar lokal untuk mempermudah pengadaan bahan pangan dalam program MBG.",
+    a: "SPPG dapat masuk ke platform Pangantara, mencari bahan yang dibutuhkan, lalu melihat dan membandingkan supplier yang tersedia. Setelah memilih supplier , SPPG dapat langsung melakukan pemesanan melalui platform.",
   },
 ];

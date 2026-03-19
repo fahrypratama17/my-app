@@ -1,5 +1,17 @@
 import Image from "next/image";
 import { Mail, MapPin, Phone } from "lucide-react";
+import Link from "next/link";
+
+const LayananLink = [
+  { name: "Cari Suplier", href: "/cari-supplier" },
+  { name: "FAQ", href: "/FAQ" },
+  { name: "Hubungi", href: "/hubungi" },
+];
+
+const InformasiLink = [
+  { name: "Tentang Kami", href: "/#tentang" },
+  { name: "Alur Penggunaan", href: "/#alur" },
+];
 
 const Footer = () => {
   return (
@@ -20,39 +32,52 @@ const Footer = () => {
         <div className="flex flex-col gap-6">
           <p className="text-2xl font-bold text-green-700">Layanan</p>
 
-          <div className="flex flex-col gap-4 text-lg font-medium text-green-900">
-            <p>Cari Suplier</p>
-            <p>FAQ</p>
-            <p>Hubungi</p>
-          </div>
+          {LayananLink.map((item, index) => (
+            <div
+              className="flex flex-col items-start gap-4 text-lg font-medium text-green-900"
+              key={index}
+            >
+              <Link href={item.href} className="group relative inline-block">
+                <span>{item.name}</span>
+                <span className="absolute -bottom-1 left-0 h-0.5 w-full origin-left scale-x-0 bg-green-900 transition-transform duration-300 group-hover:scale-x-100" />
+              </Link>
+            </div>
+          ))}
         </div>
         <div className="flex flex-col gap-6">
           <p className="text-2xl font-bold text-green-700">Informasi</p>
 
-          <div className="flex flex-col gap-4 text-lg font-medium text-green-900">
-            <p>Tentang Kami</p>
-            <p>Alur Penggunaan</p>
-          </div>
+          {InformasiLink.map((item, index) => (
+            <div
+              className="flex flex-col items-start gap-4 text-lg font-medium text-green-900"
+              key={index}
+            >
+              <a href={item.href} className="group relative inline-block">
+                <span>{item.name}</span>
+                <span className="absolute -bottom-1 left-0 h-0.5 w-full origin-left scale-x-0 bg-green-900 transition-transform duration-300 group-hover:scale-x-100" />
+              </a>
+            </div>
+          ))}
         </div>
         <div className="flex flex-col gap-6">
           <p className="text-2xl font-bold text-green-700">Hubungi Kami</p>
 
           <div className="flex flex-col gap-4">
             <div className="flex gap-6">
-              <MapPin className="text-orange-500" width={60} height={25} />
+              <MapPin className="shrink-0 text-orange-500" size={20} />
               <p className="flex flex-col gap-4 text-lg font-medium text-green-900">
                 Jl. Veteran, Ketawanggede, Lowokwaru, Kota Malang, Jawa Timur,
                 Indonesia - 65145
               </p>
             </div>
-            <div className="flex gap-6">
-              <Mail className="text-orange-500" width={20} height={20} />
+            <div className="flex items-center gap-6">
+              <Mail className="shrink-0 text-orange-500" size={20} />
               <p className="flex flex-col gap-4 text-lg font-medium text-green-900">
                 pangantara@gmail.com
               </p>
             </div>
-            <div className="flex gap-6">
-              <Phone className="text-orange-500" width={20} height={20} />
+            <div className="flex items-center gap-6">
+              <Phone className="shrink-0 text-orange-500" size={20} />
               <p className="flex flex-col gap-4 text-lg font-medium text-green-900">
                 +62 81111111111
               </p>

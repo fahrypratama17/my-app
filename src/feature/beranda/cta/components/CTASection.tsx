@@ -24,7 +24,7 @@ const CTASection = () => {
             kemudahan dalam setiap pengadaan.
           </p>
           <div className="mx-auto mt-10 grid grid-cols-2 gap-6">
-            <Link href="/register">
+            <Link href="/register?type=sppg">
               <Button className="group relative cursor-pointer overflow-hidden rounded-[20px] border-2 border-orange-900 bg-orange-100 px-14 py-6 text-center text-xl font-bold text-orange-900 hover:border-orange-600">
                 <span className="relative z-10 transition-colors duration-300 group-hover:text-white">
                   Daftar SPPG Anda
@@ -34,7 +34,7 @@ const CTASection = () => {
               </Button>
             </Link>
 
-            <Link href="/register">
+            <Link href="/register?type=mitra">
               <Button className="group relative cursor-pointer overflow-hidden rounded-[20px] border-2 border-green-900 bg-green-50 px-20 py-6 text-center text-xl font-bold text-green-900">
                 <span className="relative z-10 transition-colors duration-300 group-hover:text-white">
                   Daftar Mitra

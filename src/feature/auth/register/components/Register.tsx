@@ -31,6 +31,7 @@ const Register = ({ type, onChangeTab }: Props) => {
           </p>
         </div>
         <Tabs
+          key={type}
           value={type}
           onValueChange={(val) => onChangeTab(val as TabType)}
           className="mx-auto w-[80%]"

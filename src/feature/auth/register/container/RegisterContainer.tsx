@@ -1,22 +1,24 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import Register from "@/feature/auth/register/components/Register";
 
 type Props = { type?: string };
 type TabType = "sppg" | "mitra";
 
 const RegisterContainer = ({ type = "sppg" }: Props) => {
-  const routerParams = useRouter();
+  const router = useRouter();
+  const searchParams = useSearchParams();
 
-  const validType: TabType = type === "mitra" ? "mitra" : "sppg";
+  const typeFromUrl = searchParams.get("type");
 
-  const handleChangeTab = (val: string) => {
-    const nextType: TabType = val === "mitra" ? "mitra" : "sppg";
-    routerParams.push(`/register?type=${nextType}`);
+  const tab: TabType = typeFromUrl === "mitra" ? "mitra" : "sppg";
+
+  const handleChangeTab = (val: TabType) => {
+    router.push(`/register?type=${val}`);
   };
 
-  return <Register type={validType} onChangeTab={handleChangeTab} />;
+  return <Register type={tab} onChangeTab={handleChangeTab} />;
 };
 
 export default RegisterContainer;

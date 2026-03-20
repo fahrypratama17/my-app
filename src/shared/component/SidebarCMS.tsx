@@ -40,7 +40,10 @@ const SidebarCMS = () => {
                 isActive={pathname === "/admin/dashboard"}
                 className="rounded-[12px] transition-colors duration-200 hover:bg-green-500 hover:text-white data-[active=true]:bg-green-500 data-[active=true]:text-white"
               >
-                <Link href="/admin/dashboard" className="flex items-center">
+                <Link
+                  href="/admin/dashboard"
+                  className="flex items-center text-green-300"
+                >
                   Ringkasan Dashboard
                 </Link>
               </SidebarMenuButton>
@@ -51,7 +54,10 @@ const SidebarCMS = () => {
                 isActive={pathname === "/admin/verifikasi"}
                 className="rounded-[12px] transition-colors duration-200 hover:bg-green-500 hover:text-white data-[active=true]:bg-green-500 data-[active=true]:text-white"
               >
-                <Link href="/admin/verifikasi" className="flex items-center">
+                <Link
+                  href="/admin/verifikasi"
+                  className="flex items-center text-green-300"
+                >
                   Verifikasi Mitra
                 </Link>
               </SidebarMenuButton>
@@ -62,19 +68,11 @@ const SidebarCMS = () => {
                 isActive={pathname === "/admin/manajemen"}
                 className="rounded-[12px] transition-colors duration-200 hover:bg-green-500 hover:text-white data-[active=true]:bg-green-500 data-[active=true]:text-white"
               >
-                <Link href="/admin/manajemen" className="flex items-center">
+                <Link
+                  href="/admin/manajemen"
+                  className="flex items-center text-green-300"
+                >
                   Manajemen Mitra
-                </Link>
-              </SidebarMenuButton>
-            </SidebarMenuItem>
-            <SidebarMenuItem>
-              <SidebarMenuButton
-                asChild
-                isActive={pathname === "/admin/service"}
-                className="rounded-[12px] transition-colors duration-200 hover:bg-green-500 hover:text-white data-[active=true]:bg-green-500 data-[active=true]:text-white"
-              >
-                <Link href="/admin/service" className="flex items-center">
-                  Customer Service
                 </Link>
               </SidebarMenuButton>
             </SidebarMenuItem>

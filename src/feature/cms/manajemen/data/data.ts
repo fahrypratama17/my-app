@@ -1,0 +1,58 @@
+import { cardType } from "@/feature/cms/manajemen/types/type";
+
+export const cardData: cardType[] = [
+  {
+    id: 1,
+    image: "/images/supplier-1.jpg",
+    title: "Tani Jaya Makmur",
+    status: "Aktif",
+    location: "Jl. Veteran No. 15",
+    product: 24,
+    total: 150,
+  },
+  {
+    id: 2,
+    image: "/images/supplier-1.jpg",
+    title: "Tani Jaya Makmur",
+    status: "Aktif",
+    location: "Jl. Veteran No. 15",
+    product: 24,
+    total: 150,
+  },
+  {
+    id: 3,
+    image: "/images/supplier-1.jpg",
+    title: "Tani Jaya Makmur",
+    status: "Aktif",
+    location: "Jl. Veteran No. 15",
+    product: 24,
+    total: 150,
+  },
+  {
+    id: 4,
+    image: "/images/supplier-1.jpg",
+    title: "Tani Jaya Makmur",
+    status: "Aktif",
+    location: "Jl. Veteran No. 15",
+    product: 24,
+    total: 150,
+  },
+  {
+    id: 5,
+    image: "/images/supplier-1.jpg",
+    title: "Tani Jaya Makmur",
+    status: "Aktif",
+    location: "Jl. Veteran No. 15",
+    product: 24,
+    total: 150,
+  },
+  {
+    id: 6,
+    image: "/images/supplier-1.jpg",
+    title: "Tani Jaya Makmur",
+    status: "Aktif",
+    location: "Jl. Veteran No. 15",
+    product: 24,
+    total: 150,
+  },
+];

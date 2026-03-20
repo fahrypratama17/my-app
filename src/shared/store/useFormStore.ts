@@ -9,6 +9,7 @@ type FormStore = {
   step: number;
   category: string | null;
   answers: Answers;
+  isQuestionOpen: boolean;
 
   setStep: (step: number) => void;
   setCategory: (category: string) => void;
@@ -19,10 +20,12 @@ export const useFormStore = create<FormStore>((set) => ({
   step: 1,
   category: null,
   answers: {},
+  isQuestionOpen: false,
 
   setStep: (step) => set({ step }),
 
-  setCategory: (category) => set({ category, answers: {} }),
+  setCategory: (category) =>
+    set({ category, answers: {}, isQuestionOpen: true }),
 
   setAnswers: (key, value) =>
     set((state) => ({ answers: { ...state.answers, [key]: value } })),

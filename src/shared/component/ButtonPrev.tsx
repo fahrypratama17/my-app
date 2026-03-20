@@ -1,14 +1,14 @@
 import { Button } from "@/shared/component/ui/button";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 
-interface ButtonNextProps {
+interface ButtonPrevProps {
   href: string;
   onClick?: () => void;
   children: React.ReactNode;
 }
 
-const ButtonNext = ({ href, onClick, children }: ButtonNextProps) => {
+const ButtonPrev = ({ href, onClick, children }: ButtonPrevProps) => {
   return (
     <Button
       onClick={onClick}
@@ -18,13 +18,13 @@ const ButtonNext = ({ href, onClick, children }: ButtonNextProps) => {
         className="flex w-full items-center justify-evenly gap-2"
         href={href}
       >
-        <p className="text-3xl-bold text-green-900">{children}</p>
         <div className="rounded-full bg-green-700 p-3 text-orange-400">
-          <ArrowRight size={70} />
+          <ArrowLeft size={70} />
         </div>
+        <p className="text-3xl-bold text-green-900">{children}</p>
       </Link>
     </Button>
   );
 };
 
-export default ButtonNext;
+export default ButtonPrev;

@@ -22,7 +22,7 @@ const PertanyaanTernak = () => {
           </p>
         </div>
       </CardHeader>
-      <CardContent className="flex flex-col gap-8">
+      <CardContent className="flex flex-col gap-12">
         <FormRadioGroup
           label="1. Jenis hasil ternak yang dijual?"
           value={answers.jenisTernak ?? ""}

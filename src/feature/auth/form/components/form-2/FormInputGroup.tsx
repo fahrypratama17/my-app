@@ -20,7 +20,7 @@ export const FormInputGroup = ({
         value={value ?? ""}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
-        className="rounded-[48px] bg-white px-4 py-6 ring-2"
+        className="rounded-[48px] bg-white px-4 py-6 ring-2 placeholder:font-medium placeholder:text-[#A7A7A7]"
       />
     </div>
   );

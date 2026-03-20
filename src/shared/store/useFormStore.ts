@@ -4,9 +4,11 @@ type Answers = {
   jenisDaging?: "ayam" | "sapi" | "ikan";
   RPH?: "ya" | "tidak";
   namaRPH?: string;
+
   NKV?: "ya" | "tidak";
   nomorNKV?: string;
   uploadBukti?: "NKV" | "invoice" | "sks" | "fotlab";
+
   dagingSegar?: "ya" | "tidak";
   dagingAman?: "ya" | "tidak";
   ciriIkan?: "ya" | "tidak";
@@ -18,6 +20,14 @@ type Answers = {
   buahSegar?: "ya" | "tidak";
 
   jenisTernak?: "susu" | "telur";
+  sumberTelur?: "sendiri" | "lokal" | "distributor";
+  namaPeternakan?: string;
+  telurAman?: "ya" | "tidak";
+
+  jenisSusu?: "segar" | "pasteurisasi" | "uht";
+  asalSusu?: "sapi" | "koperasi" | "distributor";
+  usahaSusu?: string;
+  susuAman?: "ya" | "tidak";
 };
 
 type FormStore = {

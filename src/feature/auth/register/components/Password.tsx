@@ -31,7 +31,7 @@ const Password = () => {
             />
             <FormInput
               type="password"
-              placeholder="Masukkan Kata Sandi"
+              placeholder="Konfirmasi Kata Sandi"
               leftIcon={<KeyRound size={20} className="rotate-90" />}
             />
           </div>

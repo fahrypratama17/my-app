@@ -5,7 +5,7 @@ import { KeyRound, Mail } from "lucide-react";
 import { FormInput } from "@/shared/component/FormInput";
 import Link from "next/link";
 
-const Login = () => {
+const ResetPassword = () => {
   return (
     <section className="flex h-screen items-center justify-center bg-[#F4F4F4]">
       <div className="mx-auto h-[85vh] w-full max-w-[35%] space-y-11 rounded-[40px] border-3 border-green-900 bg-green-50 p-10 py-16 shadow-[4px_4px_0px_0px_var(--color-green-900)]">
@@ -17,32 +17,24 @@ const Login = () => {
             width={50}
             height={50}
           />
-          <p className="text-3xl font-bold text-green-900">Masuk ke Akunmu!</p>
+          <p className="text-3xl font-bold text-green-900">Lupa Kata Sandi?</p>
           <p className="text-sm--medium w-[70%] pt-4 text-center text-green-900">
-            Silakan masukkan email dan kata sandi untuk melanjutkan.
+            Perbarui dan konfirmasi kata sandi.
           </p>
         </div>
-        <Field className="mx-auto mb-6 w-[80%]">
+        <Field className="mx-auto mb-12 w-[80%]">
           <div className="space-y-4">
-            <FormInput
-              type="email"
-              placeholder="Masukkan Email"
-              leftIcon={<Mail size={20} />}
-            />
-
             <FormInput
               type="password"
               placeholder="Masukkan Kata Sandi"
               leftIcon={<KeyRound size={20} className="rotate-90" />}
             />
+            <FormInput
+              type="password"
+              placeholder="Konfirmasi Kata Sandi"
+              leftIcon={<KeyRound size={20} className="rotate-90" />}
+            />
           </div>
-
-          <Link
-            href="/reset-password"
-            className="text-sm-medium cursor-pointer text-end text-[#A9A9A9] hover:underline"
-          >
-            Lupa kata sandi?
-          </Link>
         </Field>
         <div className="mx-auto w-[80%] space-y-4">
           <Button className="w-full cursor-pointer rounded-[36px] border-2 border-green-900 bg-orange-600 py-5 text-white hover:scale-105">
@@ -63,4 +55,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default ResetPassword;

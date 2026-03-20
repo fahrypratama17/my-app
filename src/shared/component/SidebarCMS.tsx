@@ -76,6 +76,20 @@ const SidebarCMS = () => {
                 </Link>
               </SidebarMenuButton>
             </SidebarMenuItem>
+            <SidebarMenuItem>
+              <SidebarMenuButton
+                asChild
+                isActive={pathname === "/admin/monitoring"}
+                className="rounded-[12px] transition-colors duration-200 hover:bg-green-500 hover:text-white data-[active=true]:bg-green-500 data-[active=true]:text-white"
+              >
+                <Link
+                  href="/admin/monitoring"
+                  className="flex items-center text-green-300"
+                >
+                  Monitoring Pesanan
+                </Link>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
           </SidebarMenu>
         </SidebarGroup>
       </SidebarContent>

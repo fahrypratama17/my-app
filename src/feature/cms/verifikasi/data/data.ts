@@ -1,0 +1,30 @@
+export const verif = [
+  {
+    id: "SUP-101",
+    usaha: "Kebun Nusantara",
+    pemilik: "Siti Rahayu",
+    tanggal: "3-16-2026",
+    status: "Menunggu",
+  },
+  {
+    id: "SUP-102",
+    usaha: "Peternakan Berkah",
+    pemilik: "Mawali Kusetyo",
+    tanggal: "3-16-2026",
+    status: "Menunggu",
+  },
+  {
+    id: "SUP-103",
+    usaha: "Sumber Segar Sayur",
+    pemilik: "Abdi Maulik",
+    tanggal: "3-16-2026",
+    status: "Menunggu",
+  },
+  {
+    id: "SUP-104",
+    usaha: "Susu Mart",
+    pemilik: "Siti Sucita",
+    tanggal: "3-16-2026",
+    status: "Menunggu",
+  },
+];

@@ -2,6 +2,21 @@ import { create } from "zustand";
 
 type Answers = {
   jenisDaging?: "ayam" | "sapi" | "ikan";
+  RPH?: "ya" | "tidak";
+  namaRPH?: string;
+  NKV?: "ya" | "tidak";
+  nomorNKV?: string;
+  uploadBukti?: "NKV" | "invoice" | "sks" | "fotlab";
+  dagingSegar?: "ya" | "tidak";
+  dagingAman?: "ya" | "tidak";
+  ciriIkan?: "ya" | "tidak";
+
+  asalSayur?: "petani" | "distributor" | "kebun";
+  sayurSegar?: "ya" | "tidak";
+
+  asalBuah?: "petani" | "distributor" | "kebun";
+  buahSegar?: "ya" | "tidak";
+
   jenisTernak?: "susu" | "telur";
 };
 
@@ -13,6 +28,7 @@ type FormStore = {
 
   setStep: (step: number) => void;
   setCategory: (category: string) => void;
+  resetAnswers: () => void;
   setAnswers: <K extends keyof Answers>(key: K, value: Answers[K]) => void;
 };
 
@@ -26,6 +42,7 @@ export const useFormStore = create<FormStore>((set) => ({
 
   setCategory: (category) =>
     set({ category, answers: {}, isQuestionOpen: true }),
+  resetAnswers: () => set({ answers: {} }),
 
   setAnswers: (key, value) =>
     set((state) => ({ answers: { ...state.answers, [key]: value } })),

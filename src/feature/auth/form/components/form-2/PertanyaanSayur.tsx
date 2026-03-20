@@ -1,8 +1,12 @@
 import { Card, CardContent, CardHeader } from "@/shared/component/ui/card";
 import { Carrot, ImageUp } from "lucide-react";
 import { Button } from "@/shared/component/ui/button";
+import { useFormStore } from "@/shared/store/useFormStore";
+import FormRadioGroup from "@/feature/auth/form/components/form-2/FormRadioGroup";
 
 const PertanyaanSayur = () => {
+  const { answers, setAnswers } = useFormStore();
+
   return (
     <Card className="border-2 border-green-900 bg-green-50 px-12 py-8">
       <CardHeader className="mb-8 flex items-center justify-start gap-4">
@@ -18,34 +22,29 @@ const PertanyaanSayur = () => {
         </div>
       </CardHeader>
       <CardContent className="flex flex-col gap-8">
-        <div className="flex flex-col gap-8">
-          <h2 className="text-2xl-bold text-green-900">1. Asal Sayur?</h2>
-          <div className="flex items-center gap-8">
-            <div className="h-8 w-8 rounded-full border-2 border-green-900 bg-orange-500"></div>
-            <h3 className="text-2xl-medium text-green-900">Petani Lokal</h3>
-          </div>
-          <div className="flex items-center gap-8">
-            <div className="h-8 w-8 rounded-full border-2 border-green-900 bg-white"></div>
-            <h3 className="text-2xl-medium text-green-900">Distributor</h3>
-          </div>
-          <div className="flex items-center gap-8">
-            <div className="h-8 w-8 rounded-full border-2 border-green-900 bg-white"></div>
-            <h3 className="text-2xl-medium text-green-900">Kebun Sendiri</h3>
-          </div>
-        </div>
-        <div className="flex flex-col gap-8">
-          <h2 className="text-2xl-bold text-green-900">
-            2. Kondisi sayur segar, tidak layu, dan bebas pestisida berbahaya?
-          </h2>
-          <div className="flex items-center gap-8">
-            <div className="h-8 w-8 rounded-full border-2 border-green-900 bg-orange-500"></div>
-            <h3 className="text-2xl-medium text-green-900">Ya</h3>
-          </div>
-          <div className="flex items-center gap-8">
-            <div className="h-8 w-8 rounded-full border-2 border-green-900 bg-white"></div>
-            <h3 className="text-2xl-medium text-green-900">Tidak</h3>
-          </div>
-        </div>
+        <FormRadioGroup
+          label="1. Asal Sayur?"
+          value={answers.asalSayur ?? ""}
+          onChange={(val) => {
+            setAnswers("asalSayur", val as "petani" | "distributor" | "kebun");
+          }}
+          options={[
+            { label: "Petani Lokal", value: "petani" },
+            { label: "Distributor", value: "distributor" },
+            { label: "Kebun Sendiri", value: "kebun" },
+          ]}
+        />
+        <FormRadioGroup
+          label="2. Kondisi sayur segar, tidak layu, dan bebas pestisida berbahaya?"
+          value={answers.sayurSegar ?? ""}
+          onChange={(val) => {
+            setAnswers("sayurSegar", val as "ya" | "tidak");
+          }}
+          options={[
+            { label: "Ya", value: "ya" },
+            { label: "Tidak", value: "tidak" },
+          ]}
+        />
         <Card className="border-2 border-green-900 bg-green-600 p-12">
           <CardContent className="flex items-center gap-16">
             <div className="flex h-40 w-40 items-center justify-center rounded-[24px] border-2 border-dashed border-green-600 bg-orange-50 text-green-600">
@@ -61,7 +60,7 @@ const PertanyaanSayur = () => {
                 </p>
               </div>
 
-              <Button className="rounded-[12px] border-2 border-green-800 bg-green-50 px-8 py-5 text-lg font-bold text-green-900">
+              <Button className="cursor-pointer rounded-[12px] border-2 border-green-800 bg-green-50 px-8 py-5 text-lg font-bold text-green-900 transition-transform duration-200 hover:scale-105">
                 Pilih File
               </Button>
             </div>

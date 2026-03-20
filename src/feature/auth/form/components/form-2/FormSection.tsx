@@ -2,12 +2,12 @@
 import { useFormStore } from "@/shared/store/useFormStore";
 import Progress from "@/shared/component/Progress";
 import Kategori from "@/feature/auth/form/components/form-2/Kategori";
-import ButtonNext from "@/shared/component/ButtonNext";
+import ButtonNext from "@/feature/auth/form/components/form-2/ButtonNext";
 import PertanyaanSayur from "@/feature/auth/form/components/form-2/PertanyaanSayur";
 import PertanyaanBuah from "@/feature/auth/form/components/form-2/PertanyaanBuah";
 import PertanyaanTernak from "@/feature/auth/form/components/form-2/PertanyaanTernak";
 import PertanyaanDaging from "@/feature/auth/form/components/form-2/PertanyaanDaging";
-import ButtonPrev from "@/shared/component/ButtonPrev";
+import ButtonPrev from "@/feature/auth/form/components/form-2/ButtonPrev";
 
 const FormSection = () => {
   const { category } = useFormStore();

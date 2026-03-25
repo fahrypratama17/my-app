@@ -7,11 +7,11 @@ const Mitra = () => {
   const isMobile = useIsMobile();
 
   return (
-    <Card className="mx-auto mt-10 mb-10 flex w-[90%] items-center justify-center gap-6 rounded-[28px] border-2 border-green-800 p-0 md:mt-20 md:mb-20 md:w-[85%] md:rounded-[100px] md:border-4 md:py-8">
+    <Card className="mx-auto mt-10 mb-10 flex w-[90%] items-center justify-center gap-6 rounded-[28px] border-2 border-green-800 bg-green-50 p-0 md:mt-20 md:mb-20 md:w-[85%] md:rounded-[100px] md:border-4 md:py-8">
       <div className="px-4 py-2 pb-4 md:px-20 md:py-5 md:pb-0">
         <div className="flex items-center justify-center pt-6">
-          <p className="inline rounded-[100px] border border-green-800 px-4 py-1 text-[12px] font-semibold text-green-800 md:border-3 md:px-12 md:py-2 md:text-4xl">
-            Alur untuk <span className="text-orange-600">Mitra</span>
+          <p className="inline rounded-[100px] border border-green-800 bg-white px-4 py-1 text-[12px] font-semibold text-green-600 md:border-3 md:px-12 md:py-2 md:text-4xl">
+            Alur untuk <span className="text-green-900">Mitra</span>
           </p>
         </div>
 

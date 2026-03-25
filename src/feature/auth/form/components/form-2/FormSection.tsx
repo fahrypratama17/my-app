@@ -1,19 +1,30 @@
 "use client";
+
 import { useFormStore } from "@/shared/store/useFormStore";
 import Progress from "@/shared/component/Progress";
 import Kategori from "@/feature/auth/form/components/form-2/Kategori";
-import ButtonNext from "@/feature/auth/form/components/form-2/ButtonNext";
+import ButtonNext from "@/shared/component/auth/ButtonNext";
 import PertanyaanSayur from "@/feature/auth/form/components/form-2/PertanyaanSayur";
 import PertanyaanBuah from "@/feature/auth/form/components/form-2/PertanyaanBuah";
 import PertanyaanTernak from "@/feature/auth/form/components/form-2/PertanyaanTernak";
 import PertanyaanDaging from "@/feature/auth/form/components/form-2/PertanyaanDaging";
-import ButtonPrev from "@/feature/auth/form/components/form-2/ButtonPrev";
+import ButtonPrev from "@/shared/component/auth/ButtonPrev";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 const FormSection = () => {
   const { category } = useFormStore();
-  const setStep = useFormStore((state) => state.setStep);
+  const router = useRouter();
+
   const step = useFormStore((state) => state.step);
+  const setStep = useFormStore((state) => state.setStep);
   const { isQuestionOpen } = useFormStore();
+
+  useEffect(() => {
+    if (step < 2) {
+      router.push("/form-1");
+    }
+  }, []);
 
   return (
     <>

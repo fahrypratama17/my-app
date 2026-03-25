@@ -2,8 +2,8 @@
 import { useFormStore } from "@/shared/store/useFormStore";
 import Progress from "@/shared/component/Progress";
 import Identitas from "@/feature/auth/form/components/form-1/Identitas";
-import ButtonNext from "@/feature/auth/form/components/form-2/ButtonNext";
-import ButtonPrev from "@/feature/auth/form/components/form-2/ButtonPrev";
+import ButtonNext from "@/shared/component/auth/ButtonNext";
+import ButtonPrev from "@/shared/component/auth/ButtonPrev";
 
 const FormSection = () => {
   const setStep = useFormStore((state) => state.setStep);

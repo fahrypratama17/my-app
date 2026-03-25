@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Field } from "@/shared/component/ui/field";
 import { KeyRound } from "lucide-react";
 import { Button } from "@/shared/component/ui/button";
-import { FormInput } from "@/shared/component/FormInput";
+import { FormInput } from "@/shared/component/auth/FormInput";
 import Link from "next/link";
 
 const Password = () => {

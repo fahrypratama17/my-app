@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Field } from "@/shared/component/ui/field";
 import { Button } from "@/shared/component/ui/button";
 import { KeyRound, Mail } from "lucide-react";
-import { FormInput } from "@/shared/component/FormInput";
+import { FormInput } from "@/shared/component/auth/FormInput";
 import Link from "next/link";
 
 const Login = () => {

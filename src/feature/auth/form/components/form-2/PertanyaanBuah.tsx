@@ -2,7 +2,7 @@ import { Card, CardContent, CardHeader } from "@/shared/component/ui/card";
 import { Citrus, ImageUp } from "lucide-react";
 import { Button } from "@/shared/component/ui/button";
 import { useFormStore } from "@/shared/store/useFormStore";
-import FormRadioGroup from "@/feature/auth/form/components/form-2/FormRadioGroup";
+import FormRadioGroup from "@/shared/component/auth/FormRadioGroup";
 
 const PertanyaanBuah = () => {
   const { answers, setAnswers } = useFormStore();
@@ -24,9 +24,13 @@ const PertanyaanBuah = () => {
       <CardContent className="flex flex-col gap-8">
         <FormRadioGroup
           label="1. Asal Buah?"
-          value={answers.asalBuah ?? ""}
+          value={answers.buah?.asalBuah ?? ""}
           onChange={(val) => {
-            setAnswers("asalBuah", val as "petani" | "distributor" | "kebun");
+            setAnswers(
+              "buah",
+              "asalBuah",
+              val as "petani" | "distributor" | "kebun",
+            );
           }}
           options={[
             { label: "Petani Lokal", value: "petani" },
@@ -36,9 +40,9 @@ const PertanyaanBuah = () => {
         />
         <FormRadioGroup
           label="2. Kondisi buah segar, tidak busuk, dan tidak rusak?"
-          value={answers.buahSegar ?? ""}
+          value={answers.buah?.buahSegar ?? ""}
           onChange={(val) => {
-            setAnswers("buahSegar", val as "ya" | "tidak");
+            setAnswers("buah", "buahSegar", val as "ya" | "tidak");
           }}
           options={[
             { label: "Ya", value: "ya" },

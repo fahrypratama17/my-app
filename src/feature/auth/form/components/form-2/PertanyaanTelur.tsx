@@ -1,10 +1,11 @@
 import { Card, CardContent } from "@/shared/component/ui/card";
 import { ImageUp } from "lucide-react";
 import { Button } from "@/shared/component/ui/button";
-import { Input } from "@/shared/component/ui/input";
 import { useFormStore } from "@/shared/store/useFormStore";
-import FormRadioGroup from "@/feature/auth/form/components/form-2/FormRadioGroup";
-import { FormInputGroup } from "@/feature/auth/form/components/form-2/FormInputGroup";
+import FormRadioGroup from "@/shared/component/auth/FormRadioGroup";
+import { FormInputGroup } from "@/shared/component/auth/FormInputGroup";
+import { UploadBuktiType } from "@/feature/auth/form/types/type";
+import FormCheckboxGroup from "@/shared/component/auth/FormCheckboxGroup";
 
 const PertanyaanTernak = () => {
   const { answers, setAnswers } = useFormStore();
@@ -14,9 +15,10 @@ const PertanyaanTernak = () => {
       <div className="flex flex-col gap-8">
         <FormRadioGroup
           label="2. Sumber telur?"
-          value={answers.sumberTelur ?? ""}
+          value={answers.ternak?.sumberTelur ?? ""}
           onChange={(val) =>
             setAnswers(
+              "ternak",
               "sumberTelur",
               val as "sendiri" | "lokal" | "distributor",
             )
@@ -34,16 +36,16 @@ const PertanyaanTernak = () => {
               <span className="text-[#FF4747]">*</span>
             </>
           }
-          value={answers.namaPeternakan ?? ""}
-          onChange={(val) => setAnswers("namaPeternakan", val)}
+          value={answers.ternak?.namaPeternakan ?? ""}
+          onChange={(val) => setAnswers("ternak", "namaPeternakan", val)}
           placeholder="Masukkan Nama Peternakan"
         />
         <FormRadioGroup
           label="4. Apakah unit usaha tersebut memiliki sertifikat Nomor Kontrol
             Veteriner (NKV)?"
-          value={answers.NKV ?? ""}
+          value={answers.ternak?.NKV ?? ""}
           onChange={(val) => {
-            setAnswers("NKV", val as "ya" | "tidak");
+            setAnswers("ternak", "NKV", val as "ya" | "tidak");
           }}
           options={[
             { label: "Ya", value: "ya" },
@@ -57,23 +59,28 @@ const PertanyaanTernak = () => {
               <span className="text-orange-800">Jika diketahui</span> )
             </>
           }
-          value={answers.nomorNKV ?? ""}
-          onChange={(val) => setAnswers("nomorNKV", val)}
+          value={answers.ternak?.nomorNKV ?? ""}
+          onChange={(val) => setAnswers("ternak", "nomorNKV", val)}
           placeholder="Masukkan sertifikat NKV"
         />
-        <FormRadioGroup
+        <FormCheckboxGroup
           label={
             <>
               6. Upload bukti asal produk (
               <span className="text-orange-800">pilih satu atau lebih</span>)
             </>
           }
-          value={answers.uploadBukti ?? ""}
-          onChange={(val) => {
-            setAnswers(
-              "uploadBukti",
-              val as "NKV" | "invoice" | "sks" | "fotlab",
-            );
+          value={answers.ternak?.uploadBukti ?? []}
+          onChange={(val: UploadBuktiType) => {
+            const current = answers.ternak?.uploadBukti ?? [];
+
+            const exists = current.includes(val);
+
+            const updated = exists
+              ? current.filter((item) => item !== val)
+              : [...current, val];
+
+            setAnswers("ternak", "uploadBukti", updated);
           }}
           options={[
             {
@@ -109,8 +116,10 @@ const PertanyaanTernak = () => {
         <FormRadioGroup
           label="7. Kondisi telur memiliki kulit utuh, tidak retak, dan bersih dari
             kotoran?"
-          value={answers.telurAman ?? ""}
-          onChange={(val) => setAnswers("telurAman", val as "ya" | "tidak")}
+          value={answers.ternak?.telurAman ?? ""}
+          onChange={(val) =>
+            setAnswers("ternak", "telurAman", val as "ya" | "tidak")
+          }
           options={[
             { label: "Ya", value: "ya" },
             { label: "Tidak", value: "tidak" },

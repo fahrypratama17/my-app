@@ -1,5 +1,5 @@
 import { useFormStore } from "@/shared/store/useFormStore";
-import FormRadioGroup from "@/feature/auth/form/components/form-2/FormRadioGroup";
+import FormRadioGroup from "@/shared/component/auth/FormRadioGroup";
 
 const PertanyaanIkan = () => {
   const { answers, setAnswers } = useFormStore();
@@ -10,9 +10,9 @@ const PertanyaanIkan = () => {
         label="2. Apakah ikan memiliki ciri insang berawarna merah, mata ikan
             jernih (tidak buram), daging kenyal dan kembali saat ditekan, dan
             tidak berbau busuk?"
-        value={answers.ciriIkan ?? ""}
+        value={answers.daging?.ciriIkan ?? ""}
         onChange={(val) => {
-          setAnswers("ciriIkan", val as "ya" | "tidak");
+          setAnswers("daging", "ciriIkan", val as "ya" | "tidak");
         }}
         options={[
           { label: "Ya", value: "ya" },

@@ -5,6 +5,7 @@ type Props = {
   value?: string;
   onChange: (val: string) => void;
   placeholder?: string;
+  error?: string;
 };
 
 export const FormInputGroup = ({
@@ -12,6 +13,7 @@ export const FormInputGroup = ({
   value,
   onChange,
   placeholder,
+  error,
 }: Props) => {
   return (
     <div className="flex flex-col gap-8">
@@ -22,6 +24,7 @@ export const FormInputGroup = ({
         placeholder={placeholder}
         className="rounded-[48px] bg-white px-4 py-6 ring-2 placeholder:font-medium placeholder:text-[#A7A7A7]"
       />
+      {error && <p className="ext-sm text-red-500">{error}</p>}
     </div>
   );
 };

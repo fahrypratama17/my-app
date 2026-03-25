@@ -1,5 +1,5 @@
 import { Field } from "@/shared/component/ui/field";
-import { FormInput } from "@/shared/component/FormInput";
+import { FormInput } from "@/shared/component/auth/FormInput";
 import { ArrowRight, Mail, MapPin, Package } from "lucide-react";
 import Link from "next/link";
 

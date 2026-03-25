@@ -135,6 +135,37 @@
   .text-sm-medium {
     @apply text-[14px] leading-5 font-medium;
   }
+
+  .text-7xl-medium {
+    @apply text-[72px] leading-18 font-medium;
+  }
+  .text-6xl-medium {
+    @apply text-[60px] leading-15 font-medium;
+  }
+  .text-5xl-medium {
+    @apply text-[48px] leading-12 font-medium;
+  }
+  .text-4xl-medium {
+    @apply text-[36px] leading-10 font-medium;
+  }
+  .text-3xl-medium {
+    @apply text-[30px] leading-9 font-medium;
+  }
+  .text-2xl-medium {
+    @apply text-[24px] leading-9 font-medium;
+  }
+  .text-xl-medium {
+    @apply text-[20px] leading-8 font-medium;
+  }
+  .text-lg-medium {
+    @apply text-[18px] leading-7 font-medium;
+  }
+  .text-md-medium {
+    @apply text-[16px] leading-6 font-medium;
+  }
+  .text-sm-medium {
+    @apply text-[14px] leading-5 font-medium;
+  }
 }
 
 :root {
@@ -270,6 +301,18 @@
 
     &.not-scrolled {
       @apply top-0 w-full border-b-2 border-green-900 bg-white px-20 py-3.5 pt-2;
+    }
+  }
+
+  .navbar-mobile {
+    @apply fixed inset-x-0 top-0 z-100 mx-auto flex items-center justify-center pt-7.5 transition-all duration-300;
+
+    &.scrolled-mobile {
+      @apply top-0 mt-8 w-[90%] rounded-full border-2 border-green-900 bg-white px-4 py-3;
+    }
+
+    &.not-scrolled-mobile {
+      @apply top-0 w-full border-b-2 border-green-900 bg-white py-3 px-4 pt-2;
     }
   }
 }

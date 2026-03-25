@@ -2,7 +2,7 @@ import { Card, CardContent, CardHeader } from "@/shared/component/ui/card";
 import { Carrot, ImageUp } from "lucide-react";
 import { Button } from "@/shared/component/ui/button";
 import { useFormStore } from "@/shared/store/useFormStore";
-import FormRadioGroup from "@/feature/auth/form/components/form-2/FormRadioGroup";
+import FormRadioGroup from "@/shared/component/auth/FormRadioGroup";
 
 const PertanyaanSayur = () => {
   const { answers, setAnswers } = useFormStore();
@@ -24,9 +24,13 @@ const PertanyaanSayur = () => {
       <CardContent className="flex flex-col gap-8">
         <FormRadioGroup
           label="1. Asal Sayur?"
-          value={answers.asalSayur ?? ""}
+          value={answers.sayur?.asalSayur ?? ""}
           onChange={(val) => {
-            setAnswers("asalSayur", val as "petani" | "distributor" | "kebun");
+            setAnswers(
+              "sayur",
+              "asalSayur",
+              val as "petani" | "distributor" | "kebun",
+            );
           }}
           options={[
             { label: "Petani Lokal", value: "petani" },
@@ -36,9 +40,9 @@ const PertanyaanSayur = () => {
         />
         <FormRadioGroup
           label="2. Kondisi sayur segar, tidak layu, dan bebas pestisida berbahaya?"
-          value={answers.sayurSegar ?? ""}
+          value={answers.sayur?.sayurSegar ?? ""}
           onChange={(val) => {
-            setAnswers("sayurSegar", val as "ya" | "tidak");
+            setAnswers("sayur", "sayurSegar", val as "ya" | "tidak");
           }}
           options={[
             { label: "Ya", value: "ya" },

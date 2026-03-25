@@ -3,7 +3,7 @@ import { Milk } from "lucide-react";
 import { useFormStore } from "@/shared/store/useFormStore";
 import PertanyaanTelur from "@/feature/auth/form/components/form-2/PertanyaanTelur";
 import PertanyaanSusu from "@/feature/auth/form/components/form-2/PertanyaanSusu";
-import FormRadioGroup from "@/feature/auth/form/components/form-2/FormRadioGroup";
+import FormRadioGroup from "@/shared/component/auth/FormRadioGroup";
 
 const PertanyaanTernak = () => {
   const { answers, setAnswers, resetAnswers } = useFormStore();
@@ -25,18 +25,18 @@ const PertanyaanTernak = () => {
       <CardContent className="flex flex-col gap-12">
         <FormRadioGroup
           label="1. Jenis hasil ternak yang dijual?"
-          value={answers.jenisTernak ?? ""}
+          value={answers.ternak?.jenisTernak ?? ""}
           onChange={(val) => {
             resetAnswers();
-            setAnswers("jenisTernak", (val as "susu") || "ternak");
+            setAnswers("ternak", "jenisTernak", (val as "susu") || "ternak");
           }}
           options={[
             { label: "Telur", value: "telur" },
             { label: "Susu", value: "susu" },
           ]}
         />
-        {answers.jenisTernak === "telur" && <PertanyaanTelur />}
-        {answers.jenisTernak === "susu" && <PertanyaanSusu />}
+        {answers.ternak?.jenisTernak === "telur" && <PertanyaanTelur />}
+        {answers.ternak?.jenisTernak === "susu" && <PertanyaanSusu />}
       </CardContent>
     </Card>
   );

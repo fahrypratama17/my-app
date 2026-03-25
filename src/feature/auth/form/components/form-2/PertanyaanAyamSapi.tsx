@@ -1,21 +1,25 @@
 import { Card, CardContent } from "@/shared/component/ui/card";
 import { ImageUp } from "lucide-react";
 import { Button } from "@/shared/component/ui/button";
-import FormRadioGroup from "@/feature/auth/form/components/form-2/FormRadioGroup";
+import FormRadioGroup from "@/shared/component/auth/FormRadioGroup";
 import { useFormStore } from "@/shared/store/useFormStore";
-import { FormInputGroup } from "@/feature/auth/form/components/form-2/FormInputGroup";
+import { FormInputGroup } from "@/shared/component/auth/FormInputGroup";
+import { useFormValidation } from "@/hooks/use-form-validation";
+import FormCheckboxGroup from "@/shared/component/auth/FormCheckboxGroup";
+import { UploadBuktiType } from "@/feature/auth/form/types/type";
 
 const PertanyaanAyamSapi = () => {
   const { answers, setAnswers } = useFormStore();
+  const { errors } = useFormValidation();
 
   return (
     <section className="bg-green-50 pb-8">
       <div className="flex flex-col gap-12">
         <FormRadioGroup
           label="2. Apakah daging berasal dari Rumah Potong Hewan (RPH / RPHU)?"
-          value={answers.RPH ?? ""}
+          value={answers.daging?.RPH ?? ""}
           onChange={(val) => {
-            setAnswers("RPH", val as "ya" | "tidak");
+            setAnswers("daging", "RPH", val as "ya" | "tidak");
           }}
           options={[
             { label: "Ya", value: "ya" },
@@ -29,16 +33,16 @@ const PertanyaanAyamSapi = () => {
               <span className="text-[#FF4747]">*</span>
             </>
           }
-          value={answers.namaRPH ?? ""}
-          onChange={(val) => setAnswers("namaRPH", val)}
+          value={answers.daging?.namaRPH ?? ""}
+          onChange={(val) => setAnswers("daging", "namaRPH", val)}
           placeholder="Masukkan Nama RPH / RPHU"
         />
         <FormRadioGroup
           label="4. Apakah unit usaha tersebut memiliki sertifikat Nomor Kontrol
             Veteriner (NKV)?"
-          value={answers.NKV ?? ""}
+          value={answers.daging?.NKV ?? ""}
           onChange={(val) => {
-            setAnswers("NKV", val as "ya" | "tidak");
+            setAnswers("daging", "NKV", val as "ya" | "tidak");
           }}
           options={[
             { label: "Ya", value: "ya" },
@@ -52,23 +56,29 @@ const PertanyaanAyamSapi = () => {
               <span className="text-orange-800">Jika diketahui</span> )
             </>
           }
-          value={answers.nomorNKV ?? ""}
-          onChange={(val) => setAnswers("nomorNKV", val)}
+          value={answers.daging?.nomorNKV ?? ""}
+          onChange={(val) => setAnswers("daging", "nomorNKV", val)}
+          error={errors?.nomorNKV?._errors?.[0]}
           placeholder="Masukkan sertifikat NKV"
         />
-        <FormRadioGroup
+        <FormCheckboxGroup
           label={
             <>
               6. Upload bukti asal produk (
               <span className="text-orange-800">pilih satu atau lebih</span>)
             </>
           }
-          value={answers.uploadBukti ?? ""}
-          onChange={(val) => {
-            setAnswers(
-              "uploadBukti",
-              val as "NKV" | "invoice" | "sks" | "fotlab",
-            );
+          value={answers.daging?.uploadBukti ?? []}
+          onChange={(val: UploadBuktiType) => {
+            const current = answers.daging?.uploadBukti ?? [];
+
+            const exists = current.includes(val);
+
+            const updated = exists
+              ? current.filter((item) => item !== val)
+              : [...current, val];
+
+            setAnswers("daging", "uploadBukti", updated);
           }}
           options={[
             {
@@ -103,9 +113,9 @@ const PertanyaanAyamSapi = () => {
         </Card>
         <FormRadioGroup
           label="7. Apakah daging dalam kondisi segar saat dijual?"
-          value={answers.dagingSegar ?? ""}
+          value={answers.daging?.dagingSegar ?? ""}
           onChange={(val) => {
-            setAnswers("dagingSegar", val as "ya" | "tidak");
+            setAnswers("daging", "dagingSegar", val as "ya" | "tidak");
           }}
           options={[
             { label: "Ya", value: "ya" },
@@ -115,9 +125,9 @@ const PertanyaanAyamSapi = () => {
         <FormRadioGroup
           label="8. Apakah daging berwarna merah cerah, tidak berbau busuk, dan tidak
             terdapat darah pada permukaan?"
-          value={answers.dagingAman ?? ""}
+          value={answers.daging?.dagingAman ?? ""}
           onChange={(val) => {
-            setAnswers("dagingAman", val as "ya" | "tidak");
+            setAnswers("daging", "dagingAman", val as "ya" | "tidak");
           }}
           options={[
             { label: "Ya", value: "ya" },

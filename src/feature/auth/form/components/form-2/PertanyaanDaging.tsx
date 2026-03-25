@@ -3,7 +3,7 @@ import { Beef } from "lucide-react";
 import { useFormStore } from "@/shared/store/useFormStore";
 import PertanyaanAyamSapi from "@/feature/auth/form/components/form-2/PertanyaanAyamSapi";
 import PertanyaanIkan from "@/feature/auth/form/components/form-2/PertanyaanIkan";
-import FormRadioGroup from "@/feature/auth/form/components/form-2/FormRadioGroup";
+import FormRadioGroup from "@/shared/component/auth/FormRadioGroup";
 
 const PertanyaanDaging = () => {
   const { answers, setAnswers, resetAnswers } = useFormStore();
@@ -25,10 +25,14 @@ const PertanyaanDaging = () => {
       <CardContent className="flex flex-col gap-12">
         <FormRadioGroup
           label="1. Jenis daging yang dijual?"
-          value={answers.jenisDaging ?? ""}
+          value={answers.daging?.jenisDaging ?? ""}
           onChange={(val) => {
             resetAnswers();
-            setAnswers("jenisDaging", val as "ayam" | "sapi" | "ikan");
+            setAnswers(
+              "daging",
+              "jenisDaging",
+              val as "ayam" | "sapi" | "ikan",
+            );
           }}
           options={[
             { label: "Ayam", value: "ayam" },
@@ -36,10 +40,9 @@ const PertanyaanDaging = () => {
             { label: "Ikan", value: "ikan" },
           ]}
         />
-        {(answers.jenisDaging === "ayam" || answers.jenisDaging === "sapi") && (
-          <PertanyaanAyamSapi />
-        )}
-        {answers.jenisDaging === "ikan" && <PertanyaanIkan />}
+        {(answers.daging?.jenisDaging === "ayam" ||
+          answers.daging?.jenisDaging === "sapi") && <PertanyaanAyamSapi />}
+        {answers.daging?.jenisDaging === "ikan" && <PertanyaanIkan />}
       </CardContent>
     </Card>
   );

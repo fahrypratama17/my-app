@@ -3,7 +3,7 @@
 import { FAQData } from "@/feature/supplier/penggunaan/data/data";
 import { Card, CardContent, CardTitle } from "@/shared/component/ui/card";
 import { Separator } from "@/shared/component/ui/separator";
-import { ChevronUp } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -14,18 +14,18 @@ const FAQ = () => {
   };
 
   return (
-    <section className="my-30">
-      <div className="h-2.5 w-full bg-green-900"></div>
-      <h1 className="text-6xl-bold mx-auto w-[40%] pt-10 pb-6 text-center text-green-800">
+    <section className="my-15 md:my-30">
+      <div className="h-1.5 w-full bg-green-900 md:h-2.5"></div>
+      <h1 className="mx-auto w-[50%] pt-4 pb-2 text-center text-[20px] font-bold text-green-800 md:w-[40%] md:pt-10 md:pb-6 md:text-6xl">
         <span className="text-orange-600">F</span>requently{" "}
         <span className="text-orange-600">A</span>sk{" "}
         <span className="text-orange-600">Q</span>uestions
       </h1>
-      <p className="text-xl-medium mx-auto w-[40%] pb-10 text-center text-green-900">
+      <p className="mx-auto w-[50%] pb-4 text-center text-[10px] font-medium text-green-900 md:w-[40%] md:pb-10 md:text-xl">
         Segala hal yang perlu Anda ketahui tentang ekosistem Pangantara.
       </p>
-      <div className="h-2.5 w-full bg-green-900"></div>
-      <div className="mx-auto my-20 flex w-[80%] flex-col gap-10">
+      <div className="h-1.5 w-full bg-green-900 md:h-2.5"></div>
+      <div className="mx-auto my-10 mb-20 flex w-[90%] flex-col gap-4 md:my-20 md:w-[80%] md:gap-10">
         {FAQData.map((item, index) => {
           const isEven: boolean = index % 2 === 0;
           const isOpen = openId === item.id;
@@ -33,20 +33,20 @@ const FAQ = () => {
           return (
             <Card
               key={index}
-              className={`space-y-4 rounded-[40px] border-2 border-green-900 py-6 ${isEven ? "bg-green-50" : "bg-orange-50"}`}
+              className={`rounded-[18px] border-2 border-green-900 py-2 md:space-y-4 md:rounded-[40px] md:py-6 ${isEven ? "bg-green-50" : "bg-orange-50"}`}
             >
               <CardTitle
                 className="mx-auto flex w-[95%] items-center justify-between"
                 onClick={() => handleClick(item.id)}
               >
-                <div className="text-xl-bold flex gap-10 text-green-900">
+                <div className="flex gap-4 text-[10px] font-bold text-green-900 md:gap-10 md:text-xl">
                   <p>0{item.id}</p>
                   <h2>{item.q}</h2>
                 </div>
                 <div
-                  className={`cursor-pointer rounded-full border bg-orange-500 p-4 text-green-900 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
+                  className={`cursor-pointer rounded-full border bg-orange-500 p-1 text-green-900 transition-transform duration-300 md:p-4 ${isOpen ? "rotate-180" : ""}`}
                 >
-                  <ChevronUp />
+                  <ChevronDown className="h-3 w-3 md:h-6 md:w-6" />
                 </div>
               </CardTitle>
 
@@ -60,7 +60,7 @@ const FAQ = () => {
                     className="overflow-hidden"
                   >
                     <Separator className="mx-auto border border-black data-horizontal:w-[95%]" />
-                    <CardContent className="mx-auto w-[95%] py-6 text-lg font-medium text-green-900">
+                    <CardContent className="mx-auto w-[95%] py-2 text-[8px] font-medium text-green-900 md:py-6 md:text-lg">
                       {item.a}
                     </CardContent>
                   </motion.div>

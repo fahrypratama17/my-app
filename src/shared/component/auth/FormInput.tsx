@@ -7,6 +7,7 @@ import { Eye, EyeClosed } from "lucide-react";
 interface FormInputProps {
   type?: string;
   placeholder: string;
+  className?: string;
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
 }
@@ -14,6 +15,7 @@ interface FormInputProps {
 export const FormInput = ({
   type = "text",
   placeholder,
+  className,
   leftIcon,
   rightIcon,
 }: FormInputProps) => {
@@ -25,11 +27,11 @@ export const FormInput = ({
       <Input
         type={isPassword ? (show ? "text" : "password") : type}
         placeholder={placeholder}
-        className={`peer bg-white ring-2 transition-all duration-200 placeholder:font-medium ${leftIcon ? "px-4 placeholder-shown:px-10" : "px-4"} ${rightIcon || isPassword ? "pr-10" : ""}`}
+        className={`peer bg-white py-3 text-[10px] ring-2 transition-all duration-200 placeholder:text-[10px] placeholder:font-medium md:py-5 md:text-[14px] md:placeholder:text-[14px] ${className} ${leftIcon ? "px-4 placeholder-shown:px-10" : "px-4"} ${rightIcon || isPassword ? "pr-10" : ""}`}
       />
 
       {leftIcon && (
-        <div className="pointer-events-none absolute top-3 left-3 text-[#A7A7A7] opacity-0 transition-opacity peer-placeholder-shown:opacity-100">
+        <div className="pointer-events-none absolute top-2 left-3 text-[#A7A7A7] opacity-0 transition-opacity peer-placeholder-shown:opacity-100 md:top-3 md:left-3">
           {leftIcon}
         </div>
       )}
@@ -38,17 +40,20 @@ export const FormInput = ({
         <button
           type="button"
           onClick={() => setShow(!show)}
-          className="absolute top-3 right-3 cursor-pointer text-green-900 transition hover:scale-110"
+          className="absolute top-2 right-3 cursor-pointer text-green-900 transition hover:scale-110 md:top-3 md:right-3"
         >
           {show ? (
-            <Eye className="text-[#A7A7A7]" size={20} />
+            <Eye className="h-4 w-4 text-[#A7A7A7] md:h-5 md:w-5" size={20} />
           ) : (
-            <EyeClosed className="text-[#A7A7A7]" size={20} />
+            <EyeClosed
+              className="h-4 w-4 text-[#A7A7A7] md:h-5 md:w-5"
+              size={20}
+            />
           )}
         </button>
       ) : (
         rightIcon && (
-          <button className="absolute top-3 right-3 text-[#A7A7A7]">
+          <button className="absolute top-2 right-3 text-[#A7A7A7] md:top-3 md:right-3">
             {" "}
             {rightIcon}
           </button>

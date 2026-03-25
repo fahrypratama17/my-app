@@ -6,31 +6,37 @@ import Link from "next/link";
 const MitraField = () => {
   return (
     <Field className="mx-auto w-full">
-      <div className="mb-9 space-y-4">
+      <div className="space-y-4 md:mb-9">
         <FormInput
           type="text"
           placeholder="Masukkan Nama Toko"
-          leftIcon={<Package size={20} />}
+          leftIcon={<Package size={20} className="h-4 w-4 md:h-5 md:w-5" />}
         />
         <FormInput
           type="text"
           placeholder="Masukkan Alamat"
-          leftIcon={<MapPin size={20} />}
+          leftIcon={<MapPin size={20} className="h-4 w-4 md:h-5 md:w-5" />}
         />
         <FormInput
           type="email"
           placeholder="Masukkan Email"
-          leftIcon={<Mail size={20} />}
+          leftIcon={<Mail size={20} className="h-4 w-4 md:h-5 md:w-5" />}
         />
       </div>
 
       <div className="mt-2 flex origin-right cursor-pointer items-center justify-end gap-2 transition-transform duration-200 hover:scale-105">
-        <p className="text-sm-bold text-end text-green-900">Lanjutkan</p>
+        <p className="text-end text-[8px] font-bold text-green-900 md:text-sm">
+          Lanjutkan
+        </p>
         <Link
           href="/password"
-          className="rounded-full border bg-green-700 p-2 text-orange-400"
+          className="rounded-full border bg-green-700 p-1 text-orange-400 md:p-2"
         >
-          <ArrowRight width={20} height={20} />
+          <ArrowRight
+            width={20}
+            height={20}
+            className="h-3 w-3 md:h-5 md:w-5"
+          />
         </Link>
       </div>
     </Field>

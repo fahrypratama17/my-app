@@ -15,18 +15,20 @@ type Props = { type: TabType; onChangeTab: (val: TabType) => void };
 
 const Register = ({ type, onChangeTab }: Props) => {
   return (
-    <div className="flex h-screen items-center justify-center bg-[#F4F4F4]">
-      <div className="mx-auto h-[90vh] w-full max-w-[80%] space-y-4 rounded-[40px] border-3 border-green-900 bg-green-50 p-10 py-12 shadow-[4px_4px_0px_0px_var(--color-green-900)] lg:max-w-[35%]">
+    <section className="flex h-screen items-center justify-center bg-[#F4F4F4]">
+      <div className="mx-auto h-[60vh] w-full max-w-[90%] space-y-4 rounded-[40px] border-3 border-green-900 bg-green-50 p-4 py-6 shadow-[2px_2px_0px_0px_var(--color-green-900)] md:h-[90vh] md:max-w-[35%] md:p-10 md:py-12 md:shadow-[4px_4px_0px_0px_var(--color-green-900)]">
         <div className="flex flex-col items-center justify-center">
           <Image
-            className="mb-5"
+            className="mb-5 h-7 w-6 md:h-14 md:w-14"
             src={"/logo/logo.svg"}
             alt={"logo"}
             width={50}
             height={50}
           />
-          <p className="text-3xl-bold text-green-900">Selamat Datang!</p>
-          <p className="text-sm-medium w-[80%] pt-4 text-center text-green-900">
+          <p className="text-xl font-bold text-green-900 md:text-3xl">
+            Selamat Datang!
+          </p>
+          <p className="w-[90%] pt-2 text-center text-[10px] font-medium text-green-900 md:w-[80%] md:pt-4 md:text-sm">
             Lengkapi data berikut untuk memulai perjalananmu bersama kami.
           </p>
         </div>
@@ -36,16 +38,16 @@ const Register = ({ type, onChangeTab }: Props) => {
           onValueChange={(val) => onChangeTab(val as TabType)}
           className="mx-auto w-[80%]"
         >
-          <TabsList className="text-sm-medium mb-12 flex w-full rounded-[32px] border-2 border-green-900 bg-[#E6E6E6] py-4.5 text-green-900">
+          <TabsList className="mb-6 flex w-full rounded-[32px] border-2 border-green-900 bg-[#E6E6E6] py-2 text-[8px] font-medium text-green-900 md:mb-12 md:py-4.5 md:text-sm">
             <TabsTrigger
               value="sppg"
-              className="text-sm-medium flex-1 cursor-pointer rounded-[32px] py-3.5 text-green-900"
+              className="flex-1 cursor-pointer rounded-[32px] py-2.5 text-[8px] font-medium text-green-900 md:py-3.5 md:text-sm"
             >
               Tim SPPG
             </TabsTrigger>
             <TabsTrigger
               value="mitra"
-              className="text-sm-medium flex-1 cursor-pointer rounded-[32px] py-3.5 text-green-900"
+              className="flex-1 cursor-pointer rounded-[32px] py-2.5 text-[8px] font-medium text-green-900 md:py-3.5 md:text-sm"
             >
               Mitra
             </TabsTrigger>
@@ -59,7 +61,7 @@ const Register = ({ type, onChangeTab }: Props) => {
         </Tabs>
 
         <div className="mx-auto w-[80%] space-y-4">
-          <p className="text-md-medium mt-2 text-center text-[#A9A9A9]">
+          <p className="mt-2 text-center text-[10px] font-medium text-[#A9A9A9] md:text-[16px]">
             Sudah punya akun?{" "}
             <span className="inline-block cursor-pointer font-bold text-green-900 transition-transform duration-200 hover:scale-105">
               Masuk
@@ -67,7 +69,7 @@ const Register = ({ type, onChangeTab }: Props) => {
           </p>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

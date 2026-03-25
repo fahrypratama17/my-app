@@ -16,46 +16,54 @@ const HeroSection = () => {
       viewport={{ once: true }}
       className="w-full max-w-full bg-[url(/images/beranda-1.png)] bg-cover bg-center bg-no-repeat"
     >
-      <div className="mx-auto grid w-[80%] grid-cols-[1fr_0.8fr]">
-        <div className="flex h-[110vh] w-[90%] items-center justify-center">
+      <div className="mx-auto grid w-[90%] grid-cols-[1fr_0.8fr] md:w-[80%]">
+        <div className="flex min-h-[50vh] w-[90%] items-center justify-center md:h-[110vh]">
           <div className="flex flex-col items-start gap-6">
             <motion.div
               variants={fadeInUp}
-              className="flex w-full gap-6 rounded-[100px] border-2 border-green-900 bg-white px-10 shadow-[6px_6px_0px_0px_var(--color-green-900)]"
+              className="flex w-full items-center justify-center gap-1 rounded-[100px] border-2 border-green-900 bg-white/76 py-0 shadow-[3px_3px_0px_0px_var(--color-green-900)] md:shadow-[6px_6px_0px_0px_var(--color-green-900)] lg:gap-6"
             >
               <Image
                 src="/logo/logo.svg"
                 alt="Logo"
-                width={54.108097076416016}
-                height={60.87163162231445}
+                width={0}
+                height={0}
+                className="h-auto w-[clamp(16px,4vw,54px)]"
               />
-              <p className="text-6xl-bold py-4 text-green-400">
+              <p className="py-2 text-[16px] font-bold text-green-400 md:py-4 md:text-6xl">
                 PANGAN<span className="text-orange-600">TARA</span>
               </p>
             </motion.div>
-            <motion.div variants={fadeInUp} className="space-y-14">
-              <p className="text-xl-medium w-[90%] text-white">
-                Platform penghubung <span className="text-xl-bold">SPPG</span>{" "}
-                dan <span className="text-xl-bold">supplier</span> untuk
-                pengadaan bahan pangan MBG yang{" "}
-                <span className="text-xl-bold">
+            <motion.div
+              variants={fadeInUp}
+              className="w-full space-y-4 md:space-y-14"
+            >
+              <p className="text-[10px] leading-4 font-medium text-white md:w-[90%] md:text-xl md:leading-8">
+                Platform penghubung{" "}
+                <span className="text-[10px] md:text-xl md:font-bold">
+                  SPPG
+                </span>{" "}
+                dan{" "}
+                <span className="text-[10px] md:text-xl md:font-bold">
+                  supplier
+                </span>{" "}
+                untuk pengadaan bahan pangan MBG yang{" "}
+                <span className="text-[10px] md:text-xl md:font-bold">
                   lebih mudah, transparan, dan terstandar.
                 </span>
               </p>
               <a
                 href={"/#alur"}
-                className="group relative flex w-[35%] items-center justify-center gap-4 overflow-hidden rounded-[24px] border-2 border-orange-900 bg-orange-200 py-1 font-semibold text-orange-900 transition-transform duration-300 hover:scale-105"
+                className="group relative flex w-[70%] items-center justify-center gap-4 overflow-hidden rounded-[24px] border-2 border-orange-900 bg-orange-200 py-1 font-semibold text-orange-900 transition-transform duration-300 hover:scale-105 md:w-[35%]"
               >
-                <h1 className="relative z-10 transition-colors duration-300 group-hover:text-white">
+                <h1 className="relative z-10 text-[10px] transition-colors duration-300 group-hover:text-white md:text-lg">
                   Pelajari alur
                 </h1>
 
-                <div className="relative z-10 rounded-full bg-orange-900 p-2 font-bold transition-colors duration-300">
+                <div className="relative z-10 rounded-full bg-orange-900 p-1 font-bold transition-colors duration-300 md:p-2">
                   <MoveUpRight
-                    width={15}
-                    height={15}
                     strokeWidth={2}
-                    className="text-white transition-colors duration-300"
+                    className="h-3 w-3 text-white transition-colors duration-300 md:h-4 md:w-4 lg:h-5 lg:w-5"
                   />
                 </div>
 
@@ -76,12 +84,14 @@ const HeroSection = () => {
                 alt={"hero-1"}
                 width={249}
                 height={279}
+                className="aspect-249/279"
               />
               <Image
                 src={"/images/hero-2.png"}
                 alt={"hero-2"}
                 width={249}
                 height={198}
+                className="aspect-249/279"
               />
             </div>
             <div className="flex items-center justify-center">
@@ -90,6 +100,7 @@ const HeroSection = () => {
                 alt={"hero-3"}
                 width={249}
                 height={349}
+                className="aspect-249/279"
               />
             </div>
           </div>

@@ -5,15 +5,19 @@ import MengapaPangantara from "@/feature/beranda/tentang/components/MengapaPanga
 
 const TentangSection = () => {
   return (
-    <section className="bg-white pb-20">
+    <section className="bg-white md:pb-20">
       <Banner />
       <Stats />
-      <div className="flex items-center gap-4 pt-20">
-        <div className="h-6 w-21.5 rounded-r-2xl bg-green-900"></div>
-        <div id="tentang" className="text-5xl-bold w-110 text-green-900">
-          Tentang <span className="text-5xl text-orange-500">Kami</span>
+      <div className="flex items-center gap-4 pt-12 md:pt-20">
+        <div className="h-3 w-21.5 rounded-r-2xl bg-green-900 md:h-6"></div>
+        <div
+          id="tentang"
+          className="w-110 text-2xl font-bold text-green-900 md:text-5xl"
+        >
+          Tentang{" "}
+          <span className="text-2xl text-orange-500 md:text-5xl">Kami</span>
         </div>
-        <div className="h-6 w-full rounded-l-2xl bg-green-900"></div>
+        <div className="h-3 w-full rounded-l-2xl bg-green-900 md:h-6"></div>
       </div>
       <Tentang />
       <MengapaPangantara />

@@ -9,20 +9,22 @@ const PertanyaanDaging = () => {
   const { answers, setAnswers, resetAnswers } = useFormStore();
 
   return (
-    <Card className="border-2 border-green-900 bg-green-50 px-12 py-8">
-      <CardHeader className="mb-8 flex items-center justify-start gap-4">
+    <Card className="border-2 border-green-900 bg-green-50 px-4 py-4 md:px-12 md:py-8">
+      <CardHeader className="flex items-center justify-start gap-4 md:mb-8">
         <div className="rounded-xl bg-orange-50 p-2">
-          <Beef className="text-orange-600" size={40} />
+          <Beef className="h-4 w-4 text-orange-600 md:h-10 md:w-10" />
         </div>
 
         <div className="flex flex-col items-start justify-center">
-          <p className="text-3xl-bold text-green-900">Kategori Daging</p>
-          <p className="text-lg-medium text-green-500">
+          <p className="text-[12px] font-bold text-green-900 md:text-3xl">
+            Kategori Daging
+          </p>
+          <p className="text-[8px] font-medium text-green-500 md:text-lg">
             Informasi utama mengenai entitas bisnis Anda
           </p>
         </div>
       </CardHeader>
-      <CardContent className="flex flex-col gap-12">
+      <CardContent className="flex flex-col gap-4 md:gap-12">
         <FormRadioGroup
           label="1. Jenis daging yang dijual?"
           value={answers.daging?.jenisDaging ?? ""}

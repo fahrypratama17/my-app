@@ -8,15 +8,17 @@ const PertanyaanBuah = () => {
   const { answers, setAnswers } = useFormStore();
 
   return (
-    <Card className="border-2 border-green-900 bg-green-50 px-12 py-8">
-      <CardHeader className="mb-8 flex items-center justify-start gap-4">
+    <Card className="border-2 border-green-900 bg-green-50 px-4 py-4 md:px-12 md:py-8">
+      <CardHeader className="flex items-center justify-start gap-4 md:mb-8">
         <div className="rounded-xl bg-orange-50 p-2">
-          <Citrus className="text-orange-600" size={40} />
+          <Citrus className="h-4 w-4 text-orange-600 md:h-10 md:w-10" />
         </div>
 
         <div className="flex flex-col items-start justify-center">
-          <p className="text-3xl-bold text-green-900">Kategori Buah</p>
-          <p className="text-lg-medium text-green-500">
+          <p className="text-[12px] font-bold text-green-900 md:text-3xl">
+            Kategori Buah
+          </p>
+          <p className="text-[8px] font-medium text-green-500 md:text-lg">
             Informasi utama mengenai entitas bisnis Anda
           </p>
         </div>
@@ -49,22 +51,22 @@ const PertanyaanBuah = () => {
             { label: "Tidak", value: "tidak" },
           ]}
         />
-        <Card className="border-2 border-green-900 bg-green-600 p-12">
-          <CardContent className="flex items-center gap-16">
-            <div className="flex h-40 w-40 items-center justify-center rounded-[24px] border-2 border-dashed border-green-600 bg-orange-50 text-green-600">
-              <ImageUp size={60} />
+        <Card className="border-2 border-green-900 bg-green-600 p-2 px-0 md:p-12">
+          <CardContent className="flex items-center gap-4 md:gap-16">
+            <div className="flex h-20 w-20 items-center justify-center rounded-[24px] border-2 border-dashed border-green-600 bg-orange-50 text-green-600 md:h-40 md:w-40">
+              <ImageUp className="h-8 w-8 md:h-15 md:w-15" />
             </div>
-            <div className="flex h-40 flex-col items-start justify-between">
+            <div className="flex h-20 flex-col items-start justify-between md:h-40">
               <div>
-                <h1 className="text-2xl-bold text-orange-50">
+                <h1 className="text-[10px] font-bold text-orange-50 md:text-2xl">
                   Upload Foto Produk
                 </h1>
-                <p className="text-md-medium text-orange-50">
+                <p className="text-[8px] font-medium text-orange-50 md:text-[16px]">
                   Format PNG atau JPG. Maksimum 2MB.
                 </p>
               </div>
 
-              <Button className="cursor-pointer rounded-[12px] border-2 border-green-800 bg-green-50 px-8 py-5 text-lg font-bold text-green-900 transition-transform duration-200 hover:scale-105">
+              <Button className="h-6 cursor-pointer rounded-[8px] border border-green-800 bg-green-50 px-4 text-[8px] font-bold text-green-900 transition-transform duration-200 hover:scale-105 md:rounded-[12px] md:border-2 md:px-8 md:py-5 md:text-lg">
                 Pilih File
               </Button>
             </div>

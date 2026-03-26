@@ -10,9 +10,9 @@ const FormSection = () => {
   const step = useFormStore((state) => state.step);
   return (
     <>
-      <div className="mx-auto w-[90%] pt-20">
+      <div className="mx-auto w-[90%] pt-4 md:pt-20">
         <Progress />
-        <p className="text-2xl-semibold py-8 text-green-900">
+        <p className="py-8 text-[10px] font-semibold text-green-900 md:text-2xl">
           Bagian ini diisi oleh semua calon mitra.
         </p>
         <Identitas />

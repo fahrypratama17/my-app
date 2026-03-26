@@ -1,77 +1,88 @@
 import { Card, CardContent, CardHeader } from "@/shared/component/ui/card";
 import { Store } from "lucide-react";
 import { Field } from "@/shared/component/ui/field";
-import { Input } from "@/shared/component/ui/input";
-import { Label } from "@/shared/component/ui/label";
+import { useState } from "react";
+import { FormInputGroup } from "@/shared/component/auth/FormInputGroup";
 
 const Progress = () => {
+  const [form, setForm] = useState({
+    nama: "",
+    pemilik: "",
+    alamat: "",
+    telepon: "",
+  });
+
+  const handleChange = (field: string, value: string) => {
+    setForm((prev) => ({
+      ...prev,
+      [field]: value,
+    }));
+  };
+
   return (
-    <Card className="border-2 border-green-900 bg-green-50 px-12 py-8 pb-20">
+    <Card className="border-2 border-green-900 bg-green-50 px-4 py-4 pb-10 md:px-12 md:py-8 md:pb-20">
       <CardHeader className="flex items-center justify-start gap-4">
         <div className="rounded-xl bg-orange-50 p-2">
-          <Store className="text-orange-600" size={40} />
+          <Store className="h-4 w-4 text-orange-600 md:h-10 md:w-10" />
         </div>
 
         <div className="flex flex-col items-start justify-center">
-          <p className="text-3xl-bold text-green-900">Identitas Bisnis</p>
-          <p className="text-lg-medium text-green-500">
+          <p className="text-[12px] font-bold text-green-900 md:text-3xl">
+            Identitas Bisnis
+          </p>
+          <p className="text-[8px] font-medium text-green-500 md:text-lg">
             Informasi utama mengenai entitas bisnis Anda
           </p>
         </div>
       </CardHeader>
-      <CardContent className="flex flex-col py-8">
+      <CardContent className="flex flex-col md:py-8">
         <Field>
-          <div className="space-y-12">
-            <div className="flex flex-col gap-4">
-              <Label
-                htmlFor="nama"
-                className="text-xl font-semibold text-green-500"
-              >
-                Nama Usaha <span className="text-[#FF4747]">*</span>
-              </Label>
-              <Input
-                id="nama"
-                className="rounded-[48px] bg-white px-6 py-6 ring-2 placeholder:font-medium placeholder:text-[#A7A7A7]"
+          <div className="space-y-4 md:space-y-12">
+            <div className="flex flex-col md:gap-6">
+              <FormInputGroup
+                label={
+                  <div className="text-[10px] font-semibold text-green-500 md:text-xl">
+                    Nama Usaha <span className="text-[#FF4747]">*</span>
+                  </div>
+                }
+                value={form.nama}
+                onChange={(val) => handleChange("nama", val)}
                 placeholder="Masukkan Nama Usaha"
-                required
               />
             </div>
-            <div className="flex flex-col gap-4">
-              <Label
-                htmlFor="pemilik"
-                className="text-xl font-semibold text-green-500"
-              >
-                Nama Pemilik Usaha<span className="text-[#FF4747]">*</span>
-              </Label>
-              <Input
-                id="pemilik"
-                className="rounded-[48px] bg-white px-6 py-6 ring-2 placeholder:font-medium placeholder:text-[#A7A7A7]"
+            <div className="flex flex-col md:gap-4">
+              <FormInputGroup
+                label={
+                  <div className="text-[10px] font-semibold text-green-500 md:text-xl">
+                    Nama Pemilik Usaha <span className="text-[#FF4747]">*</span>
+                  </div>
+                }
+                value={form.nama}
+                onChange={(val) => handleChange("nama", val)}
                 placeholder="Masukkan Nama Pemilik Usaha"
               />
             </div>
-            <div className="flex flex-col gap-4">
-              <Label
-                htmlFor="alamat"
-                className="text-xl font-semibold text-green-500"
-              >
-                Alamat Usaha <span className="text-[#FF4747]">*</span>
-              </Label>
-              <Input
-                id="alamat"
-                className="rounded-[48px] bg-white px-6 py-6 ring-2 placeholder:font-medium placeholder:text-[#A7A7A7]"
+            <div className="flex flex-col md:gap-4">
+              <FormInputGroup
+                label={
+                  <div className="text-[10px] font-semibold text-green-500 md:text-xl">
+                    Alamat Usaha <span className="text-[#FF4747]">*</span>
+                  </div>
+                }
+                value={form.nama}
+                onChange={(val) => handleChange("nama", val)}
                 placeholder="Masukkan Alamat Usaha"
               />
             </div>
-            <div className="flex flex-col gap-4">
-              <Label
-                htmlFor="telepon"
-                className="text-xl font-semibold text-green-500"
-              >
-                No HP Aktif <span className="text-[#FF4747]">*</span>
-              </Label>
-              <Input
-                id="telepon"
-                className="rounded-[48px] bg-white px-6 py-6 ring-2 placeholder:font-medium placeholder:text-[#A7A7A7]"
+            <div className="flex flex-col md:gap-4">
+              <FormInputGroup
+                label={
+                  <div className="text-[10px] font-semibold text-green-500 md:text-xl">
+                    No HP Aktif <span className="text-[#FF4747]">*</span>
+                  </div>
+                }
+                value={form.nama}
+                onChange={(val) => handleChange("nama", val)}
                 placeholder="Masukkan No HP Aktif"
               />
             </div>

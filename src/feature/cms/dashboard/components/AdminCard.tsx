@@ -6,7 +6,7 @@ type Props = {
   value: number;
 };
 
-const DashboardCard = ({ icon, title, value }: Props) => {
+const AdminCard = ({ icon, title, value }: Props) => {
   return (
     <Card className="rounded-[24px] px-8 py-10">
       <CardContent className="flex flex-col gap-3">
@@ -20,4 +20,4 @@ const DashboardCard = ({ icon, title, value }: Props) => {
   );
 };
 
-export default DashboardCard;
+export default AdminCard;

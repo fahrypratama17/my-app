@@ -8,9 +8,13 @@ import { useIsMobile } from "@/hooks/use-mobile";
 
 const NavLink = [
   { name: "Beranda", href: "/#beranda", path: "/" },
-  { name: "Cari Supplier", href: "/cari-supplier", path: "/cari-supplier" },
+  {
+    name: "Cari Supplier",
+    href: "/supplier/cari-supplier",
+    path: "/supplier/cari-supplier",
+  },
   { name: "FAQ", href: "/FAQ", path: "/FAQ" },
-  { name: "Hubungi", href: "/hubungi", path: "/hubungi" },
+  { name: "Hubungi", href: "/supplier/hubungi", path: "/supplier/hubungi" },
 ];
 
 const Navbar = () => {

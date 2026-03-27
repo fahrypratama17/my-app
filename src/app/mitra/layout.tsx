@@ -1,5 +1,5 @@
 import "@/shared/styles/globals.css";
-import SidebarCMS from "@/shared/component/cms/SidebarCMS";
+import SidebarMitra from "@/shared/component/mitra/SidebarMitra";
 import { SidebarInset, SidebarProvider } from "@/shared/component/ui/sidebar";
 
 export default function Layout({
@@ -11,7 +11,7 @@ export default function Layout({
     <>
       <SidebarProvider>
         <div className="flex min-h-screen w-full">
-          <SidebarCMS />
+          <SidebarMitra />
           <SidebarInset>
             <main className="h-full">{children}</main>
           </SidebarInset>

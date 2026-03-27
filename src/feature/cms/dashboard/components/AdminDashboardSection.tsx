@@ -1,6 +1,6 @@
 import { Store, ClipboardList, Coffee } from "lucide-react";
-import DashboardCard from "@/feature/cms/dashboard/components/DashboardCard";
-import DashboardTable from "@/feature/cms/dashboard/components/DashboardTable";
+import Card from "@/feature/cms/dashboard/components/AdminCard";
+import AdminTable from "@/feature/cms/dashboard/components/AdminTable";
 import { orders } from "@/feature/cms/dashboard/data/data";
 
 const cardData = [
@@ -47,7 +47,7 @@ const AdminDashboardSection = () => {
         </div>
         <div className="grid w-full grid-cols-2 gap-6">
           {cardData.map((item, index) => (
-            <DashboardCard
+            <Card
               key={index}
               icon={item.icon}
               title={item.title}
@@ -55,7 +55,7 @@ const AdminDashboardSection = () => {
             />
           ))}
         </div>
-        <DashboardTable data={orders.slice(0, 5)} />
+        <AdminTable data={orders.slice(0, 5)} />
       </div>
     </section>
   );

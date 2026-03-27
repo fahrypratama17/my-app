@@ -15,7 +15,7 @@ type Props = {
   data: Order[];
 };
 
-const DashboardTable = ({ data }: Props) => {
+const AdminTable = ({ data }: Props) => {
   return (
     <div>
       <div className="flex w-full items-center justify-between rounded-t-[12px] border border-b-0 border-green-900 bg-green-50 p-7">
@@ -100,4 +100,4 @@ const DashboardTable = ({ data }: Props) => {
   );
 };
 
-export default DashboardTable;
+export default AdminTable;

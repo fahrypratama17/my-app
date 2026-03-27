@@ -34,7 +34,7 @@ const Kategori = () => {
                 setCategory(item.name);
                 setStep(3);
               }}
-              className={`relative flex w-full cursor-pointer flex-col items-center justify-center gap-2 rounded-xl border-2 border-green-900 transition-all duration-200 active:translate-x-2 active:translate-y-2 md:gap-4 md:rounded-3xl ${
+              className={`relative flex w-full cursor-pointer flex-col items-center justify-center gap-2 rounded-xl border-2 border-green-900 transition-all duration-200 active:translate-x-1 active:translate-y-1 md:gap-4 md:rounded-3xl md:active:translate-x-2 md:active:translate-y-2 ${
                 isActive
                   ? "shadow-[3px_3px_0px_0px_var(--color-green-900)] md:shadow-[6px_6px_0px_0px_var(--color-green-900)]"
                   : "bg-white"

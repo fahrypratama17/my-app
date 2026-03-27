@@ -1,4 +1,4 @@
-import CustomeServiceSection from "@/feature/mitra/customer-service/components/HubungiSection";
+import CustomeServiceSection from "@/feature/mitra/customer-service/components/CustomerServiceSection";
 
 const CustomeServiceContainer = () => {
   return <CustomeServiceSection />;

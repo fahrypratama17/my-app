@@ -18,17 +18,18 @@ const CustomeServiceSection = () => {
           </div>
         </div>
       </div>
-      <div className="flex w-[85%] flex-col items-start justify-between gap-12 px-12 py-7">
-        <div className="flex flex-col gap-2 text-green-700">
-          <h1 className="text-[20px] font-bold text-green-800 md:text-[36px]">
+      <div className="flex h-[100vh] flex-col items-center justify-center gap-10 md:h-[120vh] md:gap-25">
+        <div className="flex w-[80%] flex-col gap-2 text-center md:w-[60%] md:gap-4">
+          <h1 className="text-[20px] font-bold text-green-800 md:text-5xl">
             Butuh Bantuan Lebih Lanjut?
           </h1>
-          <p className="text-[10px] font-medium text-green-900 md:text-[18px]">
+          <p className="text-[10px] font-medium text-green-900 md:text-xl">
             Pilih metode komunikasi yang paling nyaman bagi Anda. Tim dukungan
             kami siap membantu operasional bisnis Anda.
           </p>
         </div>
-        <div className="grid w-[90%] grid-cols-2 items-center justify-center gap-4 md:w-[80%] md:gap-6">
+
+        <div className="flex w-[90%] items-center justify-center gap-4 md:w-[60%] md:gap-6">
           <ChatCard />
           <EmailCard />
         </div>

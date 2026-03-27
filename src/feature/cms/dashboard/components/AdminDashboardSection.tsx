@@ -1,6 +1,6 @@
 import { Store, ClipboardList, Coffee } from "lucide-react";
 import Card from "@/feature/cms/dashboard/components/AdminCard";
-import Table from "@/feature/cms/dashboard/components/AdminTable";
+import AdminTable from "@/feature/cms/dashboard/components/AdminTable";
 import { orders } from "@/feature/cms/dashboard/data/data";
 
 const cardData = [
@@ -55,7 +55,7 @@ const AdminDashboardSection = () => {
             />
           ))}
         </div>
-        <Table data={orders.slice(0, 5)} />
+        <AdminTable data={orders.slice(0, 5)} />
       </div>
     </section>
   );

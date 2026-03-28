@@ -48,7 +48,7 @@ const FormSection = () => {
           >
             Kembali
           </ButtonPrev>
-          <ButtonNext href="/">Lanjutkan</ButtonNext>
+          <ButtonNext href="/register-success">Lanjutkan</ButtonNext>
         </div>
       </div>
     </>

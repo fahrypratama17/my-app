@@ -2,6 +2,7 @@ import { Card, CardContent, CardHeader } from "@/shared/component/ui/card";
 import Image from "next/image";
 import { Button } from "@/shared/component/ui/button";
 import { MapPin } from "lucide-react";
+import Link from "next/link";
 
 type Props = {
   title: string;
@@ -37,9 +38,11 @@ const CariCard = ({ title, address, category }: Props) => {
             </div>
           ))}
         </div>
-        <Button className="w-full cursor-pointer border-2 border-green-900 bg-orange-400 py-5 text-xl font-bold text-green-900 hover:scale-105">
-          Detail Supplier
-        </Button>
+        <Link href="/supplier/detail-supplier">
+          <Button className="w-full cursor-pointer border-2 border-green-900 bg-orange-400 py-5 text-xl font-bold text-green-900 hover:scale-105">
+            Detail Supplier
+          </Button>
+        </Link>
       </CardContent>
     </Card>
   );

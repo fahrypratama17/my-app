@@ -14,7 +14,7 @@ const CariSection = () => {
   const displayed = showAll ? SupplierData : SupplierData.slice(0, 9);
 
   return (
-    <div className="mt-40">
+    <section className="mt-40">
       <Kategori />
 
       <div className="mt-30 w-full rounded-t-[100px] border-t-4 border-green-900 bg-green-50 py-20">
@@ -31,7 +31,7 @@ const CariSection = () => {
             className="h-200 pr-8 **:data-[slot=scroll-area-scrollbar]:rounded-full **:data-[slot=scroll-area-scrollbar]:bg-green-100 **:data-[slot=scroll-area-thumb]:bg-green-600 **:data-[slot=scroll-area-thumb]:hover:bg-green-700"
           >
             <div className="pr-6 pb-6">
-              <div className="grid grid-cols-3 gap-12">
+              <div className="grid grid-cols-3 gap-x-6 gap-y-16">
                 {displayed.map((item) => (
                   <CariCard
                     key={item.id}
@@ -57,7 +57,7 @@ const CariSection = () => {
           </div>
         )}
       </div>
-    </div>
+    </section>
   );
 };
 

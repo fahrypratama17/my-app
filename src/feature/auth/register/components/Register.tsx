@@ -16,7 +16,7 @@ type Props = { type: TabType; onChangeTab: (val: TabType) => void };
 const Register = ({ type, onChangeTab }: Props) => {
   return (
     <section className="flex h-screen items-center justify-center bg-[#F4F4F4]">
-      <div className="mx-auto h-[60vh] w-full max-w-[90%] space-y-4 rounded-[40px] border-3 border-green-900 bg-green-50 p-4 py-6 shadow-[2px_2px_0px_0px_var(--color-green-900)] md:h-[90vh] md:max-w-[35%] md:p-10 md:py-12 md:shadow-[4px_4px_0px_0px_var(--color-green-900)]">
+      <div className="mx-auto h-auto w-full max-w-[90%] space-y-4 rounded-[40px] border-3 border-green-900 bg-green-50 p-4 py-6 shadow-[2px_2px_0px_0px_var(--color-green-900)] md:h-[90vh] md:max-w-[35%] md:p-10 md:py-12 md:shadow-[4px_4px_0px_0px_var(--color-green-900)]">
         <div className="flex flex-col items-center justify-center">
           <Image
             className="mb-5 h-7 w-6 md:h-14 md:w-14"

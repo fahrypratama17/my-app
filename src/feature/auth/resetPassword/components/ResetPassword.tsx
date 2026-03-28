@@ -7,7 +7,7 @@ import { FormInput } from "@/shared/component/auth/FormInput";
 const ResetPassword = () => {
   return (
     <section className="flex h-screen items-center justify-center bg-[#F4F4F4]">
-      <div className="mx-auto flex h-[60vh] w-full max-w-[90%] flex-col items-center justify-center space-y-8 rounded-[40px] border-3 border-green-900 bg-green-50 p-4 py-8 shadow-[2px_2px_0px_0px_var(--color-green-900)] md:h-[85vh] md:max-w-[35%] md:space-y-11 md:p-10 md:py-16 md:shadow-[4px_4px_0px_0px_var(--color-green-900)]">
+      <div className="mx-auto flex h-auto w-full max-w-[90%] flex-col items-center justify-center space-y-8 rounded-[40px] border-3 border-green-900 bg-green-50 p-4 py-8 shadow-[2px_2px_0px_0px_var(--color-green-900)] md:h-[85vh] md:max-w-[35%] md:space-y-11 md:p-10 md:py-16 md:shadow-[4px_4px_0px_0px_var(--color-green-900)]">
         <div className="flex flex-col items-center justify-center">
           <Image
             className="mb-5 h-7 w-6 md:h-13 md:w-13"

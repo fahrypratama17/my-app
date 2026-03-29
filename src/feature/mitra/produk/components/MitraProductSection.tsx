@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import { Input } from "@/shared/component/ui/input";
 import { Plus, ChevronDown, Search } from "lucide-react";
 import {
@@ -10,8 +13,20 @@ import {
 import { Button } from "@/shared/component/ui/button";
 import { cardData } from "@/feature/mitra/produk/data/data";
 import CardProduct from "@/feature/mitra/produk/components/CardProduct";
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+} from "@/shared/component/ui/dialog";
+import AddProductModal from "@/feature/mitra/produk/components/AddProductModal";
+import EditProductModal from "@/feature/mitra/produk/components/EditProductModal";
+import DeleteProductModal from "@/feature/mitra/produk/components/DeleteProductModal";
 
 const MitraProductSection = () => {
+  const [openTambah, setOpenTambah] = useState(false);
+  const [openEdit, setOpenEdit] = useState(false);
+  const [openDelete, setOpenDelete] = useState(false);
+
   return (
     <section>
       <div className="shadow-[0_4px_2px_#0000000A]">
@@ -36,7 +51,10 @@ const MitraProductSection = () => {
               Kelola semua produk yang Anda jual di platform.
             </p>
           </div>
-          <Button className="mt-auto cursor-pointer rounded-[12px] border border-green-900 bg-green-50 px-6 py-5 hover:scale-105">
+          <Button
+            onClick={() => setOpenTambah(!openTambah)}
+            className="mt-auto cursor-pointer rounded-[12px] border border-green-900 bg-green-50 px-6 py-5 hover:scale-105"
+          >
             <div className="rounded-[8px] bg-orange-600 p-1">
               <Plus />
             </div>
@@ -79,10 +97,44 @@ const MitraProductSection = () => {
         </div>
         <div className="grid w-full grid-cols-3 gap-20">
           {cardData.map((item) => (
-            <CardProduct data={item} key={item.id} />
+            <CardProduct
+              key={item.id}
+              data={item}
+              onEdit={() => setOpenEdit(!openEdit)}
+              onDelete={() => setOpenDelete(!openDelete)}
+            />
           ))}
         </div>
       </div>
+
+      <Dialog open={openTambah} onOpenChange={setOpenTambah}>
+        <DialogContent className="h-auto w-full max-w-[50%] gap-0 overflow-hidden rounded-[28px] border-none bg-transparent p-0 shadow-none md:max-w-[50%]">
+          <DialogTitle className="m-0 rounded-t-[28px] bg-green-50 px-13 py-4 shadow-[0px_20px_10px_0px_black]">
+            <p className="text-3xl font-bold text-green-700">
+              Tambahkan Produk
+            </p>
+          </DialogTitle>
+          <AddProductModal />
+        </DialogContent>
+      </Dialog>
+
+      <Dialog open={openEdit} onOpenChange={setOpenEdit}>
+        <DialogContent className="h-auto w-full max-w-[50%] gap-0 overflow-hidden rounded-[28px] border-none bg-transparent p-0 shadow-none md:max-w-[50%]">
+          <DialogTitle className="m-0 rounded-t-[28px] bg-green-50 px-13 py-4 shadow-[0px_20px_10px_0px_black]">
+            <p className="text-3xl font-bold text-green-700">Edit</p>
+          </DialogTitle>
+          <EditProductModal />
+        </DialogContent>
+      </Dialog>
+
+      <Dialog open={openDelete} onOpenChange={setOpenDelete}>
+        <DialogContent className="h-auto w-full max-w-[50%] rounded-[28px] border-none bg-transparent p-0 shadow-none md:max-w-[50%]">
+          <DialogTitle className="sr-only">
+            <p>Edit</p>
+          </DialogTitle>
+          <DeleteProductModal />
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };

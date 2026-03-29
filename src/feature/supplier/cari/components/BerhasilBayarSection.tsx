@@ -5,28 +5,28 @@ import { House } from "lucide-react";
 
 const BerhasilBayarSection = () => {
   return (
-    <section className="flex h-[130vh] items-center justify-center bg-green-50">
-      <Card className="mx-auto w-[40%] border-3 border-green-900">
-        <CardContent className="flex flex-col items-center gap-12 px-12 pb-6">
+    <section className="flex h-screen items-center justify-center bg-green-50 md:h-[130vh]">
+      <Card className="mx-auto w-[90%] border-3 border-green-900 md:w-[40%]">
+        <CardContent className="flex flex-col items-center gap-6 px-12 pb-6 md:gap-12">
           <div className="flex flex-col items-center gap-1">
-            <div className="w-[50%]">
+            <div className="w-[90%] md:w-[50%]">
               <video autoPlay muted playsInline className="mx-auto">
                 <source src="/animation/check.webm" type="video/webm" />
               </video>
             </div>
             <div className="flex flex-col items-center gap-2.5">
-              <p className="text-2xl font-bold text-green-700">
+              <p className="text-center text-[18px] font-bold text-green-700 md:text-2xl">
                 Pesanan berhasil!
               </p>
-              <p className="text-sm font-medium text-green-500">
+              <p className="text-center text-[12px] font-medium text-green-500 md:text-sm">
                 Terima kasih telah mempercayai layanan kami!
               </p>
-              <p className="text-sm font-bold text-green-600">
+              <p className="rounded-[32px] bg-green-50 px-2 py-2 text-[10px] font-bold text-green-600 md:px-4 md:text-sm">
                 Order ID: <span className="text-green-900">#ORD-MBG-7729</span>
               </p>
             </div>
           </div>
-          <div className="h-auto w-[70%] rounded-[24px]">
+          <div className="h-auto w-[90%] rounded-[24px] md:w-[70%]">
             <video
               autoPlay
               muted
@@ -37,14 +37,16 @@ const BerhasilBayarSection = () => {
             </video>
           </div>
           <Link href="/" className="block w-full">
-            <Button className="group relative w-full cursor-pointer overflow-hidden border border-green-900 bg-orange-100 py-6 text-xl font-bold text-green-800 transition-all duration-300">
+            <Button className="group relative w-full cursor-pointer overflow-hidden rounded-[8px] border border-green-900 bg-orange-100 py-4 text-[12px] font-bold text-green-800 transition-all duration-300 md:py-6 md:text-xl">
               <span className="absolute inset-0 z-0 origin-left scale-x-0 bg-orange-600 transition-transform duration-300 ease-out group-hover:scale-x-100"></span>
 
-              <p className="relative z-10 transition-colors duration-300 group-hover:text-white">
-                Kembali ke Beranda
-              </p>
+              <div className="flex items-center gap-2 md:gap-8">
+                <p className="relative z-10 transition-colors duration-300 group-hover:text-white">
+                  Kembali ke Beranda
+                </p>
 
-              <House className="absolute right-12 z-10 h-8 w-8 transition-all duration-300 group-hover:scale-110 group-hover:text-white" />
+                <House className="z-10 transition-all duration-300 group-hover:scale-110 group-hover:text-white" />
+              </div>
             </Button>
           </Link>
         </CardContent>

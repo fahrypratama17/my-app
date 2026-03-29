@@ -9,11 +9,11 @@ type Props = {
 const KeranjangButton = ({ showAll, onClick }: Props) => {
   return (
     <Button
-      className="flex w-[25%] cursor-pointer items-center justify-center rounded-[40px] bg-orange-600 py-6 text-xl font-bold hover:scale-105"
+      className="flex cursor-pointer items-center justify-center rounded-[40px] border border-green-900 bg-orange-600 hover:scale-105 md:w-[25%] md:py-6"
       onClick={onClick}
     >
+      <p className="text-[8px] font-bold md:text-xl">Masukkan Keranjang</p>
       <ShoppingBasket className="h-12 w-12" />
-      <p>Masukkan Keranjang</p>
     </Button>
   );
 };

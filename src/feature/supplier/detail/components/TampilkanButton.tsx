@@ -9,11 +9,11 @@ type Props = {
 const TampilkanButton = ({ showAll, onClick }: Props) => {
   return (
     <Button
-      className="flex w-[25%] cursor-pointer items-center justify-center rounded-[40px] bg-green-500 py-6 text-xl font-bold hover:scale-105"
+      className="flex w-[50%] cursor-pointer items-center justify-center rounded-[40px] bg-green-500 py-3 hover:scale-105 md:w-[25%] md:py-6"
       onClick={onClick}
     >
-      <p>Tampilkan lebih banyak</p>
-      <ChevronDown className="h-12 w-12" />
+      <p className="text-[8px] font-bold md:text-xl">Tampilkan lebih banyak</p>
+      <ChevronDown className="h-3 w-3 md:h-12 md:w-12" />
     </Button>
   );
 };

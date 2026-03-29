@@ -23,8 +23,8 @@ const DetailSupplierCard = ({ data }: Props) => {
   };
 
   return (
-    <Card>
-      <CardContent className="grid grid-cols-[0.7fr_1fr] gap-5">
+    <Card className="flex flex-col justify-between">
+      <CardContent className="grid grid-cols-[0.7fr_1fr] gap-1 px-2 md:gap-5 md:px-4">
         <Image
           src={data.image}
           alt="product-images"
@@ -33,32 +33,38 @@ const DetailSupplierCard = ({ data }: Props) => {
           className="w-full object-cover"
         ></Image>
         <div>
-          <p className="text-2xl-semibold text-green-900">{data.title}</p>
-          <p className="text-xl-semibold text-[#A7A7A7]">{data.unit}</p>
-          <p className="text-xl-semibold text-green-900">{data.cost}</p>
+          <p className="text-[10px] font-semibold text-green-900 md:text-2xl">
+            {data.title}
+          </p>
+          <p className="text-[8px] font-semibold text-[#A7A7A7] md:text-xl">
+            {data.unit}
+          </p>
+          <p className="text-[8px] font-semibold text-green-900 md:text-xl">
+            {data.cost}
+          </p>
         </div>
       </CardContent>
-      <CardAction className="flex w-full items-center justify-between px-4 py-4">
-        <p className="text-xl-semibold rounded-[32px] bg-green-50 px-4">
+      <CardAction className="flex w-full items-center justify-between px-2 md:px-4 md:py-4">
+        <p className="rounded-[32px] bg-green-50 px-2 text-[8px] font-semibold md:px-4 md:text-xl">
           {data.status}
         </p>
-        <div className="flex items-center justify-between gap-4">
+        <div className="flex items-center justify-between gap-1 md:gap-4">
           <Button
             onClick={handleMinus}
-            className="text-xl-semibold cursor-pointer rounded-[12px] bg-green-100 p-1 px-2 hover:bg-green-200"
+            className="h-4 cursor-pointer rounded-[12px] bg-green-100 p-0 hover:bg-green-200 md:h-8 md:p-1 md:px-2"
           >
-            <Minus />
+            <Minus className="p-1 md:p-0" />
           </Button>
           <p
-            className={`text-xl-semibold w-7 text-center ${quantity === 0 ? "opacity-50" : ""}`}
+            className={`w-3 text-center text-[8px] font-semibold md:w-7 md:text-xl ${quantity === 0 ? "opacity-50" : ""}`}
           >
             {quantity}
           </p>
           <Button
             onClick={handlePlus}
-            className="text-xl-semibold cursor-pointer rounded-[12px] bg-orange-500 p-1 px-2 hover:bg-orange-600"
+            className="h-4 cursor-pointer rounded-[12px] bg-orange-500 p-0 hover:bg-orange-600 md:h-8 md:p-1 md:px-2"
           >
-            <Plus />
+            <Plus className="p-1 md:p-0" />
           </Button>
         </div>
       </CardAction>

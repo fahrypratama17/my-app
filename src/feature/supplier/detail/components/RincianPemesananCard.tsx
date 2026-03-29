@@ -6,49 +6,59 @@ type Props = { onBayar: () => void };
 
 const RincianPesananCard = ({ onBayar }: Props) => {
   return (
-    <Card className="w-full rounded-[40px] border-2 border-green-900 py-0">
-      <CardHeader className="flex items-center gap-4 rounded-none bg-orange-400 px-8 py-4 text-green-900">
+    <Card className="w-full rounded-[16px] border-2 border-green-900 py-0 md:rounded-[40px]">
+      <CardHeader className="flex items-center gap-2 rounded-none bg-orange-400 px-4 py-4 text-green-900 md:gap-4 md:px-8">
+        <ShoppingCart className="p-1 md:p-0" />
         <div>
-          <ShoppingCart />
-        </div>
-        <div>
-          <p className="text-3xl-bold">Daftar Pesanan</p>
-          <p className="text-lg-semibold">Order ID: #ORD-MBG-7729</p>
+          <p className="text-[12px] font-bold md:text-3xl">Daftar Pesanan</p>
+          <p className="text-[10px] font-semibold md:text-lg">
+            Order ID: #ORD-MBG-7729
+          </p>
         </div>
       </CardHeader>
-      <CardContent className="flex flex-col gap-8 px-8 py-4 pb-8">
+      <CardContent className="flex flex-col gap-4 px-4 pb-8 md:gap-8 md:px-8 md:py-4">
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-xl-medium">Subtotal</p>
+            <p className="text-[10px] font-medium md:text-xl">Subtotal</p>
           </div>
-          <p className="text-xl-bold text-green-900">Rp 550.000</p>
+          <p className="text-[10px] font-bold text-green-900 md:text-xl">
+            Rp 550.000
+          </p>
         </div>
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-xl-medium">Biaya Pengiriman</p>
+            <p className="text-[10px] font-medium md:text-xl">
+              Biaya Pengiriman
+            </p>
           </div>
-          <p className="text-xl-bold text-green-900">Rp 20.000</p>
+          <p className="text-[10px] font-bold text-green-900 md:text-xl">
+            Rp 20.000
+          </p>
         </div>
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-xl-medium">Pajak (PPN 11%)</p>
+            <p className="text-[10px] font-medium md:text-xl">
+              Pajak (PPN 11%)
+            </p>
           </div>
-          <p className="text-xl-bold text-green-900">Rp 5.000</p>
+          <p className="text-[10px] font-bold text-green-900 md:text-xl">
+            Rp 5.000
+          </p>
         </div>
-        <div className="flex items-center justify-between rounded-[12px] bg-green-800 px-6 py-2 text-green-50">
-          <p className="text-xl-medium">Total</p>
-          <p className="text-2xl-bold">Rp 575.000</p>
+        <div className="mt-3 flex items-center justify-between rounded-[6px] bg-green-800 px-2 py-1 text-green-50 md:mt-0 md:rounded-[12px] md:px-6 md:py-2">
+          <p className="text-[10px] font-medium md:text-xl">Total</p>
+          <p className="text-[12px] font-bold md:text-2xl">Rp 575.000</p>
         </div>
         <Button
           onClick={onBayar}
-          className="text-2xl-bold mt-6 ml-auto flex w-[60%] cursor-pointer gap-4 rounded-[12px] border-2 border-green-900 bg-orange-50 py-6 hover:scale-105"
+          className="mt-6 ml-auto flex w-[60%] cursor-pointer gap-4 rounded-[12px] border-2 border-green-900 bg-orange-50 py-4 text-[10px] font-bold text-green-900 hover:scale-105 md:py-6 md:text-2xl"
         >
           <div>
-            <SendHorizontal />
+            <SendHorizontal className="p-1 md:p-0" />
           </div>
           <p>Bayar Sekarang</p>
         </Button>
-        <p className="text-sm-medium mx-auto mt-6 w-[80%] text-center text-[#B2B2B2]">
+        <p className="mx-auto mt-3 w-[80%] text-center text-[8px] font-medium text-[#B2B2B2] md:mt-6 md:text-sm">
           Dengan menekan tombol di atas, Anda menyetujui persyaratan transaksi
           Pangantara.
         </p>

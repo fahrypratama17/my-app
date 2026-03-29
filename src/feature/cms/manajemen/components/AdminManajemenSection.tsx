@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import { Input } from "@/shared/component/ui/input";
 import { ChevronDown, Search } from "lucide-react";
 import {
@@ -10,8 +13,15 @@ import {
 import { Button } from "@/shared/component/ui/button";
 import ManajemenCard from "@/feature/cms/manajemen/components/ManajemenCard";
 import { cardData } from "@/feature/cms/manajemen/data/data";
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+} from "@/shared/component/ui/dialog";
+import ManajemenModal from "@/feature/cms/manajemen/components/ManajemenModal";
 
 const AdminManajemenSection = () => {
+  const [openScan, setOpenScan] = useState(false);
   return (
     <section>
       <div className="shadow-[0_4px_2px_#0000000A]">
@@ -66,10 +76,24 @@ const AdminManajemenSection = () => {
         </div>
         <div className="grid w-full grid-cols-2 gap-x-14 gap-y-16">
           {cardData.map((item) => (
-            <ManajemenCard data={item} key={item.id} />
+            <ManajemenCard
+              onBayar={() => setOpenScan(true)}
+              data={item}
+              key={item.id}
+            />
           ))}
         </div>
       </div>
+
+      <Dialog open={openScan} onOpenChange={setOpenScan}>
+        <DialogContent className="h-auto w-full max-w-[50%] gap-0 overflow-hidden rounded-[28px] border-none bg-transparent p-0 shadow-none md:max-w-[50%]">
+          <DialogTitle className="m-0 flex flex-col gap-2 rounded-t-[28px] bg-green-50 px-13 py-4 shadow-[0px_20px_10px_0px_black]">
+            <p className="text-3xl font-bold">Tani Jaya Makmur</p>
+            <p className="text-md font-medium">SUP-101</p>
+          </DialogTitle>
+          <ManajemenModal />
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };

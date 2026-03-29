@@ -6,9 +6,10 @@ import { cardType } from "@/feature/cms/manajemen/types/type";
 
 type Props = {
   data: cardType;
+  onBayar: () => void;
 };
 
-const ManajemenCard = ({ data }: Props) => {
+const ManajemenCard = ({ data, onBayar }: Props) => {
   return (
     <Card className="border-2 border-green-100 p-0">
       <CardHeader className="w-full p-0">
@@ -41,7 +42,10 @@ const ManajemenCard = ({ data }: Props) => {
           <p>{data.total} pesanan</p>
         </div>
         <div className="grid grid-cols-[1fr_0.2fr_0.2fr] items-center gap-4 pb-4">
-          <Button className="cursor-pointer bg-green-50 text-green-500 transition-transform duration-200 hover:scale-105">
+          <Button
+            onClick={onBayar}
+            className="cursor-pointer bg-green-50 text-green-500 transition-transform duration-200 hover:scale-105"
+          >
             Detail
           </Button>
           <div className="mx-auto cursor-pointer rounded-full bg-orange-50 p-2 text-orange-300 transition-transform duration-200 hover:scale-105">

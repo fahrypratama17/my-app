@@ -12,7 +12,7 @@ type Props = {
 
 const CariCard = ({ title, address, category }: Props) => {
   return (
-    <Card className="border-2 border-green-900 pt-0 pb-6 shadow-[8px_8px_0px_0px_#0f301060]">
+    <Card className="border-2 border-green-900 pt-0 pb-3 shadow-[8px_8px_0px_0px_#0f301060] md:pb-6">
       <div className="object-cover">
         <Image
           className="object-cover"
@@ -22,24 +22,27 @@ const CariCard = ({ title, address, category }: Props) => {
           height={200}
         />
       </div>
-      <CardHeader className="text-2xl-bold">{title}</CardHeader>
-      <CardContent className="flex h-35 flex-col justify-between">
-        <div className="flex items-center gap-3 text-[#7E7E7E]">
-          <MapPin />
-          <p className="text-md-medium">{address}</p>
+      <CardContent className="flex flex-col justify-between px-2 md:px-4">
+        <div className="flex h-20 flex-col gap-1 md:h-35 md:gap-3">
+          <h3 className="text-[10px] font-bold md:text-2xl"> {title}</h3>
+          <div className="flex items-center gap-1 text-[#7E7E7E] md:gap-3">
+            <MapPin className="h-3 w-3 md:h-6 md:w-6" />
+            <p className="text-[8px] font-medium md:text-[16px]">{address}</p>
+          </div>
+          <div className="flex items-center gap-1 md:gap-4">
+            {category.map((cat, index) => (
+              <div
+                className={`rounded-[40px] px-2 text-[8px] md:px-4 md:text-[14px] ${index % 2 === 0 ? "bg-green-100" : "bg-orange-100"}`}
+                key={index}
+              >
+                {cat}
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="flex items-center gap-4">
-          {category.map((cat, index) => (
-            <div
-              className={`rounded-[40px] px-4 ${index % 2 === 0 ? "bg-green-100" : "bg-orange-100"}`}
-              key={index}
-            >
-              {cat}
-            </div>
-          ))}
-        </div>
+
         <Link href="/supplier/detail-supplier">
-          <Button className="w-full cursor-pointer border-2 border-green-900 bg-orange-400 py-5 text-xl font-bold text-green-900 hover:scale-105">
+          <Button className="h-6 w-full cursor-pointer border-2 border-green-900 bg-orange-400 text-[8px] font-bold text-green-900 hover:scale-105 md:py-5 md:text-xl">
             Detail Supplier
           </Button>
         </Link>

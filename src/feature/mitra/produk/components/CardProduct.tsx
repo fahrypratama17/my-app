@@ -5,9 +5,11 @@ import { cardType } from "@/feature/mitra/produk/types/type";
 
 type Props = {
   data: cardType;
+  onEdit: () => void;
+  onDelete: () => void;
 };
 
-const CardProduct = ({ data }: Props) => {
+const CardProduct = ({ data, onEdit, onDelete }: Props) => {
   return (
     <Card className="rounded-[12px] bg-green-50">
       <CardHeader className="w-full">
@@ -38,10 +40,10 @@ const CardProduct = ({ data }: Props) => {
           </p>
           <div className="flex items-center justify-between gap-2">
             <div className="cursor-pointer rounded-lg bg-orange-100 p-2 hover:scale-105">
-              <Pen className="h-4 w-4 text-orange-700" />
+              <Pen onClick={onEdit} className="h-4 w-4 text-orange-700" />
             </div>
             <div className="cursor-pointer rounded-lg bg-[#FFE2E2] p-2 hover:scale-105">
-              <Trash2 className="h-4 w-4 text-[#FF4747]" />
+              <Trash2 onClick={onDelete} className="h-4 w-4 text-[#FF4747]" />
             </div>
           </div>
         </div>

@@ -2,7 +2,9 @@ import { Card, CardContent, CardHeader } from "@/shared/component/ui/card";
 import { ShoppingCart, SendHorizontal } from "lucide-react";
 import { Button } from "@/shared/component/ui/button";
 
-const RincianPesananCard = () => {
+type Props = { onBayar: () => void };
+
+const RincianPesananCard = ({ onBayar }: Props) => {
   return (
     <Card className="w-full rounded-[40px] border-2 border-green-900 py-0">
       <CardHeader className="flex items-center gap-4 rounded-none bg-orange-400 px-8 py-4 text-green-900">
@@ -37,7 +39,10 @@ const RincianPesananCard = () => {
           <p className="text-xl-medium">Total</p>
           <p className="text-2xl-bold">Rp 575.000</p>
         </div>
-        <Button className="text-2xl-bold mt-6 ml-auto flex w-[60%] cursor-pointer gap-4 rounded-[12px] border-2 border-green-900 bg-orange-50 py-6 hover:scale-105">
+        <Button
+          onClick={onBayar}
+          className="text-2xl-bold mt-6 ml-auto flex w-[60%] cursor-pointer gap-4 rounded-[12px] border-2 border-green-900 bg-orange-50 py-6 hover:scale-105"
+        >
           <div>
             <SendHorizontal />
           </div>

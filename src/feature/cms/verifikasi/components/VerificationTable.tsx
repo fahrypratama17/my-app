@@ -1,4 +1,4 @@
-import { Eye, ShoppingCart } from "lucide-react";
+import { Eye } from "lucide-react";
 import {
   Table,
   TableBody,
@@ -13,9 +13,10 @@ import { Button } from "@/shared/component/ui/button";
 
 type Props = {
   data: Verif[];
+  onBayar: () => void;
 };
 
-const VerificationTable = ({ data }: Props) => {
+const VerificationTable = ({ data, onBayar }: Props) => {
   return (
     <div>
       <Table className="w-full table-fixed">
@@ -66,7 +67,10 @@ const VerificationTable = ({ data }: Props) => {
                   className="relative rounded-[20px] bg-green-300 py-1 pr-8"
                   href=""
                 >
-                  <Button className="cursor-pointer bg-transparent text-start">
+                  <Button
+                    onClick={onBayar}
+                    className="cursor-pointer bg-transparent text-start"
+                  >
                     Detail
                   </Button>
                   <Eye

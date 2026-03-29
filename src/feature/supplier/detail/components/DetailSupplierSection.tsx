@@ -1,18 +1,25 @@
 "use client";
 
-import { ScrollArea } from "@/shared/component/ui/scroll-area";
+import { useState } from "react";
 import { ArrowLeft } from "lucide-react";
 import DetailSearchBar from "@/feature/supplier/detail/components/DetailSearchBar";
-import { useState } from "react";
 import DetailSupplierCard from "@/feature/supplier/detail/components/DetailSupplierCard";
 import { cardDetailData } from "@/feature/supplier/detail/data/data";
 import TampilkanButton from "@/feature/supplier/detail/components/TampilkanButton";
 import KeranjangButton from "@/feature/supplier/detail/components/KeranjangButton";
 import DaftarPesananCard from "@/feature/supplier/detail/components/DaftarPesananCard";
 import RincianPesananCard from "@/feature/supplier/detail/components/RincianPemesananCard";
+import ScanModal from "@/feature/supplier/cari/components/ScanModal";
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+} from "@/shared/component/ui/dialog";
+import { ScrollArea } from "@/shared/component/ui/scroll-area";
 
 const DetailSupplierSection = () => {
   const [showAll, setShowAll] = useState(false);
+  const [openScan, setOpenScan] = useState(false);
 
   const displayed = showAll ? cardDetailData : cardDetailData.slice(0, 9);
 
@@ -52,9 +59,16 @@ const DetailSupplierSection = () => {
 
         <div className="mx-auto mt-20 mb-20 grid w-[85%] grid-cols-[1.5fr_1fr] items-start justify-between gap-12">
           <DaftarPesananCard />
-          <RincianPesananCard />
+          <RincianPesananCard onBayar={() => setOpenScan(true)} />
         </div>
       </div>
+
+      <Dialog open={openScan} onOpenChange={setOpenScan}>
+        <DialogContent className="h-auto w-full max-w-[30%] rounded-[28px] border-none bg-transparent p-0 shadow-none md:max-w-[30%]">
+          <DialogTitle className="sr-only">Payment QRIS</DialogTitle>
+          <ScanModal />
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };

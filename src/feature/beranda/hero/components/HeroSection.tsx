@@ -67,7 +67,6 @@ const HeroSection = () => {
                   />
                 </div>
 
-                {/* BACKGROUND ANIMATION */}
                 <span className="absolute inset-0 origin-left scale-x-0 bg-orange-600 transition-transform duration-300 ease-out group-hover:scale-x-100"></span>
               </a>
             </motion.div>

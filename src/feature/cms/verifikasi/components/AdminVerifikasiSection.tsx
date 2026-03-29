@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import { Input } from "@/shared/component/ui/input";
 import { ChevronDown, Search } from "lucide-react";
 import {
@@ -10,8 +13,16 @@ import {
 import { Button } from "@/shared/component/ui/button";
 import VerificationTable from "@/feature/cms/verifikasi/components/VerificationTable";
 import { verif } from "@/feature/cms/verifikasi/data/data";
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+} from "@/shared/component/ui/dialog";
+import VerifModal from "@/feature/cms/verifikasi/components/VerifModal";
 
 const AdminVerifikasiSection = () => {
+  const [openScan, setOpenScan] = useState(false);
+
   return (
     <section>
       <div className="shadow-[0_4px_2px_#0000000A]">
@@ -66,8 +77,17 @@ const AdminVerifikasiSection = () => {
             </DropdownMenu>
           </div>
         </div>
-        <VerificationTable data={verif} />
+        <VerificationTable data={verif} onBayar={() => setOpenScan(true)} />
       </div>
+      <Dialog open={openScan} onOpenChange={setOpenScan}>
+        <DialogContent className="h-auto w-full max-w-[50%] gap-0 overflow-hidden rounded-[28px] border-none bg-transparent p-0 shadow-none md:max-w-[50%]">
+          <DialogTitle className="m-0 flex flex-col gap-2 rounded-t-[28px] bg-green-50 px-13 py-4 shadow-[0px_20px_10px_0px_black]">
+            <p className="text-3xl font-bold">Detail Verifikasi</p>
+            <p className="text-md font-medium">SUP-101</p>
+          </DialogTitle>
+          <VerifModal />
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };

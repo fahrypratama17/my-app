@@ -8,13 +8,17 @@ type Props = {
 
 const AdminCard = ({ icon, title, value }: Props) => {
   return (
-    <Card className="rounded-[24px] px-8 py-10">
-      <CardContent className="flex flex-col gap-3">
+    <Card className="rounded-[24px] px-2 py-4 md:px-8 md:py-10">
+      <CardContent className="flex flex-col gap-1 md:gap-3">
         <div className="flex items-center text-orange-700">
           <div className="rounded-[11px] bg-orange-100 p-2">{icon}</div>
         </div>
-        <p className="text-lg-semibold text-green-900">{title}</p>
-        <p className="text-8xl-bold text-green-900">{value}</p>
+        <p className="text-[8px] font-semibold text-green-900 md:text-lg">
+          {title}
+        </p>
+        <p className="text-[36px] font-bold text-green-900 md:text-8xl">
+          {value}
+        </p>
       </CardContent>
     </Card>
   );

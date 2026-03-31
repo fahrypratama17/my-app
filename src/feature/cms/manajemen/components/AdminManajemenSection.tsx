@@ -25,7 +25,7 @@ const AdminManajemenSection = () => {
   return (
     <section>
       <div className="shadow-[0_4px_2px_#0000000A]">
-        <div className="flex w-[90%] items-center justify-between px-12 py-7">
+        <div className="hidden w-[90%] items-center justify-between px-12 py-7 md:flex">
           <h1 className="text-2xl-bold text-green-900">
             Ringkasan Dashboard Admin
           </h1>
@@ -38,19 +38,21 @@ const AdminManajemenSection = () => {
           </div>
         </div>
       </div>
-      <div className="flex w-[85%] flex-col items-start justify-between gap-12 px-12 py-7">
+      <div className="mx-auto flex w-[90%] flex-col items-start justify-between gap-6 md:mx-0 md:w-[85%] md:gap-12 md:px-12 md:py-7">
         <div className="flex flex-col gap-2 text-green-700">
-          <h2 className="text-4xl-bold">Monitoring Pesanan</h2>
-          <p className="text-lg-medium">Pantau semua aktivitas pesanan</p>
+          <h2 className="text-[24px] font-bold md:text-4xl">Manajemen Mitra</h2>
+          <p className="text-[12px] font-medium md:text-lg">
+            Kelola supplier yang telah disetujui di platform PANGANTARA.
+          </p>
         </div>
         <div className="grid w-full grid-cols-[2fr_0.6fr] gap-6">
           <div className="relative w-full">
             <Input
-              className="peer border-2 border-green-900 bg-white transition-all duration-200 placeholder:font-medium placeholder:text-[#A7A7A7] placeholder-shown:px-10 active:ring-2"
+              className="peer border-2 border-green-900 bg-white py-1 text-[8px] transition-all duration-200 placeholder:text-[8px] placeholder:text-[#A7A7A7] placeholder-shown:px-10 active:ring-2 md:py-5 md:text-lg md:placeholder:text-lg md:placeholder:font-medium"
               placeholder="Cari Pesanan"
             />
 
-            <Search className="pointer-events-none absolute top-2.5 left-3 text-[#A7A7A7] opacity-0 transition-opacity peer-placeholder-shown:opacity-100" />
+            <Search className="pointer-events-none absolute top-1 left-3 p-1 text-[#A7A7A7] opacity-0 transition-opacity peer-placeholder-shown:opacity-100 md:top-2.5 md:p-0" />
           </div>
           <div className="w-full">
             <DropdownMenu>
@@ -59,8 +61,8 @@ const AdminManajemenSection = () => {
                 className="flex items-center justify-between"
               >
                 <Button className="flex h-full w-full items-center justify-between border-2 border-green-900 bg-transparent text-[#A7A7A7]">
-                  <p>Semua</p>
-                  <ChevronDown />
+                  <p className="text-[8px] font-medium md:text-lg">Semua</p>
+                  <ChevronDown className="p-1 md:p-0" />
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent>
@@ -74,7 +76,7 @@ const AdminManajemenSection = () => {
             </DropdownMenu>
           </div>
         </div>
-        <div className="grid w-full grid-cols-2 gap-x-14 gap-y-16">
+        <div className="grid w-full grid-cols-2 gap-4 md:gap-x-14 md:gap-y-16">
           {cardData.map((item) => (
             <ManajemenCard
               onBayar={() => setOpenScan(true)}
@@ -86,10 +88,12 @@ const AdminManajemenSection = () => {
       </div>
 
       <Dialog open={openScan} onOpenChange={setOpenScan}>
-        <DialogContent className="h-auto w-full max-w-[50%] gap-0 overflow-hidden rounded-[28px] border-none bg-transparent p-0 shadow-none md:max-w-[50%]">
-          <DialogTitle className="m-0 flex flex-col gap-2 rounded-t-[28px] bg-green-50 px-13 py-4 shadow-[0px_20px_10px_0px_black]">
-            <p className="text-3xl font-bold">Tani Jaya Makmur</p>
-            <p className="text-md font-medium">SUP-101</p>
+        <DialogContent className="h-auto w-full gap-0 overflow-hidden rounded-[28px] border-none bg-transparent p-0 shadow-none md:max-w-[50%]">
+          <DialogTitle className="m-0 flex flex-col gap-2 rounded-t-[28px] bg-green-50 px-4 py-6 shadow-[0px_20px_10px_0px_black] md:px-13">
+            <p className="text-[18px] font-bold md:text-3xl">
+              Tani Jaya Makmur
+            </p>
+            <p className="text-[8px] font-medium md:text-[16px]">SUP-101</p>
           </DialogTitle>
           <ManajemenModal />
         </DialogContent>

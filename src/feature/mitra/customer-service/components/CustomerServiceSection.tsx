@@ -5,7 +5,7 @@ const CustomeServiceSection = () => {
   return (
     <section>
       <div className="shadow-[0_4px_2px_#0000000A]">
-        <div className="flex w-[90%] items-center justify-between px-12 py-7">
+        <div className="hidden w-[90%] items-center justify-between px-12 py-7 md:flex">
           <h1 className="text-2xl-bold text-green-900">
             Ringkasan Dashboard Mitra
           </h1>
@@ -18,7 +18,7 @@ const CustomeServiceSection = () => {
           </div>
         </div>
       </div>
-      <div className="flex h-[100vh] flex-col items-center justify-center gap-10 md:h-[120vh] md:gap-25">
+      <div className="flex h-[80vh] flex-col items-center justify-center gap-10 md:h-[120vh] md:gap-25">
         <div className="flex w-[80%] flex-col gap-2 text-center md:w-[60%] md:gap-4">
           <h1 className="text-[20px] font-bold text-green-800 md:text-5xl">
             Butuh Bantuan Lebih Lanjut?

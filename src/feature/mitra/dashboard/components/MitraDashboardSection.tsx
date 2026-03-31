@@ -10,7 +10,6 @@ import Link from "next/link";
 import { Button } from "@/shared/component/ui/button";
 import { useState } from "react";
 import { verif } from "@/feature/cms/verifikasi/data/data";
-import VerifikasiCardMobile from "@/feature/cms/verifikasi/components/VerifikasiCardMobile";
 import DashboardCardMobile from "@/feature/mitra/dashboard/components/DashboardCardMobile";
 
 const cardProductData = [

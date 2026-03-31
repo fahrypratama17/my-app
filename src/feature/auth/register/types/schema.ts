@@ -23,7 +23,7 @@ export const registerSchema = z.object({
     .string()
     .min(8, "Password minimal 8 karakter")
     .max(50, "Password maksimal 8 karakter"),
-  role: z.enum([Roles.admin, Roles.sppg, Roles.admin]),
+  role: z.enum([Roles.admin, Roles.sppg, Roles.supplier]),
 });
 
 export type TRegisterRequest = z.infer<typeof registerSchema>;

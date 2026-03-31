@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import {
   Tabs,
   TabsContent,
@@ -63,9 +64,12 @@ const Register = ({ type, onChangeTab }: Props) => {
         <div className="mx-auto w-[80%] space-y-4">
           <p className="mt-2 text-center text-[10px] font-medium text-[#A9A9A9] md:text-[16px]">
             Sudah punya akun?{" "}
-            <span className="inline-block cursor-pointer font-bold text-green-900 transition-transform duration-200 hover:scale-105">
+            <Link
+              href="/login"
+              className="inline-block cursor-pointer font-bold text-green-900 transition-transform duration-200 hover:scale-105"
+            >
               Masuk
-            </span>
+            </Link>
           </p>
         </div>
       </div>

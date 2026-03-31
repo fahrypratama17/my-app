@@ -17,7 +17,7 @@ type Props = {
 
 const PesananTable = ({ data }: Props) => {
   return (
-    <div>
+    <div className="hidden md:block">
       <div className="flex w-full items-center justify-between rounded-t-[12px] border border-b-0 border-green-900 bg-green-600 p-7">
         <div className="flex items-center gap-5">
           <div className="rounded-full border-2 border-orange-900 bg-orange-600 p-4 text-orange-50">

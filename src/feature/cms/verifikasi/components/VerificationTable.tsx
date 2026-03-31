@@ -18,7 +18,7 @@ type Props = {
 
 const VerificationTable = ({ data, onBayar }: Props) => {
   return (
-    <div>
+    <div className="hidden md:block">
       <Table className="w-full table-fixed">
         <TableHeader className="border">
           <TableRow className="w-full">

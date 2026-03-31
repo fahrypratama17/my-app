@@ -17,7 +17,7 @@ type Props = {
 
 const AdminTable = ({ data }: Props) => {
   return (
-    <div>
+    <div className="hidden md:block">
       <div className="flex w-full items-center justify-between rounded-t-[12px] border border-b-0 border-green-900 bg-green-50 p-7">
         <div className="flex items-center gap-5">
           <div className="rounded-full bg-orange-50 p-4 text-orange-600">
@@ -39,28 +39,28 @@ const AdminTable = ({ data }: Props) => {
       <Table className="w-full table-fixed">
         <TableHeader className="border">
           <TableRow className="w-full">
-            <TableHead className="w-28.5 border border-green-900 bg-green-50 text-center wrap-break-word whitespace-normal">
+            <TableHead className="w-28.5 border border-green-900 bg-green-100 text-center wrap-break-word whitespace-normal">
               ID Pesanan
             </TableHead>
-            <TableHead className="w-28.5 border border-green-900 bg-green-50 text-center wrap-break-word whitespace-normal">
+            <TableHead className="w-28.5 border border-green-900 bg-green-100 text-center wrap-break-word whitespace-normal">
               Dapur SPPG
             </TableHead>
-            <TableHead className="w-28.5 border border-green-900 bg-green-50 text-center wrap-break-word whitespace-normal">
+            <TableHead className="w-28.5 border border-green-900 bg-green-100 text-center wrap-break-word whitespace-normal">
               Mitra
             </TableHead>
-            <TableHead className="w-28.5 border border-green-900 bg-green-50 text-center wrap-break-word whitespace-normal">
+            <TableHead className="w-28.5 border border-green-900 bg-green-100 text-center wrap-break-word whitespace-normal">
               Produk
             </TableHead>
-            <TableHead className="w-28.5 border border-green-900 bg-green-50 text-center wrap-break-word whitespace-normal">
+            <TableHead className="w-28.5 border border-green-900 bg-green-100 text-center wrap-break-word whitespace-normal">
               Jumlah
             </TableHead>
-            <TableHead className="w-28.5 border border-green-900 bg-green-50 text-center wrap-break-word whitespace-normal">
+            <TableHead className="w-28.5 border border-green-900 bg-green-100 text-center wrap-break-word whitespace-normal">
               Total
             </TableHead>
-            <TableHead className="w-28.5 border border-green-900 bg-green-50 text-center wrap-break-word whitespace-normal">
+            <TableHead className="w-28.5 border border-green-900 bg-green-100 text-center wrap-break-word whitespace-normal">
               Tanggal
             </TableHead>
-            <TableHead className="w-28.5 border border-green-900 bg-green-50 text-center wrap-break-word whitespace-normal">
+            <TableHead className="w-28.5 border border-green-900 bg-green-100 text-center wrap-break-word whitespace-normal">
               Status
             </TableHead>
           </TableRow>

@@ -18,7 +18,10 @@ const SidebarCMS = () => {
   const pathname = usePathname();
 
   return (
-    <Sidebar collapsible="none" className="h-full w-full max-w-xs bg-green-50">
+    <Sidebar
+      collapsible="none"
+      className="hidden h-full w-full max-w-xs bg-green-50 md:block"
+    >
       <SidebarHeader className="border-b border-b-[#A7A7A7] py-6">
         <div className="mx-auto flex w-[80%] flex-row items-center justify-center gap-1 rounded-[40px] border border-green-800 bg-white py-2">
           <Image src="/logo/logo.svg" alt="Logo" width={37} height={42} />

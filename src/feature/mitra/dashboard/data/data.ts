@@ -36,7 +36,7 @@ export const mitraData = [
     aksi: "Proses",
   },
   {
-    id: "#ORD-MBG-7730",
+    id: "#ORD-MBG-7733",
     pembeli: "SPPG Klojen",
     produk: "Tomat Segar Mantap Nikmat",
     jumlah: "12 Kg",
@@ -45,7 +45,7 @@ export const mitraData = [
     aksi: "Kirim",
   },
   {
-    id: "#ORD-MBG-7731",
+    id: "#ORD-MBG-7734",
     pembeli: "SPPG Klojen",
     produk: "Tomat Segar Mantap Nikmat",
     jumlah: "12 Kg",
@@ -63,7 +63,7 @@ export const mitraData = [
     aksi: "Proses",
   },
   {
-    id: "#ORD-MBG-7730",
+    id: "#ORD-MBG-7736",
     pembeli: "SPPG Klojen",
     produk: "Tomat Segar Mantap Nikmat",
     jumlah: "12 Kg",
@@ -81,7 +81,7 @@ export const mitraData = [
     aksi: "Proses",
   },
   {
-    id: "#ORD-MBG-7731",
+    id: "#ORD-MBG-7738",
     pembeli: "SPPG Klojen",
     produk: "Tomat Segar Mantap Nikmat",
     jumlah: "12 Kg",

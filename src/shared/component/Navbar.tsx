@@ -180,7 +180,7 @@ const Navbar = () => {
                   key={index}
                   href={item.href}
                   onClick={() => setIsOpen(false)}
-                  className="text-2xl font-bold text-white transition hover:text-orange-400"
+                  className="text-[18px] font-bold text-white transition hover:text-orange-400 md:text-2xl"
                 >
                   {item.name}
                 </Link>

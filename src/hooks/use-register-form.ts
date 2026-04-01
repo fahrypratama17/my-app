@@ -1,31 +1,15 @@
-"use client";
+import { useRegisterMutation } from "@/shared/repository/register/query";
+import type { TRegisterRequest } from "@/feature/auth/register/types/schema";
 
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { useRouter } from "next/navigation";
-import { registerAction } from "@/shared/repository/register/action";
-// optional kalau ada util toast di project kamu
-// import { errorToast, successToast } from "@/shared/lib/toast";
+export const useRegisterForm = () => {
+  const { mutate, isPending } = useRegisterMutation();
 
-const queryKey = {
-  auth: ["auth-session"],
+  const handleSubmit = (data: TRegisterRequest) => {
+    mutate(data);
+  };
+
+  return {
+    handleSubmit,
+    isPending,
+  };
 };
-
-export function useRegisterMutation() {
-  const queryClient = useQueryClient();
-  const router = useRouter();
-
-  return useMutation({
-    mutationKey: ["auth", "register"],
-    mutationFn: (formData: FormData) => registerAction(formData),
-    onSuccess: async (res) => {
-      if (!res.success) {
-        // errorToast("Gagal Register", { description: res.error || res.message });
-        return;
-      }
-
-      // successToast("Berhasil Register", { description: res.message });
-      router.push("/register-success"); // atau "/login"
-      await queryClient.refetchQueries({ queryKey: queryKey.auth });
-    },
-  });
-}

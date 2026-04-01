@@ -6,19 +6,21 @@ import { Eye, EyeClosed } from "lucide-react";
 
 interface FormInputProps {
   type?: string;
+  value?: string;
   placeholder: string;
   className?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
 }
 
 export const FormInput = ({
-                            type = "text",
-                            placeholder,
-                            className,
-                            leftIcon,
-                            rightIcon,
-                          }: FormInputProps) => {
+  type = "text",
+  placeholder,
+  className,
+  leftIcon,
+  rightIcon,
+}: FormInputProps) => {
   const [show, setShow] = useState(false);
   const isPassword = type === "password";
 

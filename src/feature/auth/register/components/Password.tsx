@@ -1,11 +1,36 @@
+"use client";
+
 import Image from "next/image";
 import { Field } from "@/shared/component/ui/field";
 import { KeyRound } from "lucide-react";
 import { Button } from "@/shared/component/ui/button";
 import { FormInput } from "@/shared/component/auth/FormInput";
-import Link from "next/link";
+import { useRegisterMutation } from "@/shared/repository/register/query";
+import { useRegisterStore } from "@/shared/store/useRegisterStore";
+import { useRouter } from "next/navigation";
 
 const Password = () => {
+  const { password, confirmPassword, setField } = useRegisterStore();
+  const { mutate } = useRegisterMutation();
+  const router = useRouter();
+
+  const handleSubmit = () => {
+    const state = useRegisterStore.getState();
+
+    if (state.password !== state.confirmPassword) {
+      alert("Password tidak sama");
+      return;
+    }
+
+    mutate({
+      name: state.name,
+      email: state.email,
+      password: state.password,
+      confirm_password: state.confirmPassword,
+      role: state.role,
+    });
+    router.push("/form-1");
+  };
   return (
     <section className="flex h-screen items-center justify-center bg-[#F4F4F4]">
       <div className="mx-auto h-auto w-full max-w-[90%] space-y-8 rounded-[40px] border-3 border-green-900 bg-green-50 p-4 py-8 shadow-[2px_2px_0px_0px_var(--color-green-900)] md:h-[85vh] md:max-w-[35%] md:space-y-11 md:p-10 md:py-16 md:shadow-[4px_4px_0px_0px_var(--color-green-900)]">
@@ -50,11 +75,12 @@ const Password = () => {
         </Field>
         <div className="mx-auto flex w-[80%] flex-col space-y-12 md:space-y-24">
           <div className="w-full gap-4">
-            <Link href="/form-1">
-              <Button className="h-8 w-full cursor-pointer rounded-[36px] border-2 border-green-900 bg-orange-600 text-[10px] text-white hover:scale-105 md:py-5 md:text-sm">
-                Daftar
-              </Button>
-            </Link>
+            <Button
+              onClick={handleSubmit}
+              className="h-8 w-full cursor-pointer rounded-[36px] border-2 border-green-900 bg-orange-600 text-[10px] text-white hover:scale-105 md:py-5 md:text-sm"
+            >
+              Daftar
+            </Button>
           </div>
           <p className="mt-2 text-center text-[10px] font-medium text-[#A9A9A9] md:text-[16px]">
             Sudah punya akun?{" "}

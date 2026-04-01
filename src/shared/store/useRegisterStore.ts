@@ -1,48 +1,39 @@
 import { create } from "zustand";
-import { persist, createJSONStorage } from "zustand/middleware";
+import { Roles } from "@/shared/lib/auth/role";
 
-type RegisterRole = "sppg" | "supplier";
-
-type RegisterDraftState = {
+type RegisterState = {
   name: string;
   email: string;
-  role: RegisterRole | null;
+  address: string;
   password: string;
   confirmPassword: string;
-  setStep1: (payload: {
-    name: string;
-    email: string;
-    role: RegisterRole;
-  }) => void;
-  setPassword: (payload: { password: string; confirmPassword: string }) => void;
+  role: Roles;
+
+  setField: (field: keyof RegisterState, value: string) => void;
   reset: () => void;
 };
 
-const initialState = {
+export const useRegisterStore = create<RegisterState>((set) => ({
   name: "",
   email: "",
-  role: null,
+  address: "",
   password: "",
   confirmPassword: "",
-};
+  role: Roles.sppg,
 
-export const useRegisterStore = create<RegisterDraftState>()(
-  persist(
-    (set) => ({
-      ...initialState,
-      setStep1: ({ name, email, role }) =>
-        set({
-          name: name.trim(),
-          email: email.trim(),
-          role,
-        }),
-      setPassword: ({ password, confirmPassword }) =>
-        set({ password, confirmPassword }),
-      reset: () => set(initialState),
+  setField: (field, value) =>
+    set((state) => ({
+      ...state,
+      [field]: value,
+    })),
+
+  reset: () =>
+    set({
+      name: "",
+      email: "",
+      address: "",
+      password: "",
+      confirmPassword: "",
+      role: Roles.sppg,
     }),
-    {
-      name: "register-draft",
-      storage: createJSONStorage(() => sessionStorage), // survive refresh tab
-    },
-  ),
-);
+}));

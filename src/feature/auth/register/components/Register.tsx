@@ -10,11 +10,13 @@ import {
 } from "@/shared/component/ui/tabs";
 import SPPGField from "@/feature/auth/register/components/SPPGField";
 import MitraField from "@/feature/auth/register/components/MitraField";
+import { useRegisterStore } from "@/shared/store/useRegisterStore";
 
 type TabType = "sppg" | "mitra";
 type Props = { type: TabType; onChangeTab: (val: TabType) => void };
 
 const Register = ({ type, onChangeTab }: Props) => {
+  const { setField } = useRegisterStore();
   return (
     <section className="flex h-screen items-center justify-center bg-[#F4F4F4]">
       <div className="mx-auto h-auto w-full max-w-[90%] space-y-4 rounded-[40px] border-3 border-green-900 bg-green-50 p-4 py-6 shadow-[2px_2px_0px_0px_var(--color-green-900)] md:h-[90vh] md:max-w-[35%] md:p-10 md:py-12 md:shadow-[4px_4px_0px_0px_var(--color-green-900)]">
@@ -36,7 +38,10 @@ const Register = ({ type, onChangeTab }: Props) => {
         <Tabs
           key={type}
           value={type}
-          onValueChange={(val) => onChangeTab(val as TabType)}
+          onValueChange={(val) => {
+            onChangeTab(val as TabType);
+            setField("role", val === "sppg" ? "sppg" : "supplier");
+          }}
           className="mx-auto w-[80%]"
         >
           <TabsList className="mb-6 flex w-full rounded-[32px] border-2 border-green-900 bg-[#E6E6E6] py-2 text-[8px] font-medium text-green-900 md:mb-12 md:py-4.5 md:text-sm">

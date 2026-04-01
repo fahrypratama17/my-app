@@ -2,23 +2,31 @@ import { Field } from "@/shared/component/ui/field";
 import { FormInput } from "@/shared/component/auth/FormInput";
 import { ArrowRight, Mail, MapPin, Package } from "lucide-react";
 import Link from "next/link";
+import { useRegisterStore } from "@/shared/store/useRegisterStore";
 
 const SPPGField = () => {
+  const { name, email, address, setField } = useRegisterStore();
   return (
     <Field className="mx-auto w-full">
       <div className="space-y-4 md:mb-9">
         <FormInput
           type="text"
+          value={name}
+          onChange={(e) => setField("name", e.target.value)}
           placeholder="Masukkan Nama Dapur"
           leftIcon={<Package size={20} className="h-4 w-4 md:h-5 md:w-5" />}
         />
         <FormInput
           type="text"
+          value={address}
+          onChange={(e) => setField("address", e.target.value)}
           placeholder="Masukkan Alamat"
           leftIcon={<MapPin size={20} className="h-4 w-4 md:h-5 md:w-5" />}
         />
         <FormInput
           type="email"
+          value={email}
+          onChange={(e) => setField("email", e.target.value)}
           placeholder="Masukkan Email"
           leftIcon={<Mail size={20} className="h-4 w-4 md:h-5 md:w-5" />}
         />

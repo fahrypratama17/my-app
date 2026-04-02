@@ -21,6 +21,8 @@ const queryKey = {
 };
 
 export const useForgotPasswordMutation = () => {
+  const router = useRouter();
+
   return useMutation({
     mutationKey: queryKey.forgotPassword,
     mutationFn: (data: TForgotPasswordRequest) => forgotPassword(data),
@@ -31,6 +33,7 @@ export const useForgotPasswordMutation = () => {
       }
 
       showForgotPasswordToast("forgotSuccess", res.data.message || res.message);
+      router.replace("/reset-password");
     },
   });
 };

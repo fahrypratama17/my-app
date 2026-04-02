@@ -4,7 +4,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import { createSession } from "@/shared/repository/session-manager/action";
 import { register } from "@/shared/repository/register/action";
-import { getRoleRedirectPath } from "@/shared/lib/role-redirect";
+import { getRegisterRedirectPath } from "@/shared/lib/role-redirect";
 import type { TRegisterRequest } from "@/feature/auth/register/types/schema";
 
 const queryKey = {
@@ -23,7 +23,7 @@ export const useRegisterMutation = () => {
         return;
       }
       await createSession(res.data.access_token);
-      router.push(getRoleRedirectPath(res.data.user.role));
+      router.push(getRegisterRedirectPath(res.data.user.role));
       queryClient.refetchQueries({ queryKey: queryKey.register });
     },
   });

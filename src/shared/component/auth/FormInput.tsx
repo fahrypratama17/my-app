@@ -16,8 +16,10 @@ interface FormInputProps {
 
 export const FormInput = ({
   type = "text",
+  value,
   placeholder,
   className,
+  onChange,
   leftIcon,
   rightIcon,
 }: FormInputProps) => {
@@ -28,6 +30,8 @@ export const FormInput = ({
     <div className="relative">
       <Input
         type={isPassword ? (show ? "text" : "password") : type}
+        value={value}
+        onChange={onChange}
         placeholder={placeholder}
         className={`peer bg-white py-3 text-[10px] ring-2 transition-all duration-200 placeholder:text-[10px] placeholder:font-medium md:py-5 md:text-[14px] md:placeholder:text-[14px] ${className} ${leftIcon ? "px-4 placeholder-shown:px-10" : "px-4"} ${rightIcon || isPassword ? "pr-10" : ""}`}
       />

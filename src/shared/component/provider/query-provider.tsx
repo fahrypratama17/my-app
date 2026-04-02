@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { Toaster } from "@/shared/component/ui/sonner";
 
 function QueryProvider({ children }: { children: React.ReactNode }) {
   const [queryClient] = useState(
@@ -20,6 +21,7 @@ function QueryProvider({ children }: { children: React.ReactNode }) {
   return (
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools initialIsOpen={false} />
+      <Toaster richColors position="top-right" />
       {children}
     </QueryClientProvider>
   );

@@ -21,7 +21,7 @@ export const useLoginMutation = () => {
         return;
       }
       await createSession(res.data.access_token);
-      router.push(getRoleRedirectPath(res.data.user.data.role));
+      router.push(getRoleRedirectPath(res.data.user.role));
       queryClient.refetchQueries({ queryKey: queryKey.login });
     },
   });

@@ -6,11 +6,9 @@ export interface ILoginRequest {
 }
 
 export interface ILoginResponse {
-  success: boolean;
-  message: string;
   access_token: string;
   refresh_token: string;
-  data: {
+  user: {
     user_id: string;
     name: string;
     email: string;

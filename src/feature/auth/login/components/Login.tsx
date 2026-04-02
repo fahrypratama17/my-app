@@ -55,7 +55,7 @@ const Login = () => {
             />
 
             <Link
-              href="/reset-password"
+              href="/forgot-password"
               className="block cursor-pointer text-end text-[8px] font-medium text-[#A9A9A9] hover:underline md:text-sm"
             >
               Lupa kata sandi?

@@ -1,5 +1,11 @@
 import { z } from "zod";
 
+export const forgotPasswordSchema = z.object({
+  email: z.email("Format email tidak valid"),
+});
+
+export type TForgotPasswordRequest = z.infer<typeof forgotPasswordSchema>;
+
 export const resetPasswordSchema = z
   .object({
 	token: z.string().min(1, "Token reset password tidak ditemukan"),

@@ -5,6 +5,16 @@ export interface IResetPasswordRequest {
 }
 
 export interface IResetPasswordResponse {
-  [key: string]: unknown;
+  success: boolean;
+  message: string;
+}
+
+export interface IForgotPasswordRequest {
+  email: string;
+}
+
+export interface IForgotPasswordResponse {
+  success: boolean;
+  message: string;
 }
 

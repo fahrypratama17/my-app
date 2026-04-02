@@ -37,6 +37,12 @@ export type ResetPasswordToastKey =
   | "resetFailed"
   | "resetSuccess";
 
+export type ForgotPasswordToastKey =
+  | "emailRequired"
+  | "emailInvalid"
+  | "forgotFailed"
+  | "forgotSuccess";
+
 const passwordToastMap: Record<PasswordToastKey, ToastConfig> = {
   passwordRequired: {
     type: "error",
@@ -170,6 +176,33 @@ const resetPasswordToastMap: Record<ResetPasswordToastKey, ToastConfig> = {
   },
 };
 
+const forgotPasswordToastMap: Record<ForgotPasswordToastKey, ToastConfig> = {
+  emailRequired: {
+    type: "error",
+    id: "forgot-password-email-required",
+    title: "Email Tidak Boleh Kosong!",
+    description: "Masukkan email terlebih dahulu.",
+  },
+  emailInvalid: {
+    type: "warning",
+    id: "forgot-password-email-invalid",
+    title: "Format email tidak valid",
+    description: "Pastikan format email sudah benar.",
+  },
+  forgotFailed: {
+    type: "error",
+    id: "forgot-password-failed",
+    title: "Gagal mengirim permintaan",
+    description: "Silakan coba lagi dalam beberapa saat.",
+  },
+  forgotSuccess: {
+    type: "success",
+    id: "forgot-password-success",
+    title: "Permintaan berhasil dikirim",
+    description: "Silakan cek email Anda untuk langkah selanjutnya.",
+  },
+};
+
 function showToast(config: ToastConfig) {
   if (config.type === "success") {
     toast.success(config.title, {
@@ -212,6 +245,23 @@ export function showResetPasswordToast(
   const config = resetPasswordToastMap[key];
 
   if (!description || key !== "resetFailed") {
+    showToast(config);
+    return;
+  }
+
+  showToast({
+    ...config,
+    description,
+  });
+}
+
+export function showForgotPasswordToast(
+  key: ForgotPasswordToastKey,
+  description?: string,
+) {
+  const config = forgotPasswordToastMap[key];
+
+  if (!description || (key !== "forgotFailed" && key !== "forgotSuccess")) {
     showToast(config);
     return;
   }

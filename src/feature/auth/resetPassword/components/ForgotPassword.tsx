@@ -3,14 +3,14 @@
 import Image from "next/image";
 import { Field } from "@/shared/component/ui/field";
 import { Button } from "@/shared/component/ui/button";
-import { KeyRound } from "lucide-react";
+import { Mail } from "lucide-react";
 import { FormInput } from "@/shared/component/auth/FormInput";
 import { Spinner } from "@/shared/component/ui/spinner";
-import { useResetPasswordForm } from "@/hooks";
+import { useForgotPasswordForm } from "@/hooks";
 
-const ResetPassword = () => {
+const ForgotPassword = () => {
   const { form, isPending, handleInputChange, handleSubmit } =
-    useResetPasswordForm();
+    useForgotPasswordForm();
 
   return (
     <section className="flex h-screen items-center justify-center bg-[#F4F4F4]">
@@ -27,31 +27,17 @@ const ResetPassword = () => {
             Lupa Kata Sandi?
           </p>
           <p className="w-[90%] pt-2 text-center text-[10px] font-medium text-green-900 md:w-full md:pt-4 md:text-sm">
-            Perbarui dan konfirmasi kata sandi.
+            Masukkan email untuk menerima tautan reset kata sandi.
           </p>
         </div>
         <Field className="mx-auto mb-8 w-[80%] md:mb-12">
           <form className="space-y-4" onSubmit={handleSubmit}>
             <FormInput
-              type="password"
-              value={form.new_password}
-              onChange={handleInputChange("new_password")}
-              placeholder="Masukkan Kata Sandi"
-              leftIcon={
-                <KeyRound className="h-4 w-4 rotate-90 md:h-5 md:w-5" />
-              }
-            />
-            <FormInput
-              type="password"
-              value={form.confirm_password}
-              onChange={handleInputChange("confirm_password")}
-              placeholder="Konfirmasi Kata Sandi"
-              leftIcon={
-                <KeyRound
-                  size={20}
-                  className="h-4 w-4 rotate-90 md:h-5 md:w-5"
-                />
-              }
+              type="email"
+              value={form.email}
+              onChange={handleInputChange("email")}
+              placeholder="Masukkan Email"
+              leftIcon={<Mail className="h-4 w-4 md:h-5 md:w-5" />}
             />
             <div className="mx-auto flex w-full flex-col space-y-12 pt-2 md:space-y-4">
               <Button
@@ -64,7 +50,7 @@ const ResetPassword = () => {
                     <p>Memproses...</p> <Spinner />
                   </>
                 ) : (
-                  "Masuk"
+                  "Lanjutkan"
                 )}
               </Button>
             </div>
@@ -75,4 +61,4 @@ const ResetPassword = () => {
   );
 };
 
-export default ResetPassword;
+export default ForgotPassword;

@@ -2,12 +2,37 @@
 
 import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
-import type { TResetPasswordRequest } from "@/feature/auth/resetPassword/types/schema";
-import { showResetPasswordToast } from "@/shared/component/toast";
-import { resetPassword } from "@/shared/repository/reset-password/action";
+import type {
+  TForgotPasswordRequest,
+  TResetPasswordRequest,
+} from "@/feature/auth/resetPassword/types/schema";
+import {
+  showForgotPasswordToast,
+  showResetPasswordToast,
+} from "@/shared/component/toast";
+import {
+  forgotPassword,
+  resetPassword,
+} from "@/shared/repository/reset-password/action";
 
 const queryKey = {
   resetPassword: ["reset-password"],
+  forgotPassword: ["forgot-password"],
+};
+
+export const useForgotPasswordMutation = () => {
+  return useMutation({
+    mutationKey: queryKey.forgotPassword,
+    mutationFn: (data: TForgotPasswordRequest) => forgotPassword(data),
+    onSuccess: (res) => {
+      if (!res.success) {
+        showForgotPasswordToast("forgotFailed", res.error || res.message);
+        return;
+      }
+
+      showForgotPasswordToast("forgotSuccess", res.data.message || res.message);
+    },
+  });
 };
 
 export const useResetPasswordMutation = () => {

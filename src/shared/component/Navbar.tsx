@@ -137,7 +137,7 @@ const Navbar = ({ authUser }: NavbarProps) => {
                 </button>
 
                 {isAccountMenuOpen && (
-                  <div className="absolute right-0 z-50 mt-2 min-w-40 rounded-2xl border border-green-900 bg-[#EEE6D4] shadow-md">
+                  <div className="absolute right-0 z-50 mt-2 w-full rounded-2xl border border-green-900 bg-[#EEE6D4] shadow-md">
                     <div className="border-b border-green-900 px-4 py-3">
                       <p className="text-base font-bold text-green-900">
                         {displayName}
@@ -156,7 +156,7 @@ const Navbar = ({ authUser }: NavbarProps) => {
                       {isLogoutPending ? (
                         "Memproses..."
                       ) : (
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center justify-center gap-2">
                           <LogOut className="p-1" /> <p>Keluar</p>
                         </div>
                       )}

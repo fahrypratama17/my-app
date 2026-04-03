@@ -1,11 +1,6 @@
-"use client";
-
-import { useState } from "react";
 import { Input } from "@/shared/component/ui/input";
 import {
   ChevronDown,
-  ChevronLeft,
-  ChevronRight,
   Search,
   ShoppingCart,
   UserRound,
@@ -21,7 +16,7 @@ import { Button } from "@/shared/component/ui/button";
 import { mitraData } from "@/feature/mitra/pesanan/data/data";
 import PesananTable from "@/feature/mitra/pesanan/components/PesananTable";
 import CardPesanan from "@/feature/mitra/pesanan/components/CardPesanan";
-import DashboardCardMobile from "@/feature/mitra/dashboard/components/DashboardCardMobile";
+import PesananMobilePagination from "@/feature/mitra/pesanan/components/PesananMobilePagination";
 
 const cardData = [
   {
@@ -52,17 +47,6 @@ const cardData = [
 ];
 
 const PesananSection = () => {
-  const ITEMS_PER_PAGE = 6;
-
-  const [currentPage, setCurrentPage] = useState(1);
-
-  const totalPages = Math.ceil(mitraData.length / ITEMS_PER_PAGE);
-
-  const paginatedData = mitraData.slice(
-    (currentPage - 1) * ITEMS_PER_PAGE,
-    currentPage * ITEMS_PER_PAGE,
-  );
-
   return (
     <section>
       <div className="shadow-[0_4px_2px_#0000000A]">
@@ -144,29 +128,7 @@ const PesananSection = () => {
             </DropdownMenu>
           </div>
         </div>
-        <div className="grid w-full grid-cols-2 gap-4 md:hidden">
-          <DashboardCardMobile data={paginatedData} />
-        </div>
-        <div className="mx-auto flex items-center justify-center gap-2 md:hidden">
-          <Button
-            disabled={currentPage === 1}
-            onClick={() => setCurrentPage((prev) => prev - 1)}
-          >
-            <ChevronLeft />
-          </Button>
-
-          <p className="text-[10px] font-bold text-green-800">
-            {currentPage} / {totalPages}
-          </p>
-
-          <Button
-            disabled={currentPage === totalPages}
-            onClick={() => setCurrentPage((prev) => prev + 1)}
-            className="text-[10px]"
-          >
-            <ChevronRight />
-          </Button>
-        </div>
+        <PesananMobilePagination data={mitraData} />
         <PesananTable data={mitraData} />
       </div>
     </section>

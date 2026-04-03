@@ -1,3 +1,5 @@
+"use client";
+
 import { Card } from "@/shared/component/ui/card";
 import { Beef, Carrot, Citrus, Milk } from "lucide-react";
 import { useFormStore } from "@/shared/store/useFormStore";

@@ -1,18 +1,8 @@
-"use client";
-
-import { useState } from "react";
 import MonitoringCard from "@/feature/cms/monitoring/components/MonitoringCard";
 import { Input } from "@/shared/component/ui/input";
 import MonitoringTable from "@/feature/cms/monitoring/components/MonitoringTable";
 import { orders } from "@/feature/cms/monitoring/data/data";
-import {
-  ChevronDown,
-  ChevronLeft,
-  ChevronRight,
-  Search,
-  ShoppingCart,
-  UserRound,
-} from "lucide-react";
+import { ChevronDown, Search, ShoppingCart } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -21,7 +11,7 @@ import {
   DropdownMenuTrigger,
 } from "@/shared/component/ui/dropdown-menu";
 import { Button } from "@/shared/component/ui/button";
-import MonitoringCardMobile from "@/feature/cms/monitoring/components/MonitoringCardMobile";
+import AdminMonitoringMobilePagination from "@/feature/cms/monitoring/components/AdminMonitoringMobilePagination";
 
 const cardData = [
   {
@@ -42,17 +32,6 @@ const cardData = [
 ];
 
 const AdminMonitoringSection = () => {
-  const ITEMS_PER_PAGE = 6;
-
-  const [currentPage, setCurrentPage] = useState(1);
-
-  const totalPages = Math.ceil(orders.length / ITEMS_PER_PAGE);
-
-  const paginatedData = orders.slice(
-    (currentPage - 1) * ITEMS_PER_PAGE,
-    currentPage * ITEMS_PER_PAGE,
-  );
-
   return (
     <section>
       <div className="shadow-[0_4px_2px_#0000000A]">
@@ -61,9 +40,7 @@ const AdminMonitoringSection = () => {
             Ringkasan Dashboard Admin
           </h1>
           <div className="flex items-center gap-4">
-            <div className="rounded-full bg-orange-600 p-3">
-              <UserRound className="text-white" />
-            </div>
+            <div className="h-13 w-13 rounded-full bg-orange-600"></div>
             <div>
               <p className="text-xl-bold text-green-800">Admin</p>
               <p className="text-sm-semibold text-green-400">Super Admin</p>
@@ -137,29 +114,8 @@ const AdminMonitoringSection = () => {
             </DropdownMenu>
           </div>
         </div>
-        <div className="grid w-full grid-cols-2 gap-4 md:hidden">
-          <MonitoringCardMobile data={paginatedData} />
-        </div>
-        <div className="mx-auto flex items-center justify-center gap-2 md:hidden">
-          <Button
-            disabled={currentPage === 1}
-            onClick={() => setCurrentPage((prev) => prev - 1)}
-          >
-            <ChevronLeft />
-          </Button>
 
-          <p className="text-[10px] font-bold text-green-800">
-            {currentPage} / {totalPages}
-          </p>
-
-          <Button
-            disabled={currentPage === totalPages}
-            onClick={() => setCurrentPage((prev) => prev + 1)}
-            className="text-[10px]"
-          >
-            <ChevronRight />
-          </Button>
-        </div>
+        <AdminMonitoringMobilePagination data={orders} />
 
         <MonitoringTable data={orders} />
       </div>

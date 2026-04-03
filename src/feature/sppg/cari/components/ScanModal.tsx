@@ -1,9 +1,41 @@
+"use client";
+
+import { useEffect, useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
 import { Card } from "@/shared/component/ui/card";
 import Image from "next/image";
 import { Button } from "@/shared/component/ui/button";
 import { RotateCw } from "lucide-react";
 
+const REDIRECT_DELAY_MS = 5000;
+const START_SECONDS = 60;
+
 const ScanModal = () => {
+  const router = useRouter();
+  const [secondsLeft, setSecondsLeft] = useState(START_SECONDS);
+  const [sessionKey, setSessionKey] = useState(0);
+
+  useEffect(() => {
+    const intervalId = window.setInterval(() => {
+      setSecondsLeft((prev) => Math.max(prev - 1, 0));
+    }, 1000);
+
+    const timeoutId = window.setTimeout(() => {
+      router.push("/sppg/pembayaran-berhasil");
+    }, REDIRECT_DELAY_MS);
+
+    return () => {
+      window.clearInterval(intervalId);
+      window.clearTimeout(timeoutId);
+    };
+  }, [router, sessionKey]);
+
+  const countdownLabel = useMemo(() => {
+    const minutes = String(Math.floor(secondsLeft / 60)).padStart(2, "0");
+    const seconds = String(secondsLeft % 60).padStart(2, "0");
+    return `${minutes}.${seconds}`;
+  }, [secondsLeft]);
+
   return (
     <div className="w-full rounded-[28px] bg-white py-8">
       <div className="flex items-start pb-10">
@@ -18,18 +50,12 @@ const ScanModal = () => {
       </div>
       <div className="flex flex-col items-center justify-center gap-3 md:gap-6">
         <Card className="w-full max-w-[80%] rounded-2xl border-4 border-green-900 p-0 md:max-w-[60%]">
-          <Image
-            src={"/images/QRIS-1.png"}
-            alt={"qris"}
-            width={1000}
-            height={1000}
-          />
+          <Image src={"/images/QRIS-1.png"} alt={"qris"} width={1000} height={1000} />
         </Card>
         <h2 className="text-[10px] font-medium text-green-500 md:text-xl">
           Kadaluarsa dalam
           <span className="text-[10px] font-bold text-green-700 md:text-xl">
-            {" "}
-            00.46
+            {` ${countdownLabel}`}
           </span>
         </h2>
         <div className="rounded-[40px] bg-green-50 px-8 py-2">
@@ -37,7 +63,14 @@ const ScanModal = () => {
             Order ID: #ORD-MBG-7729
           </p>
         </div>
-        <Button className="mt-3 flex w-full max-w-[60%] cursor-pointer items-center justify-center gap-1 rounded-[12px] border border-green-600 bg-orange-600 text-[8px] font-bold text-orange-50 md:mt-0 md:max-w-[90%] md:gap-4 md:border-2 md:py-6 md:text-xl">
+        <Button
+          type="button"
+          onClick={() => {
+            setSecondsLeft(START_SECONDS);
+            setSessionKey((prev) => prev + 1);
+          }}
+          className="mt-3 flex w-full max-w-[60%] cursor-pointer items-center justify-center gap-1 rounded-[12px] border border-green-600 bg-orange-600 text-[8px] font-bold text-orange-50 md:mt-0 md:max-w-[90%] md:gap-4 md:border-2 md:py-6 md:text-xl"
+        >
           Segarkan status <RotateCw className="p-1 md:p-0" />
         </Button>
       </div>

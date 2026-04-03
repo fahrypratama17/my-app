@@ -5,17 +5,18 @@ import { Eye } from "lucide-react";
 
 type Props = {
   data: Verif[];
-  onBayar: () => void;
+  onDetail: (supplier: Verif) => void;
 };
 
-const VerifikasiCardMobile = ({ data, onBayar }: Props) => {
+const VerifikasiCardMobile = ({ data, onDetail }: Props) => {
   return (
     <>
-      {data.map((item) => {
+      {data.map((item, index) => {
         const { id, usaha, pemilik, tanggal, status } = item;
+        const cardKey = `${item.supplierId}-${id}-${index}`;
 
         return (
-          <Card key={id} className="border border-green-900 bg-green-50 py-4">
+          <Card key={cardKey} className="border border-green-900 bg-green-50 py-4">
             <CardContent className="flex flex-col gap-4 px-2">
               <div className="grid w-full grid-cols-[1.5fr_0.5fr] justify-between">
                 <div className="flex flex-col">
@@ -43,7 +44,7 @@ const VerifikasiCardMobile = ({ data, onBayar }: Props) => {
               </div>
 
               <Button
-                onClick={onBayar}
+                onClick={() => onDetail(item)}
                 className="flex h-5 w-[50%] cursor-pointer items-center justify-between border border-green-900 bg-green-500 text-start text-[10px]"
               >
                 <p>Detail</p>

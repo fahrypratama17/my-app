@@ -8,15 +8,14 @@ import {
   TableRow,
 } from "@/shared/component/ui/table";
 import { Verif } from "@/feature/cms/verifikasi/types/type";
-import Link from "next/link";
 import { Button } from "@/shared/component/ui/button";
 
 type Props = {
   data: Verif[];
-  onBayar: () => void;
+  onDetail: (supplier: Verif) => void;
 };
 
-const VerificationTable = ({ data, onBayar }: Props) => {
+const VerificationTable = ({ data, onDetail }: Props) => {
   return (
     <div className="hidden md:block">
       <Table className="w-full table-fixed">
@@ -44,7 +43,7 @@ const VerificationTable = ({ data, onBayar }: Props) => {
         </TableHeader>
         <TableBody>
           {data.map((item, index) => (
-            <TableRow key={index}>
+            <TableRow key={`${item.supplierId}-${item.id}-${index}`}>
               <TableCell className="w-28.5 border border-green-900 bg-green-50 wrap-break-word whitespace-normal">
                 {item.id}
               </TableCell>
@@ -63,21 +62,16 @@ const VerificationTable = ({ data, onBayar }: Props) => {
                 </span>
               </TableCell>
               <TableCell className="w-28.5 border border-green-900 bg-green-50 text-center wrap-break-word whitespace-normal">
-                <Link
-                  className="relative rounded-[20px] bg-green-300 py-1 pr-8"
-                  href=""
+                <Button
+                  onClick={() => onDetail(item)}
+                  className="relative cursor-pointer rounded-[20px] bg-green-300 py-1 pr-8"
                 >
-                  <Button
-                    onClick={onBayar}
-                    className="cursor-pointer bg-transparent text-start"
-                  >
-                    Detail
-                  </Button>
+                  <span className="bg-transparent text-start">Detail</span>
                   <Eye
                     className="absolute top-1.5 right-1.5 text-white"
                     size={15}
                   />
-                </Link>
+                </Button>
               </TableCell>
             </TableRow>
           ))}

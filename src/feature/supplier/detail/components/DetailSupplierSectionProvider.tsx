@@ -22,8 +22,15 @@ const DetailSupplierSectionProvider = ({ children }: Props) => {
   );
 };
 
-export const useDetailSupplierSectionContext = () => {
+export const useDetailSupplierSectionContext = (): DetailSupplierSectionState => {
   const context = useContext(DetailSupplierSectionContext);
+
+  if (context === null) {
+    throw new Error(
+      "useDetailSupplierSectionContext must be used within DetailSupplierSectionProvider",
+    );
+  }
+
   return context;
 };
 

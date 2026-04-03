@@ -1,9 +1,11 @@
 import type { ApiResponse } from "@/shared/types/api/API-response";
 import type { IDashboardSummaryResponse } from "@/shared/repository/dashboard-summary/dto";
 
+const API_URL = "https://be-internship.bccdev.id/hanif/api/v1";
+
 export async function getDashboardSummary() {
   try {
-    const response = await fetch("/api/protected/dashboard/summary", {
+    const response = await fetch(`${API_URL}/dashboard/summary`, {
       method: "GET",
     });
 
@@ -49,4 +51,3 @@ export async function getDashboardSummary() {
     } as ApiResponse<IDashboardSummaryResponse>;
   }
 }
-

@@ -8,9 +8,11 @@ import type {
   IResetPasswordRequest,
 } from "@/shared/repository/reset-password/dto";
 
+const API_URL = "https://be-internship.bccdev.id/hanif/api/v1";
+
 export async function resetPassword(payload: IResetPasswordRequest) {
   return apiFetch<ResetPasswordResponse>({
-    url: "/api/auth/reset-password",
+    url: `${API_URL}/auth/reset-password`,
     options: {
       method: "POST",
       body: JSON.stringify(payload),
@@ -22,7 +24,7 @@ export async function resetPassword(payload: IResetPasswordRequest) {
 
 export async function forgotPassword(payload: IForgotPasswordRequest) {
   return apiFetch<ForgotPasswordResponse>({
-    url: "/api/auth/forgot-password",
+    url: `${API_URL}/auth/forgot-password`,
     options: {
       method: "POST",
       body: JSON.stringify(payload),

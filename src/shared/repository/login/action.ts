@@ -4,9 +4,11 @@ import { apiFetch } from "@/shared/lib/api/fetcher";
 import { LoginResponse } from "@/feature/auth/login/types/response";
 import type { ILoginUser } from "@/shared/repository/login/dto";
 
+const API_URL = "https://be-internship.bccdev.id/hanif/api/v1";
+
 export async function login(payload: TLoginRequest) {
   const res = await apiFetch<LoginResponse>({
-    url: "/api/auth/login",
+    url: `${API_URL}/auth/login`,
     options: { method: "POST", body: JSON.stringify(payload) },
   });
   return res;

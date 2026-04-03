@@ -1,10 +1,17 @@
 import { Input } from "@/shared/component/ui/input";
 import { Search } from "lucide-react";
 
-const DetailSearchBar = () => {
+type Props = {
+  value: string;
+  onChange: (value: string) => void;
+};
+
+const DetailSearchBar = ({ value, onChange }: Props) => {
   return (
     <div className="relative w-full">
       <Input
+        value={value}
+        onChange={(event) => onChange(event.target.value)}
         className="peer border-2 border-green-900 bg-white py-2 text-[8px] transition-all duration-200 placeholder:text-[8px] placeholder:font-medium placeholder:text-[#A7A7A7] active:ring-2 md:py-5 md:text-[16px] md:placeholder:text-[16px]"
         placeholder="Cari Produk"
       />

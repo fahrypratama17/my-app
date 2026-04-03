@@ -2,15 +2,29 @@ import { Card, CardContent, CardHeader } from "@/shared/component/ui/card";
 import { ShoppingCart, SendHorizontal } from "lucide-react";
 import { Button } from "@/shared/component/ui/button";
 
-type Props = { onBayar: () => void };
+type Props = {
+  onBayar: () => void;
+  subtotal: number;
+  shippingCost: number;
+  tax: number;
+  total: number;
+  formatCurrency: (value: number) => string;
+};
 
-const RincianPesananCard = ({ onBayar }: Props) => {
+const RincianPesananCard = ({
+  onBayar,
+  subtotal,
+  shippingCost,
+  tax,
+  total,
+  formatCurrency,
+}: Props) => {
   return (
     <Card className="w-full rounded-[16px] border-2 border-green-900 py-0 md:rounded-[40px]">
       <CardHeader className="flex items-center gap-2 rounded-none bg-orange-400 px-4 py-4 text-green-900 md:gap-4 md:px-8">
         <ShoppingCart className="p-1 md:p-0" />
         <div>
-          <p className="text-[12px] font-bold md:text-3xl">Daftar Pesanan</p>
+          <p className="text-[12px] font-bold md:text-3xl">Rincian Pemesanan</p>
           <p className="text-[10px] font-semibold md:text-lg">
             Order ID: #ORD-MBG-7729
           </p>
@@ -22,7 +36,7 @@ const RincianPesananCard = ({ onBayar }: Props) => {
             <p className="text-[10px] font-medium md:text-xl">Subtotal</p>
           </div>
           <p className="text-[10px] font-bold text-green-900 md:text-xl">
-            Rp 550.000
+            {formatCurrency(subtotal)}
           </p>
         </div>
         <div className="flex items-center justify-between">
@@ -32,7 +46,7 @@ const RincianPesananCard = ({ onBayar }: Props) => {
             </p>
           </div>
           <p className="text-[10px] font-bold text-green-900 md:text-xl">
-            Rp 20.000
+            {formatCurrency(shippingCost)}
           </p>
         </div>
         <div className="flex items-center justify-between">
@@ -42,12 +56,12 @@ const RincianPesananCard = ({ onBayar }: Props) => {
             </p>
           </div>
           <p className="text-[10px] font-bold text-green-900 md:text-xl">
-            Rp 5.000
+            {formatCurrency(tax)}
           </p>
         </div>
         <div className="mt-3 flex items-center justify-between rounded-[6px] bg-green-800 px-2 py-1 text-green-50 md:mt-0 md:rounded-[12px] md:px-6 md:py-2">
           <p className="text-[10px] font-medium md:text-xl">Total</p>
-          <p className="text-[12px] font-bold md:text-2xl">Rp 575.000</p>
+          <p className="text-[12px] font-bold md:text-2xl">{formatCurrency(total)}</p>
         </div>
         <Button
           onClick={onBayar}

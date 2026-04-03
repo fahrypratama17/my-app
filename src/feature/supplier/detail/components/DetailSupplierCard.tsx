@@ -4,24 +4,16 @@ import { Card, CardAction, CardContent } from "@/shared/component/ui/card";
 import { cardType } from "@/feature/supplier/detail/types/type";
 import Image from "next/image";
 import { Minus, Plus } from "lucide-react";
-import { useState } from "react";
 import { Button } from "@/shared/component/ui/button";
 
 type Props = {
   data: cardType;
+  quantity: number;
+  onIncrease: () => void;
+  onDecrease: () => void;
 };
 
-const DetailSupplierCard = ({ data }: Props) => {
-  const [quantity, setQuantity] = useState(0);
-
-  const handlePlus = () => {
-    setQuantity((prev) => prev + 1);
-  };
-
-  const handleMinus = () => {
-    setQuantity((prev) => (prev > 0 ? prev - 1 : 0));
-  };
-
+const DetailSupplierCard = ({ data, quantity, onIncrease, onDecrease }: Props) => {
   return (
     <Card className="flex flex-col justify-between">
       <CardContent className="grid grid-cols-[0.7fr_1fr] gap-1 px-2 md:gap-5 md:px-4">
@@ -50,7 +42,7 @@ const DetailSupplierCard = ({ data }: Props) => {
         </p>
         <div className="flex items-center justify-between gap-1 md:gap-4">
           <Button
-            onClick={handleMinus}
+            onClick={onDecrease}
             className="h-4 cursor-pointer rounded-[12px] bg-green-100 p-0 hover:bg-green-200 md:h-8 md:p-1 md:px-2"
           >
             <Minus className="p-1 md:p-0" />
@@ -61,7 +53,7 @@ const DetailSupplierCard = ({ data }: Props) => {
             {quantity}
           </p>
           <Button
-            onClick={handlePlus}
+            onClick={onIncrease}
             className="h-4 cursor-pointer rounded-[12px] bg-orange-500 p-0 hover:bg-orange-600 md:h-8 md:p-1 md:px-2"
           >
             <Plus className="p-1 md:p-0" />

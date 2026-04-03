@@ -11,11 +11,14 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/shared/component/ui/sidebar";
+import { useLogoutMutation } from "@/shared/repository/login/query";
 import Image from "next/image";
 import Link from "next/link";
+import { LogOut } from "lucide-react";
 
 const SidebarCMS = () => {
   const pathname = usePathname();
+  const { mutate: logout, isPending: isLogoutPending } = useLogoutMutation();
 
   return (
     <Sidebar
@@ -91,6 +94,17 @@ const SidebarCMS = () => {
                 >
                   Customer Service
                 </Link>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+
+            <SidebarMenuItem className="mt-2 pt-2">
+              <SidebarMenuButton
+                onClick={() => logout()}
+                disabled={isLogoutPending}
+                className="cursor-pointer rounded-[12px] bg-green-500 text-white transition-colors duration-200 hover:bg-green-600 hover:text-white disabled:cursor-not-allowed disabled:opacity-60"
+              >
+                <LogOut className="size-4" />
+                <span>{isLogoutPending ? "Memproses..." : "Logout"}</span>
               </SidebarMenuButton>
             </SidebarMenuItem>
           </SidebarMenu>

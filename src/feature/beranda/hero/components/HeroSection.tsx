@@ -14,7 +14,7 @@ const HeroSection = () => {
       initial="hidden"
       whileInView="show"
       viewport={{ once: true }}
-      className="w-full max-w-full bg-[url(/images/beranda-1.png)] bg-cover bg-center bg-no-repeat"
+      className="w-full max-w-full bg-[url(/images/beranda-1.webp)] bg-cover bg-center bg-no-repeat"
     >
       <div className="mx-auto grid w-[90%] grid-cols-[1fr_0.8fr] md:w-[80%]">
         <div className="flex min-h-[50vh] w-[90%] items-center justify-center md:h-[110vh]">
@@ -79,14 +79,14 @@ const HeroSection = () => {
           <div className="grid grid-cols-2 gap-4">
             <div className="flex flex-col gap-6">
               <Image
-                src={"/images/hero-1.png"}
+                src={"/images/hero-1.webp"}
                 alt={"hero-1"}
                 width={249}
                 height={279}
                 className="aspect-249/279"
               />
               <Image
-                src={"/images/hero-2.png"}
+                src={"/images/hero-2.webp"}
                 alt={"hero-2"}
                 width={249}
                 height={198}
@@ -95,7 +95,7 @@ const HeroSection = () => {
             </div>
             <div className="flex items-center justify-center">
               <Image
-                src={"/images/hero-3.png"}
+                src={"/images/hero-3.webp"}
                 alt={"hero-3"}
                 width={249}
                 height={349}

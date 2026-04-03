@@ -1,11 +1,7 @@
-"use client";
-
-import { useIsMobile } from "@/hooks/use-mobile";
 import { Card } from "@/shared/component/ui/card";
+import ResponsiveStepText from "@/feature/beranda/alur/components/ResponsiveStepText";
 
 const Mitra = () => {
-  const isMobile = useIsMobile();
-
   return (
     <Card className="mx-auto mt-10 mb-10 flex w-[90%] items-center justify-center gap-6 rounded-[28px] border-2 border-green-800 bg-green-50 p-0 md:mt-20 md:mb-20 md:w-[85%] md:rounded-[100px] md:border-4 md:py-8">
       <div className="px-4 py-2 pb-4 md:px-20 md:py-5 md:pb-0">
@@ -38,22 +34,20 @@ const Mitra = () => {
               <p className="text-start text-[10px] font-bold text-green-900 md:text-2xl">
                 Pendaftaran & Verifikasi Mitra
               </p>
-              <p className="text-[8px] font-medium text-green-900 md:text-[16px]">
-                {isMobile
-                  ? "Mitra mendaftar di platform Pangantara dan mengikuti sesi verifikasi online."
-                  : "Mitra mendaftar di platform Pangantara dan mengikuti sesi verifikasi online dengan tim untuk memastikan kelayakan serta standar kualitas."}
-              </p>
+              <ResponsiveStepText
+                mobileText="Mitra mendaftar di platform Pangantara dan mengikuti sesi verifikasi online."
+                desktopText="Mitra mendaftar di platform Pangantara dan mengikuti sesi verifikasi online dengan tim untuk memastikan kelayakan serta standar kualitas."
+              />
             </div>
 
             <div className="flex w-full flex-col justify-center gap-3 rounded-2xl pl-4 md:gap-6 md:pl-0">
               <p className="text-start text-[10px] font-bold text-green-900 md:text-2xl">
                 Mengunggah Produk
               </p>
-              <p className="text-[8px] font-medium text-green-900 md:text-[16px]">
-                {isMobile
-                  ? "Setelah dinyatakan lolos verifikasi, mitra dapat mengunggah bahan pangan yang dijual."
-                  : "Setelah dinyatakan lolos verifikasi, mitra dapat mengunggah bahan pangan yang dijual lengkap dengan harga, deskripsi, spesifikasi, dan ketersediaan stok."}
-              </p>
+              <ResponsiveStepText
+                mobileText="Setelah dinyatakan lolos verifikasi, mitra dapat mengunggah bahan pangan yang dijual."
+                desktopText="Setelah dinyatakan lolos verifikasi, mitra dapat mengunggah bahan pangan yang dijual lengkap dengan harga, deskripsi, spesifikasi, dan ketersediaan stok."
+              />
             </div>
 
             <div className="flex w-full flex-col justify-center gap-3 rounded-2xl pl-4 md:gap-6 md:pl-0">

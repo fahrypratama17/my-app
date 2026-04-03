@@ -8,15 +8,14 @@ import type {
   IResetPasswordRequest,
 } from "@/shared/repository/reset-password/dto";
 
-const API_URL = "https://be-internship.bccdev.id/hanif/api/v1";
-
 export async function resetPassword(payload: IResetPasswordRequest) {
   return apiFetch<ResetPasswordResponse>({
-    url: `${API_URL}/auth/reset-password`,
+    url: "/api/auth/reset-password",
     options: {
       method: "POST",
       body: JSON.stringify(payload),
     },
+    withAuth: false,
     errorMessage: "Gagal mereset password",
     successMessage: "Berhasil mereset password",
   });
@@ -24,11 +23,12 @@ export async function resetPassword(payload: IResetPasswordRequest) {
 
 export async function forgotPassword(payload: IForgotPasswordRequest) {
   return apiFetch<ForgotPasswordResponse>({
-    url: `${API_URL}/auth/forgot-password`,
+    url: "/api/auth/forgot-password",
     options: {
       method: "POST",
       body: JSON.stringify(payload),
     },
+    withAuth: false,
     errorMessage: "Gagal mengirim permintaan lupa password",
     successMessage: "Permintaan lupa password berhasil dikirim",
   });

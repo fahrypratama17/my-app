@@ -24,6 +24,7 @@ export async function apiFetch<T>({
   options = {},
   query,
   isFormData = false,
+  withAuth = true,
   errorMessage = "Error fetching data",
   successMessage = "Success",
 }: {
@@ -31,24 +32,31 @@ export async function apiFetch<T>({
   options?: RequestInit;
   query?: TAPIQuery;
   isFormData?: boolean;
+  withAuth?: boolean;
   errorMessage?: string;
   successMessage?: string;
 }): Promise<ApiResponse<T>> {
-  const session = await getSessionWithAutoRefresh();
   const defaultHeaders: Record<string, string> = {
     Accept: "application/json",
     "Content-Type": "application/json",
   };
-
-  if (session?.access_token) {
-    defaultHeaders.Authorization = `Bearer ${session.access_token}`;
-  }
 
   if (isFormData) {
     defaultHeaders["Content-Type"] = "multipart/form-data";
   }
 
   try {
+    if (withAuth) {
+      try {
+        const session = await getSessionWithAutoRefresh();
+        if (session?.access_token) {
+          defaultHeaders.Authorization = `Bearer ${session.access_token}`;
+        }
+      } catch {
+        // Allow public endpoints to continue even if session config is not ready.
+      }
+    }
+
     const _url = buildRequestUrl(url);
 
     if (query) {

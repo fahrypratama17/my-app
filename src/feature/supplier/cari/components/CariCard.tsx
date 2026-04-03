@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader } from "@/shared/component/ui/card";
+import { Card, CardContent } from "@/shared/component/ui/card";
 import Image from "next/image";
 import { Button } from "@/shared/component/ui/button";
 import { MapPin } from "lucide-react";

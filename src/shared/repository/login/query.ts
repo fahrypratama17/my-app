@@ -2,11 +2,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import { TLoginRequest } from "@/feature/auth/login/types/schema";
 import { createSession } from "@/shared/repository/session-manager/action";
-import {
-  getProfileAfterLogin,
-  login,
-  logout,
-} from "@/shared/repository/login/action";
+import { login, logout } from "@/shared/repository/login/action";
 import { getRoleRedirectPath } from "@/shared/lib/role-redirect";
 import { toast } from "sonner";
 
@@ -54,25 +50,10 @@ export const useLoginMutation = () => {
         isLoggedIn: true,
       });
 
-      const profileUser = await getProfileAfterLogin(user.user_id);
-      const sessionUser = {
-        ...user,
-        ...(profileUser ?? {}),
-      };
-
-      if (profileUser) {
-        await createSession({
-          token: accessToken,
-          user: sessionUser,
-          refreshToken,
-          isLoggedIn: true,
-        });
-      }
-
       toast.success("Berhasil login", {
-        description: `Selamat datang ${sessionUser.name}!`,
+        description: `Selamat datang ${user.name}!`,
       });
-      router.push(getRoleRedirectPath(sessionUser.role));
+      router.push(getRoleRedirectPath(user.role));
       queryClient.refetchQueries({ queryKey: queryKey.login });
     },
     onError: (error) => {

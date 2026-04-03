@@ -1,6 +1,7 @@
+"use client";
+
 import { Card } from "@/shared/component/ui/card";
 import { Beef, Carrot, Citrus, Milk } from "lucide-react";
-import { useFormStore } from "@/shared/store/useFormStore";
 
 const categories = [
   { name: "Daging", icon: Beef },
@@ -9,14 +10,18 @@ const categories = [
   { name: "Hasil Ternak", icon: Milk },
 ];
 
-const Kategori = () => {
-  const { category, setCategory, setStep } = useFormStore();
+type Props = {
+  activeCategory: string | null;
+  onCategoryChange: (category: string | null) => void;
+};
+
+const Kategori = ({ activeCategory, onCategoryChange }: Props) => {
 
   return (
     <div className="mx-auto mb-12 grid h-[50%] w-[90%] grid-cols-4 gap-4 md:w-[70%] md:gap-0">
       {categories.map((item) => {
         const Icon = item.icon;
-        const isActive = category === item.name;
+        const isActive = activeCategory === item.name;
 
         return (
           <div
@@ -31,8 +36,7 @@ const Kategori = () => {
 
             <Card
               onClick={() => {
-                setCategory(item.name);
-                setStep(3);
+                onCategoryChange(isActive ? null : item.name);
               }}
               className={`relative flex w-full cursor-pointer flex-col items-center justify-center gap-2 rounded-xl border-2 border-green-900 transition-all duration-200 active:translate-x-1 active:translate-y-1 md:gap-4 md:rounded-3xl md:active:translate-x-2 md:active:translate-y-2 ${
                 isActive

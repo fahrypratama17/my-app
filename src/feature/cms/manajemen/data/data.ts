@@ -13,7 +13,7 @@ export const cardData: cardType[] = [
   {
     id: 2,
     image: "/images/supplier-1.jpg",
-    title: "Tani Jaya Makmur",
+    title: "Tani Aman Jaya",
     status: "Aktif",
     location: "Jl. Veteran No. 15",
     product: 24,
@@ -22,7 +22,7 @@ export const cardData: cardType[] = [
   {
     id: 3,
     image: "/images/supplier-1.jpg",
-    title: "Tani Jaya Makmur",
+    title: "Tani Jakarta Rata",
     status: "Aktif",
     location: "Jl. Veteran No. 15",
     product: 24,
@@ -31,7 +31,7 @@ export const cardData: cardType[] = [
   {
     id: 4,
     image: "/images/supplier-1.jpg",
-    title: "Tani Jaya Makmur",
+    title: "Tani Siap Sedia",
     status: "Aktif",
     location: "Jl. Veteran No. 15",
     product: 24,
@@ -40,8 +40,8 @@ export const cardData: cardType[] = [
   {
     id: 5,
     image: "/images/supplier-1.jpg",
-    title: "Tani Jaya Makmur",
-    status: "Aktif",
+    title: "Tani Bisa Jaya",
+    status: "Non Aktif",
     location: "Jl. Veteran No. 15",
     product: 24,
     total: 150,
@@ -49,8 +49,8 @@ export const cardData: cardType[] = [
   {
     id: 6,
     image: "/images/supplier-1.jpg",
-    title: "Tani Jaya Makmur",
-    status: "Aktif",
+    title: "Tani Hebat",
+    status: "Non Aktif",
     location: "Jl. Veteran No. 15",
     product: 24,
     total: 150,

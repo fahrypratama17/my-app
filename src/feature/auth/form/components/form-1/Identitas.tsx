@@ -38,8 +38,8 @@ const Progress = () => {
                     Nama Usaha <span className="text-[#FF4747]">*</span>
                   </div>
                 }
-                value={identitas.nama}
-                onChange={(val) => handleChange("nama", val)}
+                value={identitas.store_name}
+                onChange={(val) => handleChange("store_name", val)}
                 placeholder="Masukkan Nama Usaha"
               />
             </div>
@@ -50,8 +50,8 @@ const Progress = () => {
                     Nama Pemilik Usaha <span className="text-[#FF4747]">*</span>
                   </div>
                 }
-                value={identitas.pemilik}
-                onChange={(val) => handleChange("pemilik", val)}
+                value={identitas.owner_name}
+                onChange={(val) => handleChange("owner_name", val)}
                 placeholder="Masukkan Nama Pemilik Usaha"
               />
             </div>
@@ -62,8 +62,8 @@ const Progress = () => {
                     Alamat Usaha <span className="text-[#FF4747]">*</span>
                   </div>
                 }
-                value={identitas.alamat}
-                onChange={(val) => handleChange("alamat", val)}
+                value={identitas.address}
+                onChange={(val) => handleChange("address", val)}
                 placeholder="Masukkan Alamat Usaha"
               />
             </div>
@@ -74,8 +74,8 @@ const Progress = () => {
                     No HP Aktif <span className="text-[#FF4747]">*</span>
                   </div>
                 }
-                value={identitas.telepon}
-                onChange={(val) => handleChange("telepon", val)}
+                value={identitas.contact_number}
+                onChange={(val) => handleChange("contact_number", val)}
                 placeholder="Masukkan No HP Aktif"
               />
             </div>

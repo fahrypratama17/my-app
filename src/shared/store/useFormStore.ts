@@ -1,54 +1,12 @@
 import { create } from "zustand";
+import type {
+  FormAnswersValues,
+  FormIdentitasValues,
+} from "@/feature/auth/form/types/type";
 
-type Identitas = {
-  nama: string;
-  pemilik: string;
-  alamat: string;
-  telepon: string;
-};
+type Identitas = FormIdentitasValues;
 
-type Answers = {
-  daging?: {
-    jenisDaging?: "ayam" | "sapi" | "ikan";
-
-    RPH?: "ya" | "tidak";
-    namaRPH?: string;
-    NKV?: "ya" | "tidak";
-    nomorNKV?: string;
-    uploadBukti?: ("NKV" | "invoice" | "sks" | "fotlab")[];
-    dagingSegar?: "ya" | "tidak";
-    dagingAman?: "ya" | "tidak";
-
-    ciriIkan?: "ya" | "tidak";
-  };
-
-  sayur?: {
-    asalSayur?: "petani" | "distributor" | "kebun";
-    sayurSegar?: "ya" | "tidak";
-  };
-
-  buah?: {
-    asalBuah?: "petani" | "distributor" | "kebun";
-    buahSegar?: "ya" | "tidak";
-  };
-
-  ternak?: {
-    jenisTernak?: "susu" | "telur";
-
-    sumberTelur?: "sendiri" | "lokal" | "distributor";
-    namaPeternakan?: string;
-    telurAman?: "ya" | "tidak";
-
-    jenisSusu?: "segar" | "pasteurisasi" | "uht";
-    asalSusu?: "sapi" | "koperasi" | "distributor";
-    usahaSusu?: string;
-    susuAman?: "ya" | "tidak";
-
-    NKV?: "ya" | "tidak";
-    nomorNKV?: string;
-    uploadBukti?: ("NKV" | "invoice" | "sks" | "fotlab")[];
-  };
-};
+type Answers = FormAnswersValues;
 
 type FormStore = {
   step: number;
@@ -79,10 +37,10 @@ export const useFormStore = create<FormStore>((set) => ({
   step: 1,
   category: null,
   identitas: {
-    nama: "",
-    pemilik: "",
-    alamat: "",
-    telepon: "",
+    store_name: "",
+    owner_name: "",
+    address: "",
+    contact_number: "",
   },
   answers: {},
   isQuestionOpen: false,
@@ -101,7 +59,14 @@ export const useFormStore = create<FormStore>((set) => ({
     })),
 
   resetIdentitas: () =>
-    set({ identitas: { nama: "", pemilik: "", alamat: "", telepon: "" } }),
+    set({
+      identitas: {
+        store_name: "",
+        owner_name: "",
+        address: "",
+        contact_number: "",
+      },
+    }),
 
   resetAnswers: () => set({ answers: {} }),
 

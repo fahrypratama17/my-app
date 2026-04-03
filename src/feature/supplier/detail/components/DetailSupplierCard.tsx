@@ -1,4 +1,3 @@
-"use client";
 
 import { Card, CardAction, CardContent } from "@/shared/component/ui/card";
 import { cardType } from "@/feature/supplier/detail/types/type";

@@ -1,30 +1,22 @@
-"use client";
-
 import { Card, CardContent, CardHeader } from "@/shared/component/ui/card";
 import { ChevronDown, Rows4 } from "lucide-react";
 import { Button } from "@/shared/component/ui/button";
-import { useMemo, useState } from "react";
-
-type OrderItem = {
-  id: number;
-  title: string;
-  unit: string;
-  quantity: number;
-  unitPrice: number;
-};
+import type { DetailOrderItem } from "@/feature/supplier/detail/hooks/use-detail-supplier-section";
 
 type Props = {
-  items: OrderItem[];
+  items: DetailOrderItem[];
   formatCurrency: (value: number) => string;
+  showAllItems: boolean;
+  onToggleShowAll: () => void;
 };
 
-const DaftarPesananCard = ({ items, formatCurrency }: Props) => {
-  const [showAllItems, setShowAllItems] = useState(false);
-
-  const displayedItems = useMemo(
-    () => (showAllItems ? items : items.slice(0, 3)),
-    [items, showAllItems],
-  );
+const DaftarPesananCard = ({
+  items,
+  formatCurrency,
+  showAllItems,
+  onToggleShowAll,
+}: Props) => {
+  const displayedItems = showAllItems ? items : items.slice(0, 3);
 
   return (
     <Card className="w-full rounded-[16px] border-2 border-green-900 py-0 md:rounded-[40px] md:pb-4">
@@ -53,7 +45,7 @@ const DaftarPesananCard = ({ items, formatCurrency }: Props) => {
 
         {items.length > 3 && (
           <Button
-            onClick={() => setShowAllItems((prev) => !prev)}
+            onClick={onToggleShowAll}
             className="h-6 w-[40%] cursor-pointer border-2 border-green-900 bg-green-50 text-green-900 hover:scale-105 md:w-[35%] md:py-4"
           >
             <p className="text-[8px] font-semibold md:text-[18px]">

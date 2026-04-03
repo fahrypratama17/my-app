@@ -20,7 +20,7 @@ export const dagingSchema = z.object({
 }).superRefine((data, ctx) => {
   if (data.RPH === "ya" && !data.namaRPH?.trim()) {
     ctx.addIssue({
-      code: z.ZodIssueCode.custom,
+      code: "custom",
       path: ["namaRPH"],
       message: "Nama RPH wajib diisi",
     });
@@ -28,7 +28,7 @@ export const dagingSchema = z.object({
 
   if (data.NKV === "ya" && !data.nomorNKV?.trim()) {
     ctx.addIssue({
-      code: z.ZodIssueCode.custom,
+      code: "custom",
       path: ["nomorNKV"],
       message: "Nomor NKV wajib diisi",
     });
@@ -60,7 +60,7 @@ export const ternakSchema = z.object({
 }).superRefine((data, ctx) => {
   if (data.NKV === "ya" && !data.nomorNKV?.trim()) {
     ctx.addIssue({
-      code: z.ZodIssueCode.custom,
+      code: "custom",
       path: ["nomorNKV"],
       message: "Nomor NKV wajib diisi",
     });

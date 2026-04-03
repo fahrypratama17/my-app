@@ -47,18 +47,28 @@ export const useLoginMutation = () => {
         return;
       }
 
-      const profileUser = await getProfileAfterLogin(accessToken, user.user_id);
+      await createSession({
+        token: accessToken,
+        user,
+        refreshToken,
+        isLoggedIn: true,
+      });
+
+      const profileUser = await getProfileAfterLogin(user.user_id);
       const sessionUser = {
         ...user,
         ...(profileUser ?? {}),
       };
 
-      await createSession({
-        token: accessToken,
-        user: sessionUser,
-        refreshToken,
-        isLoggedIn: true,
-      });
+      if (profileUser) {
+        await createSession({
+          token: accessToken,
+          user: sessionUser,
+          refreshToken,
+          isLoggedIn: true,
+        });
+      }
+
       toast.success("Berhasil login", {
         description: `Selamat datang ${sessionUser.name}!`,
       });

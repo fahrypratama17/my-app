@@ -7,6 +7,6 @@ export const authGuard: ProxyFunction = async ({ req, session }) => {
   const isProtected = PROTECTED_ROUTES.some((r) => pathname.startsWith(r));
 
   if (isProtected && (!session?.expiresAt || session.expiresAt < Date.now())) {
-    return NextResponse.redirect(new URL("/notFound", req.nextUrl));
+    return NextResponse.redirect(new URL("/login", req.nextUrl));
   }
 };

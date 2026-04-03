@@ -11,10 +11,12 @@ import PertanyaanDaging from "@/feature/auth/form/components/form-2/PertanyaanDa
 import ButtonPrev from "@/shared/component/auth/ButtonPrev";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { useSupplierDraftForm } from "@/hooks/use-supplier-draft-form";
 
 const FormSection = () => {
   const { category } = useFormStore();
   const router = useRouter();
+  const { submitDraftAndFinish, isSubmittingDraft } = useSupplierDraftForm();
 
   const step = useFormStore((state) => state.step);
   const setStep = useFormStore((state) => state.setStep);
@@ -24,7 +26,7 @@ const FormSection = () => {
     if (step < 2) {
       router.push("/form-1");
     }
-  }, []);
+  }, [router, step]);
 
   return (
     <>
@@ -48,7 +50,9 @@ const FormSection = () => {
           >
             Kembali
           </ButtonPrev>
-          <ButtonNext href="/register-success">Lanjutkan</ButtonNext>
+          <ButtonNext onClick={submitDraftAndFinish} disabled={isSubmittingDraft}>
+            Lanjutkan
+          </ButtonNext>
         </div>
       </div>
     </>

@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Store,
   ClipboardList,
@@ -11,26 +13,34 @@ import { orders } from "@/feature/cms/dashboard/data/data";
 import Link from "next/link";
 import { Button } from "@/shared/component/ui/button";
 import AdminCardMobile from "@/feature/cms/dashboard/components/AdminCardMobile";
-
-const cardData = [
-  {
-    title: "Total Mitra",
-    value: 248,
-    icon: <Store className="h-3 w-3 md:h-7.5 md:w-7.5" />,
-  },
-  {
-    title: "Total User",
-    value: 1024,
-    icon: <ClipboardList className="h-3 w-3 md:h-7.5 md:w-7.5" />,
-  },
-  {
-    title: "Total Produk",
-    value: 532,
-    icon: <Coffee className="h-3 w-3 md:h-7.5 md:w-7.5" />,
-  },
-];
+import { useDashboardSummaryQuery } from "@/shared/repository/dashboard-summary/query";
+import { useDashboardSummaryErrorToast } from "@/hooks/use-dashboard-summary-error-toast";
 
 const AdminDashboardSection = () => {
+  const { data, isLoading, isError, error } = useDashboardSummaryQuery();
+  useDashboardSummaryErrorToast(
+    isError,
+    error instanceof Error ? error : null,
+  );
+
+  const cardData = [
+    {
+      title: "Total Mitra",
+      value: data?.total_supplier ?? "-",
+      icon: <Store className="h-3 w-3 md:h-7.5 md:w-7.5" />,
+    },
+    {
+      title: "Menunggu Verifikasi",
+      value: data?.supplier_pending ?? "-",
+      icon: <ClipboardList className="h-3 w-3 md:h-7.5 md:w-7.5" />,
+    },
+    {
+      title: "Total SPPG",
+      value: data?.total_sppg ?? "-",
+      icon: <Coffee className="h-3 w-3 md:h-7.5 md:w-7.5" />,
+    },
+  ];
+
   return (
     <section>
       <div className="shadow-[0_4px_2px_#0000000A]">
@@ -63,6 +73,7 @@ const AdminDashboardSection = () => {
               icon={item.icon}
               title={item.title}
               value={item.value}
+              isLoading={isLoading}
             />
           ))}
         </div>

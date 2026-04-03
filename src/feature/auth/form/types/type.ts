@@ -1,5 +1,12 @@
 import { z } from "zod";
 
+export const identitasSchema = z.object({
+  store_name: z.string().trim().min(1, "Nama usaha wajib diisi"),
+  owner_name: z.string().trim().min(1, "Nama pemilik wajib diisi"),
+  address: z.string().trim().min(1, "Alamat usaha wajib diisi"),
+  contact_number: z.string().trim().min(1, "No HP aktif wajib diisi"),
+});
+
 export const dagingSchema = z.object({
   jenisDaging: z.enum(["ayam", "sapi", "ikan"]).optional(),
   RPH: z.enum(["ya", "tidak"]).optional(),
@@ -42,5 +49,27 @@ export const formSchema = z.object({
   buah: buahSchema.optional(),
   ternak: ternakSchema.optional(),
 });
+
+export const supplierDraftSaveSchema = z.object({
+  user_id: z.string().uuid("User ID tidak valid"),
+  store_name: z.string().trim().optional(),
+  address: z.string().trim().optional(),
+  contact_number: z.string().trim().optional(),
+  category: z.string().trim().optional(),
+  source_type: z.string().trim().optional(),
+  business_desc: z.string().trim().optional(),
+  current_step: z.number().int().positive().optional(),
+});
+
+export const supplierDraftSubmitSchema = z.object({
+  user_id: z.string().uuid("User ID tidak valid"),
+});
+
+export type FormIdentitasValues = z.infer<typeof identitasSchema>;
+export type FormAnswersValues = z.infer<typeof formSchema>;
+export type SupplierDraftSavePayload = z.infer<typeof supplierDraftSaveSchema>;
+export type SupplierDraftSubmitPayload = z.infer<
+  typeof supplierDraftSubmitSchema
+>;
 
 export type UploadBuktiType = "NKV" | "invoice" | "sks" | "fotlab";

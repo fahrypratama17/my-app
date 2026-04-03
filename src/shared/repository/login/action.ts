@@ -2,12 +2,11 @@ import { destroySession } from "@/shared/repository/session-manager/action";
 import { TLoginRequest } from "@/feature/auth/login/types/schema";
 import { apiFetch } from "@/shared/lib/api/fetcher";
 import { LoginResponse } from "@/feature/auth/login/types/response";
-import { envClient } from "@/shared/lib/env.client";
 import type { ILoginUser } from "@/shared/repository/login/dto";
 
 export async function login(payload: TLoginRequest) {
   const res = await apiFetch<LoginResponse>({
-    url: `${envClient.NEXT_PUBLIC_API_URL}/auth/login`,
+    url: "/api/auth/login",
     options: { method: "POST", body: JSON.stringify(payload) },
   });
   return res;
@@ -52,21 +51,13 @@ function mapProfileUser(data: unknown): Partial<ILoginUser> | null {
   return Object.keys(user).length > 0 ? user : null;
 }
 
-export async function getProfileAfterLogin(token: string, userId?: string) {
-  const endpoints =
-    userId && token
-      ? [`/sppg/user/${userId}`, `/sppg/${userId}`]
-      : [];
+export async function getProfileAfterLogin(userId?: string) {
+  const endpoints = userId ? [`/sppg/user/${userId}`, `/sppg/${userId}`] : [];
 
   for (const endpoint of endpoints) {
     const res = await apiFetch<ProfileEnvelope>({
-      url: `${envClient.NEXT_PUBLIC_API_URL}${endpoint}`,
-      options: {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      },
+      url: `/api/protected${endpoint}`,
+      options: { method: "GET" },
       errorMessage: "Gagal mengambil data profil",
     });
 

@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { Field } from "@/shared/component/ui/field";
 import { KeyRound } from "lucide-react";
 import { Button } from "@/shared/component/ui/button";
@@ -11,9 +12,11 @@ import { showPasswordToast } from "@/shared/component/toast";
 import { useRegisterStore } from "@/shared/store/useRegisterStore";
 import { useDebounce, useRegisterForm } from "@/hooks";
 import { Spinner } from "@/shared/component/ui/spinner";
+import { Roles } from "@/shared/lib/auth/role";
 
 const Password = () => {
-  const { password, confirmPassword, setField } = useRegisterStore();
+  const router = useRouter();
+  const { password, confirmPassword, role, setField } = useRegisterStore();
   const { handleSubmit, isPending } = useRegisterForm();
   const debouncedPassword = useDebounce(password, 500);
   const debouncedConfirmPassword = useDebounce(confirmPassword, 500);
@@ -73,6 +76,11 @@ const Password = () => {
 
     if (password !== confirmPassword) {
       showPasswordToast("passwordMismatch");
+      return;
+    }
+
+    if (role === Roles.supplier) {
+      router.push("/form-1");
       return;
     }
 
@@ -139,7 +147,7 @@ const Password = () => {
                   <p>Memproses...</p> <Spinner />
                 </>
               ) : (
-                "Daftar"
+                role === Roles.supplier ? "Lanjutkan" : "Daftar"
               )}
             </Button>
           </div>

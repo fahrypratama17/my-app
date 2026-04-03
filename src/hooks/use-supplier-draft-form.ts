@@ -13,6 +13,9 @@ import {
   useSubmitSupplierDraftMutation,
 } from "@/shared/repository/supplier-draft/query";
 import { useSessionQuery } from "@/shared/repository/session-manager/query";
+import { useRegisterStore } from "@/shared/store/useRegisterStore";
+import { Roles } from "@/shared/lib/auth/role";
+import { register } from "@/shared/repository/register/action";
 
 function getFirstZodErrorMessage(error: { issues: Array<{ message: string }> }) {
   return error.issues[0]?.message || "Data tidak valid";
@@ -23,6 +26,10 @@ export function useSupplierDraftForm() {
   const step = useFormStore((state) => state.step);
   const setStep = useFormStore((state) => state.setStep);
   const identitas = useFormStore((state) => state.identitas);
+  const setMitraFormSubmitted = useFormStore((state) => state.setMitraFormSubmitted);
+  const role = useRegisterStore((state) => state.role);
+  const setRegisterField = useRegisterStore((state) => state.setField);
+  const registerState = useRegisterStore();
 
   const { data: session } = useSessionQuery();
   const saveMutation = useSaveSupplierDraftMutation();
@@ -41,6 +48,12 @@ export function useSupplierDraftForm() {
 
     const userId = getUserId();
     if (!userId) {
+      if (role === Roles.supplier) {
+        setStep(Math.max(step + 1, 2));
+        router.push("/form-2");
+        return;
+      }
+
       toast.error("Sesi login tidak ditemukan", {
         description: "Silakan login ulang untuk melanjutkan.",
       });
@@ -86,6 +99,50 @@ export function useSupplierDraftForm() {
 
   const submitDraftAndFinish = async () => {
     const userId = getUserId();
+
+    if (!userId && role === Roles.supplier) {
+      const registerPayload = {
+        name: (identitas.store_name || registerState.name).trim(),
+        address: (identitas.address || registerState.address).trim(),
+        email: registerState.email.trim(),
+        password: registerState.password,
+        confirm_password: registerState.confirmPassword,
+        role: registerState.role,
+      };
+
+      if (!registerPayload.password || !registerPayload.confirm_password) {
+        toast.error("Password belum diisi", {
+          description: "Isi password terlebih dahulu sebelum submit form.",
+        });
+        router.push("/password");
+        return;
+      }
+
+      const registerRes = await register(registerPayload);
+      if (!registerRes.success) {
+        toast.error("Gagal membuat akun mitra", {
+          description: registerRes.error || registerRes.message,
+        });
+        return;
+      }
+
+      if (!registerRes.data?.success) {
+        toast.error("Gagal membuat akun mitra", {
+          description: registerRes.data?.message || "Terjadi kesalahan saat register",
+        });
+        return;
+      }
+
+      setRegisterField("name", registerPayload.name);
+      setRegisterField("address", registerPayload.address);
+      setMitraFormSubmitted(true);
+      toast.success("Akun mitra berhasil dibuat", {
+        description: "Pendaftaran mitra selesai. Silakan login untuk melanjutkan.",
+      });
+      router.push("/register-success");
+      return;
+    }
+
     const payloadResult = supplierDraftSubmitSchema.safeParse({ user_id: userId });
 
     if (!payloadResult.success) {

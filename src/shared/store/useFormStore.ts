@@ -14,9 +14,11 @@ type FormStore = {
   identitas: Identitas;
   answers: Answers;
   isQuestionOpen: boolean;
+  isMitraFormSubmitted: boolean;
 
   setStep: (step: number) => void;
   setCategory: (category: string) => void;
+  setMitraFormSubmitted: (value: boolean) => void;
   setIdentitasField: <K extends keyof Identitas>(
     field: K,
     value: Identitas[K],
@@ -44,11 +46,14 @@ export const useFormStore = create<FormStore>((set) => ({
   },
   answers: {},
   isQuestionOpen: false,
+  isMitraFormSubmitted: false,
 
   setStep: (step) => set({ step }),
 
   setCategory: (category) =>
     set({ category, answers: {}, isQuestionOpen: true }),
+
+  setMitraFormSubmitted: (value) => set({ isMitraFormSubmitted: value }),
 
   setIdentitasField: (field, value) =>
     set((state) => ({

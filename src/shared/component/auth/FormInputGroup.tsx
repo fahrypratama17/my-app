@@ -6,6 +6,7 @@ type Props = {
   onChange: (val: string) => void;
   placeholder?: string;
   error?: string;
+  disabled?: boolean;
 };
 
 export const FormInputGroup = ({
@@ -14,6 +15,7 @@ export const FormInputGroup = ({
   onChange,
   placeholder,
   error,
+  disabled,
 }: Props) => {
   return (
     <div className="flex flex-col gap-4 md:gap-8">
@@ -22,6 +24,7 @@ export const FormInputGroup = ({
         value={value ?? ""}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
+        disabled={disabled}
         className="rounded-[48px] bg-white px-4 py-2 text-[10px] ring-2 placeholder:text-[10px] placeholder:font-medium placeholder:text-[#A7A7A7] md:py-6 md:placeholder:text-[14px]"
       />
       {error && <p className="text-sm text-red-500">{error}</p>}

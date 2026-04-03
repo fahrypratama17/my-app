@@ -23,7 +23,9 @@ const EmailCard = () => {
         </div>
 
         <Link
-          href=""
+          href="https://mail.google.com/mail/?view=cm&fs=1&to=m.fahry.pratama.putra@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
           className="transition-transform duration-200 hover:scale-105 active:translate-x-1 active:translate-y-1"
         >
           <Button className="h-6 w-full cursor-pointer bg-green-600 py-1 text-[10px] font-bold md:py-5 md:text-sm">

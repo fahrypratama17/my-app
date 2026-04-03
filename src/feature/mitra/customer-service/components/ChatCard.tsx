@@ -22,7 +22,9 @@ const ChatCard = () => {
         </div>
 
         <Link
-          href=""
+          href="https://wa.me/6289651622100"
+          target="_blank"
+          rel="noopener noreferrer"
           className="transition-transform duration-200 hover:scale-105 active:translate-x-1 active:translate-y-1"
         >
           <Button className="h-6 w-full cursor-pointer bg-orange-600 py-1 text-[10px] font-bold md:py-5 md:text-sm">

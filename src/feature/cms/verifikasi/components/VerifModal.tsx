@@ -89,15 +89,6 @@ const VerifModal = () => {
             Sumber: <span className="text-green-900">Petani Lokal</span>
           </p>
         </div>
-        <div className="flex flex-col gap-3">
-          <p className="text-[10px] font-bold text-green-700 md:text-xl">
-            Deskripsi Usaha
-          </p>
-          <p className="w-[80%] text-[8px] font-semibold text-green-200 md:w-full md:text-sm">
-            Kami adalah petani lokal yang menanam sayur organik dan buah-buahan
-            segar di area Malang Raya sejak 2018.
-          </p>
-        </div>
         <div className="flex flex-col gap-4">
           <p className="text-[10px] font-bold text-green-700 md:text-xl">
             Dokumen yang Diunggah

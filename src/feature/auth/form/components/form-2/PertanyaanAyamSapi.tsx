@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/shared/component/ui/card";
 import { ImageUp } from "lucide-react";
+import Image from "next/image";
 import { Button } from "@/shared/component/ui/button";
 import FormRadioGroup from "@/shared/component/auth/FormRadioGroup";
 import { useFormStore } from "@/shared/store/useFormStore";
@@ -7,10 +8,21 @@ import { FormInputGroup } from "@/shared/component/auth/FormInputGroup";
 import { useFormValidation } from "@/hooks/use-form-validation";
 import FormCheckboxGroup from "@/shared/component/auth/FormCheckboxGroup";
 import { UploadBuktiType } from "@/feature/auth/form/types/type";
+import { useImageUploadPreview } from "@/hooks/use-image-upload-preview";
 
 const PertanyaanAyamSapi = () => {
   const { answers, setAnswers } = useFormStore();
   const { errors } = useFormValidation();
+  const {
+    uploadedFiles,
+    previewUrls,
+    fileInputRef,
+    handleFileChange,
+    openFilePicker,
+  } = useImageUploadPreview();
+
+  const isRphEnabled = answers.daging?.RPH === "ya";
+  const isNkvEnabled = answers.daging?.NKV === "ya";
 
   return (
     <section className="bg-green-50 pb-8">
@@ -20,6 +32,9 @@ const PertanyaanAyamSapi = () => {
           value={answers.daging?.RPH ?? ""}
           onChange={(val) => {
             setAnswers("daging", "RPH", val as "ya" | "tidak");
+            if (val !== "ya") {
+              setAnswers("daging", "namaRPH", "");
+            }
           }}
           options={[
             { label: "Ya", value: "ya" },
@@ -35,6 +50,8 @@ const PertanyaanAyamSapi = () => {
           }
           value={answers.daging?.namaRPH ?? ""}
           onChange={(val) => setAnswers("daging", "namaRPH", val)}
+          disabled={!isRphEnabled}
+          error={errors?.namaRPH?._errors?.[0]}
           placeholder="Masukkan Nama RPH / RPHU"
         />
         <FormRadioGroup
@@ -43,6 +60,9 @@ const PertanyaanAyamSapi = () => {
           value={answers.daging?.NKV ?? ""}
           onChange={(val) => {
             setAnswers("daging", "NKV", val as "ya" | "tidak");
+            if (val !== "ya") {
+              setAnswers("daging", "nomorNKV", "");
+            }
           }}
           options={[
             { label: "Ya", value: "ya" },
@@ -58,6 +78,7 @@ const PertanyaanAyamSapi = () => {
           }
           value={answers.daging?.nomorNKV ?? ""}
           onChange={(val) => setAnswers("daging", "nomorNKV", val)}
+          disabled={!isNkvEnabled}
           error={errors?.nomorNKV?._errors?.[0]}
           placeholder="Masukkan sertifikat NKV"
         />
@@ -92,8 +113,20 @@ const PertanyaanAyamSapi = () => {
         />
         <Card className="border-2 border-green-900 bg-green-600 p-2 px-0 md:p-12">
           <CardContent className="flex items-center gap-4 md:gap-16">
-            <div className="flex h-20 w-20 items-center justify-center rounded-[24px] border-2 border-dashed border-green-600 bg-orange-50 text-green-600 md:h-40 md:w-40">
-              <ImageUp className="h-8 w-8 md:h-15 md:w-15" />
+            <div className="flex items-center gap-2 md:gap-4">
+              <div className="relative flex h-20 w-20 items-center justify-center overflow-hidden rounded-[24px] border-2 border-dashed border-green-600 bg-orange-50 text-green-600 md:h-40 md:w-40">
+                {previewUrls[0] ? (
+                  <Image
+                    src={previewUrls[0]}
+                    alt="Preview produk 1"
+                    fill
+                    unoptimized
+                    className="object-cover"
+                  />
+                ) : (
+                  <ImageUp className="h-8 w-8 md:h-15 md:w-15" />
+                )}
+              </div>
             </div>
             <div className="flex h-20 flex-col items-start justify-between md:h-40">
               <div>
@@ -105,9 +138,26 @@ const PertanyaanAyamSapi = () => {
                 </p>
               </div>
 
-              <Button className="h-6 cursor-pointer rounded-[8px] border border-green-800 bg-green-50 px-4 text-[8px] font-bold text-green-900 transition-transform duration-200 hover:scale-105 md:rounded-[12px] md:border-2 md:px-8 md:py-5 md:text-lg">
+              <input
+                ref={fileInputRef}
+                type="file"
+                accept="image/png,image/jpeg"
+                multiple
+                className="hidden"
+                onChange={handleFileChange}
+              />
+              <Button
+                type="button"
+                onClick={openFilePicker}
+                className="h-6 cursor-pointer rounded-[8px] border border-green-800 bg-green-50 px-4 text-[8px] font-bold text-green-900 transition-transform duration-200 hover:scale-105 md:rounded-[12px] md:border-2 md:px-8 md:py-5 md:text-lg"
+              >
                 Pilih File
               </Button>
+              {uploadedFiles.length > 0 && (
+                <p className="mt-2 text-[8px] font-medium text-orange-50 md:text-sm">
+                  {uploadedFiles.join(", ")}
+                </p>
+              )}
             </div>
           </CardContent>
         </Card>

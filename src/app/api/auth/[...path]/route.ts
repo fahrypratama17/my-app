@@ -15,6 +15,8 @@ const ALLOWED_AUTH_PATHS = new Set([
 const ALLOWED_METHODS = new Set(["POST"]);
 
 export async function POST(req: NextRequest, context: RouteContext) {
+  const requestId = crypto.randomUUID();
+
   try {
     const resolved = await Promise.resolve(context.params);
     const [endpoint] = resolved.path ?? [];
@@ -42,7 +44,8 @@ export async function POST(req: NextRequest, context: RouteContext) {
     const rawBody = await req.text();
     const contentType = req.headers.get("content-type") || "application/json";
 
-    const backendResponse = await fetch(`${envServer.API_URL}/auth/${endpoint}`, {
+    const backendBaseUrl = envServer.API_URL.replace(/\/+$/, "");
+    const backendResponse = await fetch(`${backendBaseUrl}/auth/${endpoint}`, {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -54,11 +57,19 @@ export async function POST(req: NextRequest, context: RouteContext) {
 
     const raw = (await backendResponse.json().catch(() => null)) as unknown;
     return NextResponse.json(raw, { status: backendResponse.status });
-  } catch {
+  } catch (error) {
+    console.error("[api/auth proxy error]", {
+      requestId,
+      path: req.nextUrl.pathname,
+      method: req.method,
+      error: error instanceof Error ? error.message : "Unknown error",
+    });
+
     return NextResponse.json(
       {
         success: false,
         message: "Terjadi kesalahan saat memproses endpoint auth",
+        request_id: requestId,
       },
       { status: 500 },
     );

@@ -1,4 +1,4 @@
-import CariContainer from "@/feature/supplier/cari/container/CariContainer";
+import CariContainer from "@/feature/sppg/cari/container/CariContainer";
 
 const page = () => {
   return <CariContainer />;

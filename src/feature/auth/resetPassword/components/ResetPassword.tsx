@@ -6,7 +6,7 @@ import { Button } from "@/shared/component/ui/button";
 import { KeyRound } from "lucide-react";
 import { FormInput } from "@/shared/component/auth/FormInput";
 import { Spinner } from "@/shared/component/ui/spinner";
-import { useResetPasswordForm } from "@/hooks";
+import { useResetPasswordForm } from "@/hooks/use-reset-password-form";
 
 const ResetPassword = () => {
   const { form, isPending, handleInputChange, handleSubmit } =

@@ -6,7 +6,7 @@ import { Button } from "@/shared/component/ui/button";
 import { Mail } from "lucide-react";
 import { FormInput } from "@/shared/component/auth/FormInput";
 import { Spinner } from "@/shared/component/ui/spinner";
-import { useForgotPasswordForm } from "@/hooks";
+import { useForgotPasswordForm } from "@/hooks/use-forgot-password-form";
 
 const ForgotPassword = () => {
   const { form, isPending, handleInputChange, handleSubmit } =

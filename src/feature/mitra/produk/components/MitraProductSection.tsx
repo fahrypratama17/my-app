@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Input } from "@/shared/component/ui/input";
-import { Plus, ChevronDown, Search } from "lucide-react";
+import { Plus, ChevronDown, Search, UserRound } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -35,7 +35,9 @@ const MitraProductSection = () => {
             Ringkasan Dashboard Mitra
           </h1>
           <div className="flex items-center gap-4">
-            <div className="h-13 w-13 rounded-full bg-orange-600"></div>
+            <div className="rounded-full bg-orange-600 p-3">
+              <UserRound className="text-white" />
+            </div>
             <div>
               <p className="text-xl-bold text-green-800">Tani Jaya Makmur</p>
               <p className="text-sm-semibold text-green-400">Sup - 101</p>

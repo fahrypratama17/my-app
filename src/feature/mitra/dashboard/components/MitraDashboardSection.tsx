@@ -1,4 +1,10 @@
-import { Store, Banknote, ShoppingCart, ArrowRight } from "lucide-react";
+import {
+  Store,
+  Banknote,
+  ShoppingCart,
+  ArrowRight,
+  UserRound,
+} from "lucide-react";
 import CardProductActive from "@/feature/mitra/dashboard/components/CardProductActive";
 import MitraTable from "@/feature/mitra/dashboard/components/MitraTable";
 import { mitraData } from "@/feature/mitra/dashboard/data/data";
@@ -39,7 +45,9 @@ const MitraDashboardSection = () => {
             Ringkasan Dashboard Mitra
           </h1>
           <div className="flex items-center gap-4">
-            <div className="h-13 w-13 rounded-full bg-orange-600"></div>
+            <div className="rounded-full bg-orange-600 p-3">
+              <UserRound className="text-white" />
+            </div>
             <div>
               <p className="text-xl-bold text-green-800">Tani Jaya Makmur</p>
               <p className="text-sm-semibold text-green-400">Sup - 101</p>

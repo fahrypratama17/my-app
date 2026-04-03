@@ -17,6 +17,22 @@ export const dagingSchema = z.object({
   dagingSegar: z.enum(["ya", "tidak"]).optional(),
   dagingAman: z.enum(["ya", "tidak"]).optional(),
   ciriIkan: z.enum(["ya", "tidak"]).optional(),
+}).superRefine((data, ctx) => {
+  if (data.RPH === "ya" && !data.namaRPH?.trim()) {
+    ctx.addIssue({
+      code: "custom",
+      path: ["namaRPH"],
+      message: "Nama RPH wajib diisi",
+    });
+  }
+
+  if (data.NKV === "ya" && !data.nomorNKV?.trim()) {
+    ctx.addIssue({
+      code: "custom",
+      path: ["nomorNKV"],
+      message: "Nomor NKV wajib diisi",
+    });
+  }
 });
 
 export const sayurSchema = z.object({
@@ -41,6 +57,14 @@ export const ternakSchema = z.object({
   NKV: z.enum(["ya", "tidak"]).optional(),
   nomorNKV: z.string().min(1, "Nomor NKV wajib diisi").optional(),
   uploadBukti: z.array(z.enum(["NKV", "invoice", "sks", "fotlab"])),
+}).superRefine((data, ctx) => {
+  if (data.NKV === "ya" && !data.nomorNKV?.trim()) {
+    ctx.addIssue({
+      code: "custom",
+      path: ["nomorNKV"],
+      message: "Nomor NKV wajib diisi",
+    });
+  }
 });
 
 export const formSchema = z.object({

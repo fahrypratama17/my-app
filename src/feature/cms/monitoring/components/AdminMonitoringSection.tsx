@@ -11,6 +11,7 @@ import {
   ChevronRight,
   Search,
   ShoppingCart,
+  UserRound,
 } from "lucide-react";
 import {
   DropdownMenu,
@@ -60,7 +61,9 @@ const AdminMonitoringSection = () => {
             Ringkasan Dashboard Admin
           </h1>
           <div className="flex items-center gap-4">
-            <div className="h-13 w-13 rounded-full bg-orange-600"></div>
+            <div className="rounded-full bg-orange-600 p-3">
+              <UserRound className="text-white" />
+            </div>
             <div>
               <p className="text-xl-bold text-green-800">Admin</p>
               <p className="text-sm-semibold text-green-400">Super Admin</p>

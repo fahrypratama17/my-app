@@ -12,9 +12,16 @@ import ButtonPrev from "@/shared/component/auth/ButtonPrev";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useSupplierDraftForm } from "@/hooks/use-supplier-draft-form";
+import { showFormSectionToast } from "@/shared/component/toast";
+import {
+  buahSchema,
+  dagingSchema,
+  sayurSchema,
+  ternakSchema,
+} from "@/feature/auth/form/types/type";
 
 const FormSection = () => {
-  const { category } = useFormStore();
+  const { category, answers } = useFormStore();
   const router = useRouter();
   const { submitDraftAndFinish, isSubmittingDraft } = useSupplierDraftForm();
 
@@ -27,6 +34,39 @@ const FormSection = () => {
       router.push("/form-1");
     }
   }, [router, step]);
+
+  const handleSubmit = () => {
+    if (!category) {
+      showFormSectionToast("categoryRequired");
+      return;
+    }
+
+    let result:
+      | ReturnType<typeof dagingSchema.safeParse>
+      | ReturnType<typeof sayurSchema.safeParse>
+      | ReturnType<typeof buahSchema.safeParse>
+      | ReturnType<typeof ternakSchema.safeParse>;
+
+    if (category === "Daging") {
+      result = dagingSchema.safeParse(answers.daging);
+    } else if (category === "Sayur") {
+      result = sayurSchema.safeParse(answers.sayur);
+    } else if (category === "Buah") {
+      result = buahSchema.safeParse(answers.buah);
+    } else {
+      result = ternakSchema.safeParse(answers.ternak);
+    }
+
+    if (!result.success) {
+      showFormSectionToast(
+        "questionRequired",
+        result.error.issues[0]?.message,
+      );
+      return;
+    }
+
+    submitDraftAndFinish();
+  };
 
   return (
     <>
@@ -50,7 +90,7 @@ const FormSection = () => {
           >
             Kembali
           </ButtonPrev>
-          <ButtonNext onClick={submitDraftAndFinish} disabled={isSubmittingDraft}>
+          <ButtonNext onClick={handleSubmit} disabled={isSubmittingDraft}>
             Lanjutkan
           </ButtonNext>
         </div>

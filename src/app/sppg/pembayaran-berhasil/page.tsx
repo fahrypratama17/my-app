@@ -1,4 +1,4 @@
-import BerhasilBayarContainer from "@/feature/supplier/cari/container/BerhasilContainer";
+import BerhasilBayarContainer from "@/feature/sppg/cari/container/BerhasilContainer";
 
 const page = () => {
   return <BerhasilBayarContainer />;

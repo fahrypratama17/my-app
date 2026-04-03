@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { KeyRound, Mail } from "lucide-react";
-import { useLoginForm } from "@/hooks";
+import { useLoginForm } from "@/hooks/use-login-form";
 import { Field } from "@/shared/component/ui/field";
 import { Button } from "@/shared/component/ui/button";
 import { FormInput } from "@/shared/component/auth/FormInput";

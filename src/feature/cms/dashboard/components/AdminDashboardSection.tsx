@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  UserRound,
   Store,
   ClipboardList,
   Coffee,
@@ -15,13 +16,14 @@ import { Button } from "@/shared/component/ui/button";
 import AdminCardMobile from "@/feature/cms/dashboard/components/AdminCardMobile";
 import { useDashboardSummaryQuery } from "@/shared/repository/dashboard-summary/query";
 import { useDashboardSummaryErrorToast } from "@/hooks/use-dashboard-summary-error-toast";
+import { useSessionQuery } from "@/shared/repository/session-manager/query";
 
 const AdminDashboardSection = () => {
   const { data, isLoading, isError, error } = useDashboardSummaryQuery();
-  useDashboardSummaryErrorToast(
-    isError,
-    error instanceof Error ? error : null,
-  );
+  const { data: session } = useSessionQuery();
+  useDashboardSummaryErrorToast(isError, error instanceof Error ? error : null);
+
+  const displayName = session?.user?.name?.trim() || "Admin";
 
   const cardData = [
     {
@@ -49,9 +51,11 @@ const AdminDashboardSection = () => {
             Ringkasan Dashboard Admin
           </h1>
           <div className="flex items-center gap-4">
-            <div className="h-13 w-13 rounded-full bg-orange-600"></div>
+            <div className="rounded-full bg-orange-600 p-3">
+              <UserRound className="text-white" />
+            </div>
             <div>
-              <p className="text-xl-bold text-green-800">Admin</p>
+              <p className="text-xl-bold text-green-800">{displayName}</p>
               <p className="text-sm-semibold text-green-400">Super Admin</p>
             </div>
           </div>
@@ -60,7 +64,7 @@ const AdminDashboardSection = () => {
       <div className="mx-auto flex w-[90%] flex-col items-start justify-between gap-6 md:mx-0 md:w-[85%] md:gap-12 md:px-12 md:py-7">
         <div className="flex flex-col gap-2 text-green-700">
           <h2 className="text-[24px] font-bold md:text-4xl">
-            Selamat Datang Admin!
+            Selamat Datang {displayName}!
           </h2>
           <p className="text-[12px] font-medium md:text-lg">
             Berikut ringkasan aktivitas platform PANGANTARA.

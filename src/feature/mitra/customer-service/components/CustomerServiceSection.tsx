@@ -1,3 +1,4 @@
+import { UserRound } from "lucide-react";
 import ChatCard from "@/feature/mitra/customer-service/components/ChatCard";
 import EmailCard from "@/feature/mitra/customer-service/components/EmailCard";
 
@@ -10,7 +11,9 @@ const CustomeServiceSection = () => {
             Ringkasan Dashboard Mitra
           </h1>
           <div className="flex items-center gap-4">
-            <div className="h-13 w-13 rounded-full bg-orange-600"></div>
+            <div className="rounded-full bg-orange-600 p-3">
+              <UserRound className="text-white" />
+            </div>
             <div>
               <p className="text-xl-bold text-green-800">Tani Jaya Makmur</p>
               <p className="text-sm-semibold text-green-400">Sup - 101</p>

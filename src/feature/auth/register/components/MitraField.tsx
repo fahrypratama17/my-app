@@ -4,12 +4,15 @@ import { ArrowRight, Mail, MapPin, Package } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { showRegisterRequiredToast } from "@/shared/component/toast";
 import { useRegisterStore } from "@/shared/store/useRegisterStore";
+import { useFormStore } from "@/shared/store/useFormStore";
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const MitraField = () => {
   const router = useRouter();
   const { name, email, address, setField } = useRegisterStore();
+  const setMitraFormSubmitted = useFormStore((state) => state.setMitraFormSubmitted);
+  const setIdentitasField = useFormStore((state) => state.setIdentitasField);
 
   const onContinue = () => {
     if (!name.trim()) {
@@ -32,6 +35,11 @@ const MitraField = () => {
       return;
     }
 
+    // Prefill form-1 data from register step for mitra flow.
+    setIdentitasField("store_name", name.trim());
+    setIdentitasField("address", address.trim());
+
+    setMitraFormSubmitted(false);
     router.push("/password");
   };
 
@@ -68,7 +76,7 @@ const MitraField = () => {
         <button
           type="button"
           onClick={onContinue}
-          className="rounded-full border bg-green-700 p-1 text-orange-400 md:p-2"
+          className="cursor-pointer rounded-full border bg-green-700 p-1 text-orange-400 md:p-2"
           aria-label="Lanjutkan ke form password"
         >
           <ArrowRight

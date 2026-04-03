@@ -3,10 +3,14 @@ import { Store } from "lucide-react";
 import { Field } from "@/shared/component/ui/field";
 import { FormInputGroup } from "@/shared/component/auth/FormInputGroup";
 import { useFormStore } from "@/shared/store/useFormStore";
+import { useRegisterStore } from "@/shared/store/useRegisterStore";
+import { Roles } from "@/shared/lib/auth/role";
 
 const Progress = () => {
   const identitas = useFormStore((state) => state.identitas);
   const setIdentitasField = useFormStore((state) => state.setIdentitasField);
+  const role = useRegisterStore((state) => state.role);
+  const isMitraFlow = role === Roles.supplier;
 
   const handleChange = (field: keyof typeof identitas, value: string) => {
     setIdentitasField(field, value);
@@ -41,6 +45,7 @@ const Progress = () => {
                 value={identitas.store_name}
                 onChange={(val) => handleChange("store_name", val)}
                 placeholder="Masukkan Nama Usaha"
+                disabled={isMitraFlow}
               />
             </div>
             <div className="flex flex-col md:gap-4">
@@ -65,6 +70,7 @@ const Progress = () => {
                 value={identitas.address}
                 onChange={(val) => handleChange("address", val)}
                 placeholder="Masukkan Alamat Usaha"
+                disabled={isMitraFlow}
               />
             </div>
             <div className="flex flex-col md:gap-4">

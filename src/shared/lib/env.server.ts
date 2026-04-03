@@ -3,21 +3,22 @@ import { z } from "zod";
 
 const envServerSchema = z.object({
   API_URL: z.string().min(1),
-  SESSION_SECRET: z.string().min(32),
 });
 
 let cached: z.infer<typeof envServerSchema> | null = null;
 
 export function getServerEnv() {
   if (!cached) {
+    const apiUrl =
+      process.env.API_URL?.trim() || process.env.NEXT_PUBLIC_API_URL?.trim();
+
     const parsed = envServerSchema.safeParse({
-      API_URL: process.env.API_URL,
-      SESSION_SECRET: process.env.SESSION_SECRET,
+      API_URL: apiUrl,
     });
 
     if (!parsed.success) {
       throw new Error(
-        `Invalid server env: ${JSON.stringify(parsed.error.flatten().fieldErrors)}`,
+        `Invalid server env: ${JSON.stringify(parsed.error.flatten().fieldErrors)}. Set API_URL (or NEXT_PUBLIC_API_URL fallback).`,
       );
     }
 

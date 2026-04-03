@@ -14,7 +14,8 @@ export type PasswordToastKey =
   | "confirmPasswordRequired"
   | "passwordMinLength"
   | "passwordMaxLength"
-  | "passwordMismatch";
+  | "passwordMismatch"
+  | "mitraFormRequired";
 
 export type RegisterRequiredToastKey =
   | "nameRequired"
@@ -42,6 +43,11 @@ export type ForgotPasswordToastKey =
   | "emailInvalid"
   | "forgotFailed"
   | "forgotSuccess";
+
+export type FormSectionToastKey =
+  | "categoryRequired"
+  | "questionRequired"
+  | "identitasRequired";
 
 const passwordToastMap: Record<PasswordToastKey, ToastConfig> = {
   passwordRequired: {
@@ -73,6 +79,12 @@ const passwordToastMap: Record<PasswordToastKey, ToastConfig> = {
     id: "register-password-confirmation",
     title: "Password Tidak Sama!",
     description: "Pastikan konfirmasi kata sandi sesuai.",
+  },
+  mitraFormRequired: {
+    type: "warning",
+    id: "register-mitra-form-required",
+    title: "Lengkapi form mitra terlebih dahulu",
+    description: "Isi form-1 dan form-2 sebelum membuat akun mitra.",
   },
 };
 
@@ -203,6 +215,27 @@ const forgotPasswordToastMap: Record<ForgotPasswordToastKey, ToastConfig> = {
   },
 };
 
+const formSectionToastMap: Record<FormSectionToastKey, ToastConfig> = {
+  categoryRequired: {
+    type: "error",
+    id: "form-category-required",
+    title: "Kategori wajib dipilih",
+    description: "Pilih kategori terlebih dahulu sebelum melanjutkan.",
+  },
+  questionRequired: {
+    type: "error",
+    id: "form-question-required",
+    title: "Pertanyaan wajib belum lengkap",
+    description: "Lengkapi jawaban yang wajib diisi terlebih dahulu.",
+  },
+  identitasRequired: {
+    type: "error",
+    id: "form-identitas-required",
+    title: "Data identitas belum lengkap",
+    description: "Lengkapi identitas usaha terlebih dahulu.",
+  },
+};
+
 function showToast(config: ToastConfig) {
   if (config.type === "success") {
     toast.success(config.title, {
@@ -262,6 +295,23 @@ export function showForgotPasswordToast(
   const config = forgotPasswordToastMap[key];
 
   if (!description || (key !== "forgotFailed" && key !== "forgotSuccess")) {
+    showToast(config);
+    return;
+  }
+
+  showToast({
+    ...config,
+    description,
+  });
+}
+
+export function showFormSectionToast(
+  key: FormSectionToastKey,
+  description?: string,
+) {
+  const config = formSectionToastMap[key];
+
+  if (!description) {
     showToast(config);
     return;
   }

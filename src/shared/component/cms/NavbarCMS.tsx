@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useLogoutMutation } from "@/shared/repository/login/query";
 
 const NavLink = [
   { name: "Ringkasan Dashboard", href: "/admin/dashboard" },
@@ -13,6 +14,7 @@ const NavLink = [
 
 const NavbarCMS = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { mutate: logout, isPending: isLoggingOut } = useLogoutMutation();
 
   return (
     <div className="md:hidden">
@@ -89,6 +91,18 @@ const NavbarCMS = () => {
               {item.name}
             </Link>
           ))}
+
+          <button
+            type="button"
+            disabled={isLoggingOut}
+            onClick={() => {
+              setIsOpen(false);
+              logout();
+            }}
+            className="cursor-pointer rounded-[12px] border border-white px-4 py-2 text-[16px] font-bold text-white transition hover:bg-white hover:text-orange-600 disabled:cursor-not-allowed disabled:opacity-60"
+          >
+            {isLoggingOut ? "Memproses..." : "Logout"}
+          </button>
         </div>
       </div>
     </div>
